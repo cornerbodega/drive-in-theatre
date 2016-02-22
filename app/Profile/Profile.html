@@ -1,0 +1,119 @@
+
+<md-toolbar ng-if="error">
+    <div class="md-toolbar-tools">
+        {{error}}
+    </div>
+</md-toolbar>
+
+<div class="row" layout-padding >
+    <!-- <br /> -->
+    <!-- <br /> -->
+    <br />
+    <div class="col s3">
+        <div class="card md-padding" layout-col >
+            <a>Add Profile Photo</a>
+            <ul>
+                <li>{{name}}</li>
+                <li>{{address2}}
+                    {{city}}
+                    {{state}}
+                    {{zip}}
+                </li>
+                <li>{{licensetype}}</li>
+                <li>UBI: {{ubi}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col s6">
+        <div class="card md-padding" layout-col >
+            <h5 ng-click="showCreateLts=!showCreateLts">Create New Listing</h5>
+            <span ng-show="showCreateLts">
+                <h6>I am...</h6>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Looking to Sell">
+                        <div class="">
+                            <md-input-container class="md-block">
+                                <label>Barcode ID</label>
+                                <!-- 2412795294733202 -->
+                                <!-- 1234567891123456 sixteen-->
+                                <!-- <input  ng-model="newLTBinput"> -->
+                                <!-- {{ltsSuggestons}} -->
+                                <input ng-model="search" ng-change="inputChanged()" md-maxlength="16" rows="1" md-select-on-focus></input>
+                                <ul ng-show="showResults">
+                                    <li ng-click="chooseLts(item)" ng-repeat="item in inventory | filter:search" md-highlight-text="search">
+                                        {{item.id}}  {{item.strain}} {{item.productname}} {{item.qa.result}}
+                                    </li>
+                                </ul>
+                            </md-input-container>
+
+                            <ul ng-show="ltsItem" class="collection">
+                                <li class="collection-item avatar">
+                                    <img src="img/avatar.png" alt="" class="circle">
+                                    <span class="title">{{ltsItem.id}}</span>
+                                    <ul>
+                                        <li ng-if="ltsItem.productname">Product Name: {{ltsItem.productname}}</li>
+                                        <li>Type: {{ltsItem.inventorytypeInfo.label}}</li>
+                                        <li>Strain: {{ltsItem.strain}}</li>
+                                        <li>Usable Weight: {{ltsItem.usable_weight}}</li>
+                                        <li>Remaining Quantity: {{ltsItem.remaining_quantity}}</li><br>
+                                        <li ng-show="ltsItem.qa.result">QA Passed</li>
+                                        <li ng-show="!ltsItem.qa.result">QA Not Yet Passed</li><br>
+                                        <li ng-show="ltsItem.qa.test">
+                                            <ul>
+                                                <li>THC: {{ltsItem.qa.potency.THC}}%</li>
+                                                <li>THCA: {{ltsItem.qa.potency.THCA}}%</li>
+                                                <li>CBD: {{ltsItem.qa.potency.CBD}}%</li>
+                                                <li>Total: {{ltsItem.qa.potency.Total}}%</li>
+                                            </ul>
+                                        </li>
+                                        <li><br /></li>
+                                        <li ng-show="ltsItem.askingPrice">Asking Price: ${{ltsItem.askingPrice}}</li>
+                                        <li ng-show="ltsItem.description">Description: {{ltsItem.description}}</li>
+
+
+                                    </ul>
+                                    <a class="secondary-content"><i class="material-icons  waves-effect waves-dark">grade</i></a>
+                                </li>
+                            </ul>
+
+                            <md-input-container class="md-block">
+                                <label>Asking Price ($)</label>
+                                <input ng-model="ltsItem.askingPrice"  md-select-on-focus></input>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>Description</label>
+                                <textarea ng-model="ltsItem.description" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+                            </md-input-container>
+                            <p layout-align="center center" layout="row">
+                                <a>Upload image</a>
+                            </p>
+                        </div>
+                        <a ng-click="createLts()" class="btn-flat waves-effect waves-dark" layout="row" layout-align="center end" ng-click="newLTS()">Post</i></a>
+                    </md-tab>
+                    <md-tab label="Looking to Buy">
+                        <md-input-container class="md-block">
+                            <label>What are you looking for?</label>
+                            <!-- <input  ng-model="newLTBinput"> -->
+                            <textarea ng-model="newLTBinput" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                        </md-input-container>
+                        <a class="btn-flat waves-effect waves-dark" layout="row" layout-align="center end" ng-click="newLTS()">Post</i></a>
+
+                    </md-tab>
+
+                </md-tabs>
+            </span>
+
+        </div>
+        <div ng-repeat="ltsId in myLtsIds" class="card md-padding" layout-col >
+            {{ltss[ltsId].description}}
+            {{ltss[ltsId].strain}}
+            {{ltss[ltsId].inventorytypeInfo.label}}
+            {{ltss[ltsId].askingPrice}}
+            {{ltss[ltsId].productname}}
+        </div>
+    </div>
+    <!-- <div class="col s6">
+
+</div> -->
+</div>
