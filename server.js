@@ -37,7 +37,8 @@ function placeholder(req, res, next) { return res.send("Endpoint Not Yet Impleme
 
 // WTS
 var wts = require('./server/wts.js');
-app.post('/api/v0/lts/create', wts.create)
+app.post('/api/v0/wts/create', wts.create)
+// app.get('/api/v0/wts/get/:ubi', wts.get)
 
 // INVENTORY
 var inventory = require('./server/inventory.js');

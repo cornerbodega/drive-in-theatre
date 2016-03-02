@@ -1,0 +1,53 @@
+<div class="well well-sm white z-depth-2">
+
+    <!-- <div ng-show="!wts.image" > -->
+    <!-- </br > -->
+
+    <!-- </div> -->
+    <div ng-if="wts.image">
+        <img  class="marvCardImage" ng-src="{{wts.image.sizes.scaled300}}">
+        <existing-wts-image-upload wtsid="wts.id" />
+    </div>
+    <div ng-if="!wts.image">
+        <img class="marvCardImage" ng-src="{{wts.image.sizes.scaled300}}">
+        <new-wts-image-upload />
+    </div>
+    <author-header author="wts.seller" />
+    <div layout="row">
+        <item-desc price="wts.price" desc="wts.desc" />
+    </div>
+    <div ng-if="wts.qa.result">
+        QA Passed <i class="fa fa-check"></i>
+    </div>
+    <!-- <a ng-show="!showInfo" ng-click="showInfo=!showInfo">Show Product Info</a>
+    <a ng-show="showInfo" ng-click="showInfo=!showInfo">Hide Product Info</a> -->
+    <p />
+    <!-- <div ng-show="showInfo" layout="row"> -->
+    <div layout="row">
+        <ul>
+            <li>Barcode: {{wts.id}}</li>
+            <li>Strain: <a>{{wts.strain}}</a></li>
+            <li ng-if="wts.productname">Productname: {{wts.productname}}</li>
+            <li>Quantity: {{wts.remaining_quantity}}</li>
+            <li ng-if="wts.usable_weight">Usable Weight: {{wts.usable_weight}}</li>
+        </ul>
+        <ul>
+            <li layout-padding></li>
+        </ul>
+         <!-- {"bacteria":{"aerobic_bacteria":"4000","bile_tolerant":"860","coliforms":"410","e_coli_and_salmonella":"0","type":4,"yeast_and_mold":"1500"},"barcode_id":"6177853393140428","inventorytype":"13","lab_license":"0007","moisture":{"moisture":"8.50","type":1},"parent_id":"6020939240000327","potency":{"CBD":"0.04","THC":"23.28","THCA":"0","Total":"23.28","type":2},"result":1,"sample_id":"5275001639309773","test":[{"moisture":"8.50","type":1},{"CBD":"0.04","THC":"23.28","THCA":"0","Total":"23.28","type":2},{"Other":"0","Stems":"0","type":3},{"aerobic_bacteria":"4000","bile_tolerant":"860","coliforms":"410","e_coli_and_salmonella":"0","type":4,"yeast_and_mold":"1500"}],"transactionid":"19545685","transactionid_original":"18493322","use":1} -->
+        <ul ng-show="wts.qa.potency.Total">
+            <li>Total THC: {{wts.qa.potency.Total}}%</li>
+            <li>CBD: {{wts.qa.potency.CBD}}%</li>
+            <li ng-if="wts.qa.moisture.moisture">Moisture: {{wts.qa.moisture.moisture}}%</li>
+        </ul>
+        <ul>
+            <li layout-padding></li>
+        </ul>
+        <ul ng-show="wts.qa.bacteria">
+            <li>Aerobic Bacteria: {{wts.qa.bacteria.aerobic_bacteria}}</li>
+            <li>Bile Tolerant: {{wts.qa.bacteria.bile_tolerant}}</li>
+            <li>Coliforms: {{wts.qa.bacteria.coliforms}}</li>
+            <li>Tested By: <a>{{wts.qa.lab_license}}</a></li>
+        </ul>
+    </div>
+</div>

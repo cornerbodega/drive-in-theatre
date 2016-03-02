@@ -1,13 +1,36 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('LandingController', ['$location', '$scope', '$http',
+    .controller('LandingController', ['$location', '$scope', '$http','$anchorScroll', 'NavState',
     LandingController
 ])
 
-function LandingController($location, $scope, $http) {
+function LandingController($location, $scope, $http, $anchorScroll, NavState) {
     var PATHS = window.PATHS
-
+    $scope.showSignIn = function() {
+        $scope.sSignIn = true
+        $scope.sSignUp = false
+    }
+    $scope.showSignUp = function() {
+        $scope.sSignIn = false
+        $scope.sSignUp = true
+    }
+    $scope.test = function() {
+        $location.hash('signin');
+        $anchorScroll();
+    }
+    $scope.$watch(function () { return NavState.landingRoute }, function (newVal, oldVal) {
+        if (typeof newVal !== 'undefined') {
+             $location.hash(NavState.landingRoute);
+             console.log(NavState.landingRoute);
+             $anchorScroll();
+        }
+    });
+    // NavState.hideNav = true;
+    NavState.hide = true
+    // NavState.whereAmI('Landing')
+    // console.log(NavState.hideNav);
+    // console.log($rootScope.hideNav);
     $scope.signIn = signIn;
     var loginData = {
         "password": "44Million!",

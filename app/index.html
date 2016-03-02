@@ -3,15 +3,23 @@
     <meta charset="utf-8">
     <title>NewCo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a website for B2B cannabis deal-making" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta name="generator" content="Codeply"> -->
+    <link rel="stylesheet" href="style/styles.css">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <script>
-        UPLOADCARE_PUBLIC_KEY = '55a55d432aed473a7467';
+    UPLOADCARE_PUBLIC_KEY = '55a55d432aed473a7467';
     </script>
     <link rel="icon" href="http://potnet.net/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="bower_components/Materialize/sass/marv-materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-material/angular-material.min.js"></script>
@@ -30,13 +38,19 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
     <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script> -->
+
+
 
     <script src="app.js"></script>
 
     <script src="landing/landing-controller.js"></script>
     <script src="index/index-controller.js"></script>
     <script src="Profile/Profile-Controller.js"></script>
+    <script src="Directives/Directives.js"></script>
+    <script src="Utilities/NavState.js"></script>
     <!-- <script src="Users/Users-Service.js"></script> -->
 
 
@@ -45,25 +59,32 @@
 
 </head>
 <body ng-controller="IndexController as vm" ng-cloak>
-    <!-- <div layout="column"> -->
-        <!-- <a ng-click="logInWithLiquorControlBoardAccount()">Log In With Liquor Control Board Account</a> -->
-        <!-- <md-content>
-            <md-toolbar class="z-depth-1">
-                <div class="md-toolbar-tools">
-                    <span flex>{{vm.name}}</span>
-                    <md-button ng-class="vm.market" ng-click="vm.toMarket()">MARKETPLACE</md-button>
-                    <md-button ng-class="vm.bids" ng-click="vm.toOrders()">
-                    MY ORDERS
-                    </md-button>
-                    <md-button ng-class="vm.auctions" ng-click="vm.toAuctions()">
-                    MY INVENTORY
-                    </md-button>
-                </div>
-            </md-toolbar>
-            <div ng-view>
-        </md-content> -->
-        <div ng-view>
 
-    <!-- </div> -->
-</body>
-</html>
+    <div layout="column">
+
+        <md-toolbar ng-hide="hideNav" class="light-green darken-4">
+            <div class="md-toolbar-tools">
+                <span flex><a class="cursive"><b>greenboard</b></a></span>
+                <md-button ng-class="vm.market" ng-click="vm.toMarket()">ME</md-button>
+                <md-button ng-class="vm.bids" ng-click="vm.toOrders()">
+                    HOME
+                </md-button>
+                <md-button ng-class="vm.auctions" ng-click="vm.toAuctions()">
+                    NOTIFICATIONS
+                </md-button>
+            </div>
+        </md-toolbar>
+        <!-- <md-toolbar ng-hide="!hideNav" class="">
+            <div class="md-toolbar-tools">
+                <a ng-click="toRetailer()" class="btn btn-primary waves-effect waves-dark" layout="row" layout-align="center end">Retailer</i></a>&nbsp;&nbsp;
+                <a ng-click="toProPro()" class="btn btn-primary waves-effect waves-dark" layout="row" layout-align="center end">Producer / Processor</i></a>&nbsp;&nbsp;
+                <a ng-click="toConn()" class="btn btn-primary waves-effect waves-dark" layout="row" layout-align="center end">Connoisseur</i></a>&nbsp;&nbsp;
+
+            </div>
+        </md-toolbar> -->
+        <div ng-view flex class="grey lighten-3">
+
+        </div>
+
+    </body>
+    </html>

@@ -1,0 +1,58 @@
+<md-toolbar ng-if="error">
+    <div class="md-toolbar-tools">
+        {{error}}
+    </div>
+</md-toolbar>
+<!-- <img src = "images/bg.jpg"> -->
+<!-- <md-tabs md-selected="data.selectedIndex" md-dynamic-height md-border-bottom md-align-tabs="top"> -->
+<!-- <md-tab id="tab2">
+<md-tab-label>Sign In</md-tab-label>
+<md-tab-body> -->
+<!-- <div class="md-padding" layout="col"> -->
+<!-- <canvas id="myCanvas" width="500" height="400"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 0, 0);
+      };
+      imageObj.src = 'images/bg.jpg';
+    </script> -->
+<center>
+<div class="container" layout-padding>
+    <br />
+    <br />
+    <br />
+    <div class="card align-center" layout-padding layout-col >
+    <div class="input-field col s6">
+        <input type="text" id="username" ng-model="form.username">
+        <label for="username">USERNAME</label>
+    </div>
+    <div class="input-field col s6">
+        <input type="text" id="password" ng-model="form.password">
+        <label for="password">PASSWORD</label>
+    </div>
+    <div class="input-field col s6">
+        <input type="text" id="ubi" ng-model="form.license_number">
+        <label for="ubi">UBI</label>
+    </div>
+    <!-- <div class="input-field col s6">
+        <input type="text" id="phone" ng-model="form.phone">
+        <label for="phone">PHONE</label>
+    </div> -->
+    <!-- <p /> -->
+    <!-- <md-button ng-click="signIn()" class="md-raised md-primary">Submit</md-button> -->
+    <div>
+        <!-- <a class="waves-effect waves-light btn-large" ng-click="signIn()">SIGN IN</a> -->
+        <a class="waves-effect waves-light btn-large light-green darken-4" ng-click="signIn()">SIGN IN</a>
+    </div>
+
+</div>
+<center>
+
+</div>
+<!-- </md-tab-body> -->
+<!-- </md-tab>
+</md-tabs> -->

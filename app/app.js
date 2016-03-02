@@ -4,7 +4,7 @@ var countryApp = angular.module('countryApp', [
     'angular-loading-bar',
     'firebase',
     'underscore',
-    // 'md.data.table',
+    // 'underscore',
     'ng-uploadcare',
     // 'ui.bootstrap',
     // 'ngResource',

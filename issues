@@ -1,0 +1,54 @@
+1. Landing Page should separate Businesses from Customers. Give customers quick review access. Businesses should get LCB login form.
+
+2. Implement customer accounts.
+
+3. Implement customer review capability. Enter the barcode of your product. Where you bought it. Get deals!! Retailer promotions! What info do retailers want?
+
+4. WTS creation form validation
+
+5. Prompt businesses for phone number. Don't let them make a post without a phone number.
+
+6. Require phone number for WTS post. Dropdown or add new number. Save numbers for next time. Use most recently used phone number by default.
+
+
+8. Implement WTB posting for businesses
+
+9. Implement license type WTS/WTB permissions - how can I tie this in with customer accounts?
+
+10. Customers review dispensaries and products ONLY
+
+11. Customers have their own page (like reddit/yelp) where they can upload a profile pic and see their activity
+
+12. Customers can upvote each other's reviews/comments
+
+13. Customers can upvote dispensaries/products
+
+14. Loyalty concept
+
+15. Celebrity endorsements and fun stuff - customer-facing meta weed brand
+
+16. Video contest
+
+17. National? How would I incorporate a different API (theoretically? Would I have to start from scratch?)
+
+18. Nav Menu icons
+
+19. Home - News Feed. How does this work? How do I know what each person sees? Shouldn't everyone see the same things?!
+    NO because I have data and am smart!
+
+20. Notifications
+    Comment
+    Like
+    (Follow? Favorite?)
+
+21. Following - Everyone follows everyone. If you make a post, it will get airtime!
+
+22. Show the number of views a listing has received? (maybe a lil inflation?)
+
+23. Edit / Delete Listing
+
+24. Commonality in the concept of a listing (WTS/ WTB/ User Review/ Comment/ Like)
+
+
+DONE
+7. Make the navbar not show up on the landing page

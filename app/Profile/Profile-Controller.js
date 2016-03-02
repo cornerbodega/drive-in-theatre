@@ -1,12 +1,15 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('ProfileController', ['$location', '$scope', '$http', '$firebaseObject',
+    .controller('ProfileController', ['$location', '$scope', '$http', '$firebaseArray', '$firebaseObject', '$filter', '_', 'NavState',
     ProfileController
 ])
 
-function ProfileController($location, $scope, $http, $firebaseObject) {
+function ProfileController($location, $scope, $http, $firebaseArray, $fbo, $filter, _, NavState) {
     var PATHS = window.PATHS
+    // NavState.hideNav = false
+    // console.log(NavState.hideNav);
+    NavState.hide = false
     // ### LOAD MY VENDOR INFORMATION ###
     $http.get('/api/vendors/'+sessionStorage.ubi)
     .success(function(res){
@@ -36,25 +39,48 @@ function ProfileController($location, $scope, $http, $firebaseObject) {
     $scope.inputChanged = function() {
         $scope.showResults = true;
     }
-    $scope.chooseLts = function (item) {
+    $scope.chooseWts = function (item) {
         console.log(item);
         $scope.search = item.id
-        $scope.ltsItem = item
+        $scope.wtsItem = item
         $scope.showResults = false;
     }
 
-    $scope.createLts = function() {
+    $scope.createWts = function() {
         // TODO: validation
-        $scope.ltsItem.seller = sessionStorage.ubi
-        $http.post('/api/v0/lts/create', $scope.ltsItem).success(ltsCreateSuccess).catch(errorhandler)
+        $scope.wtsItem.seller = sessionStorage.ubi
+        $http.post('/api/v0/wts/create', $scope.wtsItem).success(wtsCreateSuccess).catch(errorhandler)
     }
+    var profilePicRef =  new Firebase("https://connect502.firebaseio.com/users/"+sessionStorage.ubi+"/image/sizes/scaled200/")
+    profilePicRef.on('value', function(dataSnapshot) {
+        console.log('CHANGED!');
+        $scope.profilePic = dataSnapshot.val();
+        $scope.$apply()
+    });
+    // get my wts post ids
+    // get wts posts
+    // reverse order
+    var my_wts_ref =  new Firebase("https://connect502.firebaseio.com/users/"+sessionStorage.ubi+"/wts")
+    my_wts_ref.on('value', function(dataSnapshot) {
+        rf_my_wts_ids(dataSnapshot.val());
+    });
+    function rf_my_wts_ids(s){
+        var t = []
+        _.map(s, function(shot){
+            t.push(shot)
+        })
+        var r = t.reverse()
+        $scope.mywtsids = r
+    }
+    $scope.wts = $fbo(new Firebase("https://connect502.firebaseio.com/wts"))
 
-    // Using AngularFire for real-time updating! (it works)
-    $scope.myLtsIds = $firebaseObject(new Firebase("https://connect502.firebaseio.com/users/"+sessionStorage.ubi+"/lts"))
-    $scope.ltss = $firebaseObject(new Firebase("https://connect502.firebaseio.com/lts"))
-
-    function ltsCreateSuccess(res) {
-        $scope.showCreateLts = false
+    function wtsCreateSuccess(res) {
+        $scope.showCreateWts = false
+        $scope.wtsItem={}
+        $scope.search = ''
+        console.log(res);
+    }
+    function wtsGetSuccess(res) {
         console.log(res);
     }
     function errorhandler(err){
