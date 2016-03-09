@@ -482,7 +482,7 @@
             link: function ($scope, element, attrs) {
                 // console.log($scope.product);
                 var colors = ["white"]
-                if(!$scope.pnTransparent) $scope.pnTransparent = white
+                if(!$scope.pnTransparent) $scope.pnTransparent = 'white'
                 // var colors = ["mcGreen1","mcGreen2","mcGreen3", "mcGreen4"]
                 $scope.product.timeLabel = pnUtils.timeLabler($scope.product.at)
                 $scope.product.cardColor = _.sample(colors, 1)
