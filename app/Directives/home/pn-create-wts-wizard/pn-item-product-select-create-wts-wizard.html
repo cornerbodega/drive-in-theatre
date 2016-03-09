@@ -1,0 +1,33 @@
+<div layout="row" flex layout-padding>
+    <div ng-show="item.image" flex="33">
+        <img ng-src="{{item.image}}" class="pnImageStretch" />
+    </div>
+    <div layout="row" flex >
+        <ul>
+            <li>Barcode: {{item.id}}</li>
+            <li>Strain: <a>{{item.strain}}</a></li>
+            <li ng-if="item.productname">Productname: {{item.productname}}</li>
+            <li>Quantity: {{item.remaining_quantity}}</li>
+            <li ng-if="item.usable_weight">Usable Weight: {{item.usable_weight}}</li>
+        </ul>
+        <ul>
+            <li layout-padding></li>
+        </ul>
+         <!-- {"bacteria":{"aerobic_bacteria":"4000","bile_tolerant":"860","coliforms":"410","e_coli_and_salmonella":"0","type":4,"yeast_and_mold":"1500"},"barcode_id":"6177853393140428","inventorytype":"13","lab_license":"0007","moisture":{"moisture":"8.50","type":1},"parent_id":"6020939240000327","potency":{"CBD":"0.04","THC":"23.28","THCA":"0","Total":"23.28","type":2},"result":1,"sample_id":"5275001639309773","test":[{"moisture":"8.50","type":1},{"CBD":"0.04","THC":"23.28","THCA":"0","Total":"23.28","type":2},{"Other":"0","Stems":"0","type":3},{"aerobic_bacteria":"4000","bile_tolerant":"860","coliforms":"410","e_coli_and_salmonella":"0","type":4,"yeast_and_mold":"1500"}],"transactionid":"19545685","transactionid_original":"18493322","use":1} -->
+        <ul ng-show="item.qa.potency.Total">
+            <li>Total THC: {{item.qa.potency.Total}}%</li>
+            <li>CBD: {{item.qa.potency.CBD}}%</li>
+            <li ng-if="item.qa.moisture.moisture">Moisture: {{item.qa.moisture.moisture}}%</li>
+        </ul>
+        <ul>
+            <li layout-padding></li>
+        </ul>
+        <ul ng-show="item.qa.bacteria">
+            <li>Aerobic Bacteria: {{item.qa.bacteria.aerobic_bacteria}}</li>
+            <li>Bile Tolerant: {{item.qa.bacteria.bile_tolerant}}</li>
+            <li>Coliforms: {{item.qa.bacteria.coliforms}}</li>
+            <li>Tested By: <a>{{item.qa.lab_license}}</a></li>
+        </ul>
+
+    </div>
+    </div>

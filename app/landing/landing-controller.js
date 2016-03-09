@@ -50,7 +50,18 @@ function LandingController($location, $scope, $http, $anchorScroll, NavState) {
             sessionStorage.sessionid = res.sessionid
             sessionStorage.user_id = $scope.form.user_id
             sessionStorage.ubi = $scope.form.license_number
-            $location.path('/welcome')
+            sessionStorage.me = {}
+            $http.get('/api/vendors/'+sessionStorage.ubi)
+            .success(function(res){
+                sessionStorage.address2 = res.address1
+                sessionStorage.city = res.city
+                sessionStorage.name = res.name
+                sessionStorage.state = res.state
+                sessionStorage.zip = res.zip
+                sessionStorage.ubi = res.ubi
+                sessionStorage.licensetype = res.licensetype
+            })
+            $location.path('/home')
             // return res
         })
         .then(function(context) {

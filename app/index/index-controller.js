@@ -16,16 +16,19 @@ function IndexController($location, $scope, NavState) {
     // $scope.toProPro = function(){
     //     NavState.landingRoute = 'propro'
     // }
-    $scope.$watch(function () { return NavState.hide }, function (newVal, oldVal) {
-        if (typeof newVal !== 'undefined') {
-            $scope.hideNav = NavState.hide;
-        }
-    });
+    // $scope.goToMarket = function() {
+    //     $location.path('/market');
+    // }
+    // $scope.$watch(function () { return NavState.hide }, function (newVal, oldVal) {
+    //     if (typeof newVal !== 'undefined') {
+    //         $scope.hideNav = NavState.hide;
+    //     }
+    // });
     // NavState.whereAmI('Index')
     // $scope.$on('NavStateChange', function(){
     //     console.log('Change state!');
     // })
-    console.log($scope.hideNav);
+    // console.log($scope.hideNav);
     // if ($rootScope.hideNav) $scope.hideNav = $rootScope.hideNav;
     // console.log($rootScope.hideNav);
 

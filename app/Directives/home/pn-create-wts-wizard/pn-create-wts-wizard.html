@@ -1,0 +1,44 @@
+<div class="container">
+
+</div>
+<md-tabs md-selected="data.selectedIndex" flex md-dynamic-height md-border-bottom>
+    <md-tab label="Select a Product">
+        <!-- <md-content class="md-padding"> -->
+            <!-- <h1 class="md-display-2">Select a Product</h1> -->
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p> -->
+                <pn-product-select-create-wts-wizard flex />
+            <!-- <div pn-> -->
+
+                <!-- </div> -->
+        <!-- </md-content> -->
+    </md-tab>
+    <md-tab ng-disabled="!ia_UploadImage" label="Upload Image">
+        <div class="md-padding">
+            <!-- <h1 class="md-display-2">Upload Image</h1> -->
+            <!-- <div ng-hide="true" id="uploader-placeholder">Uploading. Please wait...</div> -->
+            <pn-upload-image-pane-create-wts-wizard />
+            <div layout="row">
+                <pn-item-product-select-create-wts-wizard item="selectedItemCreateWts" />
+            </div>
+            <div layout="row" ng-click="pnGoToNextStepCreateWizard('upload')" layout-align="center center" class="width100 pnGreyGreen waves-effect pn-next-button-create-wts-wizard" ng-show="selectedItemCreateWts.image">
+                <center><a>NEXT</a></center>
+            </div>
+        </div>
+    </md-tab>
+    <md-tab ng-disabled="!ia_DescriptionPrice" label="Description and Price">
+        <md-content class="md-padding">
+            <pn-desc-price-create-wts-wizard />
+            <pn-item-product-select-create-wts-wizard item="selectedItemCreateWts" />
+            <div layout="row" ng-click="pnCreateWts()" layout-align="center center" class="width100 pnGreyGreen waves-effect pn-next-button-create-wts-wizard" ng-show="pnDescPriceValid">
+                <center><a>CREATE</a></center>
+            </div>
+
+        </md-content>
+    </md-tab>
+    <!-- <md-tab ng-disabled="!ia_Confirm" label="Confirm">
+        <md-content class="md-padding">
+
+            <pn-product-grid-item product="selectedItemCreateWts">
+        </md-content>
+    </md-tab> -->
+</md-tabs>

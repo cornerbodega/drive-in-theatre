@@ -13,6 +13,7 @@ function get(req, res) {
     request(lcbPost(ireq), getQAInfo);
 
     function getQAInfo(error, iresponse, ibody){
+        console.log(ibody);
         var barcodeids = _.map(ibody.inventory, function(item){ return item.id })
         var qareq = {
             action: 'inventory_qa_check_all',
@@ -22,6 +23,7 @@ function get(req, res) {
 
         request(lcbPost(qareq), formatAndReturn);
         function formatAndReturn(error, qaresponse, qabody){
+            if (!qabody.data) return console.log('Error 232: No Qa')
             res.send(formatInventoryAndQA(ibody.inventory, qabody.data));
         }
 
@@ -38,11 +40,16 @@ function get(req, res) {
                             if(t.coliforms) return i.qa.bacteria = t
                         })
                         i.inventorytypeInfo = getTypeInfo(i.inventorytype);
+                        i.inventorytypelabel = i.inventorytypeInfo.label
+                        i.sessiontimelabel = pnToTime(i.sessiontime)
                     };
                 });
             });
             return inventory
         };
+        function pnToTime(sessiontime) {
+            return new Date(sessiontime * 1000).toLocaleString()
+        }
         function getTypeInfo(type) {
             var typemap = {
                 5: {label:'Kief', weighable:true, backrgound:'red'},
@@ -61,17 +68,17 @@ function get(req, res) {
                 19: {label: 'Food Grade Solvent Extract', weighable: true},
                 20: {label: 'Infused Dairy Butter or Fat in Solid Form', weighable: true},
                 21: {label: 'Infused Cooking Oil', weighable: true},
-                22: {label: 'Solid Marijuana Infused Edible', weighable: false},
-                23: {label: 'Liquid Marijuana Infused Edible', weighable: false},
-                24: {label: 'Marijuana Extract for Inhalation', weighable: false},
-                25: {label: 'Marijuana Infused Topicals', weighable: false},
+                22: {label: 'Solid Infused Edible', weighable: false},
+                23: {label: 'Liquid Infused Edible', weighable: false},
+                24: {label: 'Extract for Inhalation', weighable: false},
+                25: {label: 'Infused Topicals', weighable: false},
                 26: {label: 'Sample Jar', weighable: false},
                 27: {label: 'Waste', weighable: true},
                 28: {label: 'Usable Marijuana', weighable: false},
                 29: {label: 'Wet Flower', weighable: true},
-                30: {label: 'Marijuana Mix', weighable: true},
-                31: {label: 'Marijuana Mix Packaged', weighable: false},
-                32: {label: 'Marijuana Mix Infused', weighable: false}
+                30: {label: 'Mix', weighable: true},
+                31: {label: 'Mix Packaged', weighable: false},
+                32: {label: 'Mix Infused', weighable: false}
             }
             return typemap[type];
         }

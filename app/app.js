@@ -4,7 +4,7 @@ var countryApp = angular.module('countryApp', [
     'angular-loading-bar',
     'firebase',
     'underscore',
-    // 'underscore',
+    'angular-centered',
     'ng-uploadcare',
     // 'ui.bootstrap',
     // 'ngResource',
@@ -13,7 +13,32 @@ var countryApp = angular.module('countryApp', [
 
 countryApp.config(function($routeProvider) {
     $routeProvider
-    .when('/welcome', {
+    // sign-in
+    // sign-up
+    // sign-up/502 <link-502-traceability />
+    // sign-up/connoisseur
+    // link-502 <link-502-traceability />
+    .when('/cart', {
+        templateUrl: 'Home/Home.html',
+        controller: 'HomeController',
+
+    })
+    .when('/product/:id', {
+        templateUrl: 'Product/Product.html',
+        controller: 'ProductController',
+
+    })
+    .when('/home', {
+        templateUrl: 'Home/Home.html',
+        controller: 'HomeController',
+
+    })
+    .when('/market', {
+        templateUrl: 'Market/Market.html',
+        controller: 'MarketController',
+
+    })
+    .when('/me', {
         templateUrl: 'Profile/Profile.html',
         controller: 'ProfileController',
 
@@ -23,6 +48,16 @@ countryApp.config(function($routeProvider) {
         controller: 'LandingController',
         //   controllerAs: 'vm'
     })
+    // .when('/welcome', {
+    //     templateUrl: 'Profile/Profile.html',
+    //     controller: 'ProfileController',
+    //
+    // })
+    // .when('/', {
+    //     templateUrl: 'landing/landing.html',
+    //     controller: 'LandingController',
+    //     //   controllerAs: 'vm'
+    // })
     // .when('/manifests/', {
     //   templateUrl: 'Manifests/views/All-Manifests.html',
     //   controller: 'ManifestsController',
