@@ -1,0 +1,31 @@
+<!-- <div layout-gt-s="row" layout-s="column"> -->
+<div layout="row" layout-sm="column" flex layout-wrap>
+    <div layout="row" layout-wrap flex>
+        <div layout="column" flex="33">
+            <div layout-align="center center">
+                <pn-product-type-filter-button ng-click="clearSearch()" type="'All'">
+            </div>
+            <div class="">
+                <pn-product-type-filter-button ng-click="pnProductTypeFilterAction(type)" ng-repeat="type in types" type="type">
+            </div>
+        </div>
+      <div flex ng-repeat="product in products | filter:search">
+            <pn-product-grid-item class="waves-effect" ng-click="toProduct(product)" product="product">
+      </div>
+    </div>
+</div>
+
+<!-- <div class="row"> -->
+    <!-- <div class=/"row" > -->
+        <!-- <div class="card"> -->
+        <!-- <div ng-repeat="product in products" class="row">
+            <div class="col s3">
+
+                <pn-product-grid-item product="product">
+            </div>
+
+        </div> -->
+
+        <!-- </div> -->
+    <!-- </div> -->
+<!-- </div> -->

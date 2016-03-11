@@ -338,12 +338,50 @@
             }
         }
     })
-    .directive('pnMyPostsList', function (WTS, pnUsers, $firebaseObject) {
+    .directive('pnMyPostsList', function (WTS, pnUsers, $firebaseObject, $q, Product, $location) {
         return {
             restrict: 'E',
             scope: { },
             templateUrl: 'Directives/home/pn-my-posts-list/pn-my-posts-list.html',
             link: function ($scope, element, attrs) {
+                // $scope.my_posts_ids = pnUsers.my_wts_ids()
+                // $scope.wts = WTS.wts_fbo()
+                // $scope.wts_ref = WTS.wts_ref()
+                // console.log($scope.my_posts_ids)
+                // $q.all($scope.wts.$loaded(), $scope.my_posts_ids.$loaded()).then(function(){
+                //     $scope.my_posts_ids.$watch(function(){
+                //         var r = []
+                // //         console.log($scope.my_posts_ids);
+                //         var m = _.filter(Object.keys($scope.my_posts_ids), function(k){
+                //             if (k.charAt(0) != '$') return k
+                //         });
+                //
+                // //         // console.log(my_wts_ids);
+                //          _.map(m, function(id){
+                //              console.log(id);
+                //             var f= $firebaseObject(WTS.wts_ref().child(id) )
+                //             f.$loaded().then(function(){
+                //                 console.log(f);
+                //
+                //             })
+                //             //  console.log($scope.wts_ref.child(id));
+                //             //  console.log();
+                //             // if(!!$scope.wts_ref.child(id)) {
+                //             //     r.push($scope.wts_ref.child(id).val())
+                //             // }
+                //          })
+                // //          console.log(r);
+                //          $scope.my_posts = r
+                //          console.log(r);
+                //     });
+                // })
+
+                $scope.toProduct=function(product){
+                    console.log(product);
+                    Product.view_detail_product = product
+                    $location.path('product/' + product.id)
+                }
+
                 console.log('MY POSTS!!');
                 // $scope.type = "Upload Profile Photo"
                 // $scope.myposts =
@@ -477,12 +515,12 @@
     .directive('pnProductGridItem', function (pnUtils) {
         return {
             restrict: 'E',
-            scope: { product: '=', hideImage: '=', pnTransparent: '=' },
+            scope: { product: '=', hideImage: '=' },
             templateUrl: 'Directives/market/pn-product-grid-item.html',
             link: function ($scope, element, attrs) {
                 // console.log($scope.product);
-                var colors = ["white"]
-                if(!$scope.pnTransparent) $scope.pnTransparent = 'white'
+                var colors = ["pn-product-detail-transparent-card"]
+                if(!$scope.pnTransparent) $scope.pnTransparent = 'pn-product-detail-transparent-card'
                 // var colors = ["mcGreen1","mcGreen2","mcGreen3", "mcGreen4"]
                 $scope.product.timeLabel = pnUtils.timeLabler($scope.product.at)
                 $scope.product.cardColor = _.sample(colors, 1)

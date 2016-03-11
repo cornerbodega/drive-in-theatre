@@ -14,6 +14,7 @@ function pnUsers($firebaseObject) {
         fbo: fbo,
         me: me,
         me_ref: me_ref,
+        my_wts_ids: my_wts_ids,
     }
 
     function ref() {
@@ -28,7 +29,9 @@ function pnUsers($firebaseObject) {
     function me_ref() {
         return ref().child(ubi)
     }
-
+    function my_wts_ids() {
+        return $firebaseObject(ref().child(ubi).child('wts'))
+    }
     return _pnUsers
 };
 

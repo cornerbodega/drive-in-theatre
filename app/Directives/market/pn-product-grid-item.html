@@ -1,11 +1,12 @@
 <!-- {{product.desc}} -->
-    <div ng-hide="hideImage">
+
+    <!-- <div ng-hide="hideImage">
         <img ng-if="!product.image.sizes.scaled400" class="pnProductGridItemImage" ng-src="{{product.image}}" />
         <img ng-if="product.image.sizes.scaled400" class="pnProductGridItemImage" ng-src="{{product.image.sizes.scaled400}}" />
-    </div>
+    </div> -->
     <!-- <div ng-class="pnTransparent"> -->
 
-    <div class="pn-well pn-well-sm pnProductGridItem">
+    <div class="pn-well pn-well-sm pn-product-detail-transparent-card width100" >
         <div>
             <div class="pnProductGridItemStrain">{{product.strain}}</div>
         </div>
@@ -21,7 +22,7 @@
         <div class="">
             {{product.timeLabel}}
         </div>
-        <div layout="row" layout-align="space-between">
+        <div layout="row" layout-padding>
             <div layout-margin layout="column">
                 <!-- <div class="pnProductGridItemInfoLabel">Type</div> -->
                 <div class="pnInventoryTypeLabel">
@@ -45,6 +46,7 @@
             <div  layout-padding ng-if="!product.qa.potency.Total">
                 Not QA Tested
             </div>
+
 
         </div>
 

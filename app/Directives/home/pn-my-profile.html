@@ -1,16 +1,15 @@
 <!-- <div layout="row" layout-sm="column" flex layout-wrap> -->
 
-<div layout="row" layout-wrap flex>
-    <div flex="33" >
+<div layout="row" pn-background-image="{{profilePicUrl}}" flex>
+    <!-- <div flex="33" >
         <pn-profile-pic ng-show="profilePicExists"/>
         <pn-change-profile-pic-button ng-show="profilePicExists"/>
         <pn-upload-profile-pic-button ng-show="!profilePicExists" />
-        <!-- <profile-picture-upload userid="my_ubi"/> -->
-        <!-- <input type="hidden" role="uploadcare-uploader" /> -->
-    </div>
+    </div> -->
     <div flex layout="column">
         <div layout="row">
-            <div flex="50" pn-create-post-button ng-click="menu('newWts')" label="'I want to sell'"></div>
+            <!-- todo CREATE WTS BUTTOn!! -->
+            <!-- <div flex="50" pn-create-post-button ng-click="menu('newWts')" label="'I want to sell'"></div> -->
             <!-- <div flex="50" pn-create-post-button ng-click="menu('newWtb')" label="'I want to buy'"></div> -->
         </div>
         <div ng-show="showWtsWizard">
