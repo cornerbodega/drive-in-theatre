@@ -18,9 +18,9 @@ countryApp.config(function($routeProvider) {
     // sign-up/502 <link-502-traceability />
     // sign-up/connoisseur
     // link-502 <link-502-traceability />
-    .when('/cart', {
-        templateUrl: 'Home/Home.html',
-        controller: 'HomeController',
+    .when('/wts/create/', {
+        templateUrl: 'Create-Wts-Wizard/Create-Wts-Wizard.html',
+        controller: 'CreateWtsWizardController',
 
     })
     .when('/product/:id', {

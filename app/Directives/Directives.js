@@ -168,7 +168,7 @@
             }
         }
     })
-    .directive('pnProductSelectCreateWtsWizard', function($http) {
+    .directive('pnProductSelectCreateWtsWizard', function($http, WTS) {
         return {
             restrict: 'E',
             // scope: { },
@@ -176,8 +176,23 @@
             link: function($scope, element, attrs) {
                 $http.get('/api/inventory/'+sessionStorage.sessionid).success(inventoryInit)
                 $scope.chooseWtsInventoryItem = chooseWtsInventoryItem;
+                $scope.wts = WTS.wts_fbo()
                 function inventoryInit(inventory) {
                     $scope.inventory = _.sortBy(inventory, '-sessiontime')
+
+                    $scope.wts.$loaded().then(function(){
+                        angular.forEach($scope.wts, function(w){
+                            _.map(inventory, function(i){
+                                if (w.id === i.id) i.image = w.image
+                            })
+                            console.log(w);
+                            // console.log(w.id);
+                        })
+                        // var my_wts_ids = _.filter(Object.keys(me_wts_id_fbo), function(k){
+                        //     if (k.charAt(0) != '$') return k
+                        // });
+                    })
+
                     // console.log($scope.inventory);
 
                 }
@@ -192,7 +207,7 @@
             }
         }
     })
-    .directive('pnCreateWtsWizard', function(CreateWts) {
+    .directive('pnCreateWtsWizard', function(CreateWts, $mdToast, $location) {
         return {
             restrict: 'E',
             // scope: { }, // only to set showWtsWizard = false when done
@@ -225,7 +240,10 @@
                     CreateWts.create($scope.selectedItemCreateWts, function(){
                         console.log('Complete!');
                         // $scope.showWtsWizard = false
-                        $scope.menu('reset')
+                        // $scope.menu('reset')
+                        $mdToast.show($mdToast.simple().textContent('Success!'));
+                        $location.path('/home')
+
                     })
                     //.then(pnCreateWtsComplete)
 
@@ -292,7 +310,7 @@
         }
     })
 
-    .directive('pnMyProfile', function (pnUsers) {
+    .directive('pnMyProfile', function (pnUsers, $location, $mdToast) {
         return {
             restrict: 'E',
             scope: { },
@@ -334,6 +352,11 @@
                         $scope.showWtsWizard = false
                         $scope.showWtbWizard = false
                     }
+                }
+
+                $scope.toCreateWtsWizard = function toCreateWtsWizard() {
+
+                    $location.path('/wts/create/')
                 }
             }
         }
@@ -604,7 +627,7 @@
         }
     })
 
-    .directive('pnNav', function ($location) {
+    .directive('pnNav', function ($location, $window) {
         return {
             restrict: 'E',
             scope: {
@@ -629,7 +652,9 @@
                     $scope.me = false;
                     $scope.market = false;
                 }
-
+                $scope.back = function() {
+                    $location.path($window.history.back())
+                }
                 // if ($scope.loc === 'market') {
                 //     $scope.links = [
                 //         {name: 'Me', value: 'me'},

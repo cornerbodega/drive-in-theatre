@@ -14,7 +14,7 @@ function CreateWts(WTS, pnUsers, $q) {
     function create(product, cb) {
         var wts = WTS.wts_fbo()
         var me = pnUsers.me()
-        $q.all(wts, me).then(init)
+        $q.all(wts.$loaded(), me.$loaded()).then(init)
 
         function init() {
             // console.log(wts);
