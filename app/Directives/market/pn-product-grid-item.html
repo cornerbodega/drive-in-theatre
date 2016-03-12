@@ -1,29 +1,38 @@
 <!-- {{product.desc}} -->
 
-    <!-- <div ng-hide="hideImage">
-        <img ng-if="!product.image.sizes.scaled400" class="pnProductGridItemImage" ng-src="{{product.image}}" />
-        <img ng-if="product.image.sizes.scaled400" class="pnProductGridItemImage" ng-src="{{product.image.sizes.scaled400}}" />
-    </div> -->
-    <!-- <div ng-class="pnTransparent"> -->
+<!-- <div ng-hide="hideImage">
+<img ng-if="!product.image.sizes.scaled400" class="pnProductGridItemImage" ng-src="{{product.image}}" />
+<img ng-if="product.image.sizes.scaled400" class="pnProductGridItemImage" ng-src="{{product.image.sizes.scaled400}}" />
+</div> -->
+<!-- <div ng-class="pnTransparent"> -->
 
-    <div class="pn-well pn-well-sm pn-product-detail-transparent-card width100" >
-        <div>
-            <div class="pnProductGridItemStrain">{{product.strain}}</div>
+<div class="pn-well pn-well-sm pn-product-detail-transparent-card width100" >
+    <!-- <pn-product-grid-seller-info seller-info="product.sellerInfo" /> -->
+    <div layout="row">
+        <div layout="column">
+            <div>
+                <div class="pn-product-grid-seller-info">
+                    {{product.sellerInfo.name}} ({{product.sellerInfo.license}}) <span ng-show="product.phone"> | {{product.phone}}</span>
+                </div>
+                <div class="pnProductGridItemStrain">{{product.strain}}</div>
+            </div>
+
+            <div class="pnProductGridItemPriceWeight" ng-if="product.inventorytypeInfo.weighable">
+                {{product.remaining_quantity}} grams for ${{product.price}}
+
+            </div>
+            <div class="pnProductGridItemPriceWeight" ng-if="!product.inventorytypeInfo.weighable">
+                {{product.remaining_quantity}} x {{product.usable_weight}} gram packages for ${{product.price}}
+
+            </div>
+            <div class="">
+                {{product.timeLabel}}
+            </div>
+
         </div>
 
-        <div class="pnProductGridItemPriceWeight" ng-if="product.inventorytypeInfo.weighable">
-            {{product.remaining_quantity}} grams for ${{product.price}}
-
-        </div>
-        <div class="pnProductGridItemPriceWeight" ng-if="!product.inventorytypeInfo.weighable">
-            {{product.remaining_quantity}} x {{product.usable_weight}} gram packages for ${{product.price}}
-
-        </div>
-        <div class="">
-            {{product.timeLabel}}
-        </div>
         <div layout="row" layout-padding>
-            <div layout-margin layout="column">
+            <div layout-margin layout="row">
                 <!-- <div class="pnProductGridItemInfoLabel">Type</div> -->
                 <div class="pnInventoryTypeLabel">
                     {{product.inventorytypeInfo.label}}
@@ -51,8 +60,13 @@
         </div>
 
     </div>
+    <!-- <div class="pn-product-grid-seller-info">
+        {{product.sellerInfo.name}} ({{product.sellerInfo.license}}) <span ng-show="product.phone"> | {{product.phone}}</span>
+    </div> -->
+
+</div>
 
 <!-- </div> -->
 <!-- <pre>
-    {{product | json}}
+{{product | json}}
 </pre> -->

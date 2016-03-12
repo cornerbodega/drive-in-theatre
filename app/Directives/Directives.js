@@ -11,6 +11,16 @@
     //         }
     //     }
     // })
+    .directive('pnProductGridSellerInfo', function() {
+        return {
+            restrict: 'E',
+            scope: { sellerInfo: "=" },
+            templateUrl: 'Directives/market/pn-product-grid-seller-info.html',
+            link: function($scope, element, attrs) {
+                // console.log($scope.sellerInfo);
+            }
+        }
+    })
     .directive('pnAddToCartButtonProductDetail', function() {
         return {
             restrict: 'E',
@@ -58,7 +68,7 @@
         return function(scope, element, attrs){
             var url = attrs.pnBackgroundImage;
 
-            console.log('url'+url);
+            // console.log('url'+url);
             element.css({
                 'background-image': 'url(' + url +')',
                 'background-size' : 'cover',
@@ -106,6 +116,16 @@
             restrict: 'E',
             // scope: { pnStep: "=" },
             templateUrl: 'Directives/home/pn-create-wts-wizard/desc-price/pn-quantity-field-create-wts-wizard.html',
+            link: function($scope, element, attrs) {
+
+            }
+        }
+    })
+    .directive('pnPhoneFieldCreateWtsWizard', function() {
+        return {
+            restrict: 'E',
+            // scope: { pnStep: "=" },
+            templateUrl: 'Directives/home/pn-create-wts-wizard/desc-price/pn-phone-field-create-wts-wizard.html',
             link: function($scope, element, attrs) {
 
             }
@@ -355,7 +375,6 @@
                 }
 
                 $scope.toCreateWtsWizard = function toCreateWtsWizard() {
-
                     $location.path('/wts/create/')
                 }
             }
@@ -400,7 +419,8 @@
                 // })
 
                 $scope.toProduct=function(product){
-                    console.log(product);
+                    // console.log(product);
+                    if (!product) return
                     Product.view_detail_product = product
                     $location.path('product/' + product.id)
                 }
@@ -635,7 +655,6 @@
             },
             templateUrl: 'Directives/nav/pn-nav.html',
             link: function ($scope, element, attrs) {
-
                 if ($scope.loc === 'market') {
                     allFalse();
                     $scope.market = true;
@@ -648,10 +667,17 @@
                     allFalse();
                     $scope.product = true;
                 }
+                if ($scope.loc === 'sell') {
+                    allFalse();
+                    $scope.sell = true;
+                }
                 function allFalse() {
                     $scope.me = false;
                     $scope.market = false;
+                    $scope.product = false
+                    $scope.sell = false;
                 }
+                console.log($scope.sell);
                 $scope.back = function() {
                     $location.path($window.history.back())
                 }

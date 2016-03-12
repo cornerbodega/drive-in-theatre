@@ -32,24 +32,28 @@ function LandingController($location, $scope, $http, $anchorScroll, NavState) {
     // console.log(NavState.hideNav);
     // console.log($rootScope.hideNav);
     $scope.signIn = signIn;
-    var loginData = {
+    $scope.loginData = {
         "password": "44Million!",
         "license_number": 603347225,
         "username": "luchinisupercritical@gmail.com"
     }
-    $scope.form = loginData;
+    // $scope.form = loginData;
 
     function keyFromUserInfo(uu) {
         return uu.replace(/\W/g, '');
     }
     function signIn() {
+        // var form = $scope.form
+        var form = $scope.loginData
         // $scope.form.user_id = keyFromUserInfo($scope.form.username)
-        $http({method: 'POST', data: $scope.form, url: '/api/auth/v0/signIn'})
+        // $http({method: 'POST', data: $scope.form, url: '/api/auth/v0/signIn'})
+        $http({method: 'POST', data: form, url: '/api/auth/v0/signIn'})
         .success(function(res){
             console.log(res);
+
             sessionStorage.sessionid = res.sessionid
-            sessionStorage.user_id = $scope.form.user_id
-            sessionStorage.ubi = $scope.form.license_number
+            sessionStorage.user_id = form.user_id
+            sessionStorage.ubi = form.license_number
             sessionStorage.me = {}
             $http.get('/api/vendors/'+sessionStorage.ubi)
             .success(function(res){

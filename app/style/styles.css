@@ -11,6 +11,18 @@ http://www.bootstrapzero.com
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }*/
+.pn-product-grid-seller-info {
+    /*@include: vertical-align();*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+}
+.pn-text-18: {
+    /*@include: vertical-align();*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
 .pn-add-to-cart-product-detail-button-text: {
     /*@include: vertical-align();*/
     font-family: 'Roboto', sans-serif;
@@ -29,6 +41,14 @@ http://www.bootstrapzero.com
 }
 .height70 {
     height: 70px;
+}
+.height0 {
+    max-height: 20px;
+    /*padding-bottom: 100%;*/
+}
+.height100pc {
+    height: 50%;
+    /*padding-bottom: 100%;*/
 }
 .pn-product-detail-transparent-card {
     background: rgba(255, 255, 255, 0.8);

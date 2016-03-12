@@ -1,3 +1,6 @@
+Make it so that people are name @ business instead of just name or just business. This needs to be a part of the user model/ sign up process. Not MVPMVP
+
+//////////////////
 1. Landing Page should separate Businesses from Customers. Give customers quick review access. Businesses should get LCB login form.
 
 2. Implement customer accounts.

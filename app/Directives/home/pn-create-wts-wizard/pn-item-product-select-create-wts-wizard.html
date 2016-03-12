@@ -1,7 +1,11 @@
 <div layout="row" flex layout-padding>
-    <div ng-show="item.image" flex="33" pn-background-image="{{item.image}}">
+        <div ng-show="item.image"  flex="33" >
+            <!-- <div class="height70" pn-background-image="{{item.image}}"> -->
+            <img class="height100pc pnImageStretch" ng-src="{{item.image}}">
+
+            </div>
         <!-- <img ng-src="{{item.image}}" class="pnImageStretch" /> -->
-    </div>
+    <!-- </div> -->
     <div layout="column" flex >
         <div>
             <div class="pnProductGridItemPriceWeight" ng-if="item.inventorytypeInfo.weighable">
