@@ -1,12 +1,13 @@
-<md-toolbar ng-if="error">
-    <div class="md-toolbar-tools">
-        {{error}}
-    </div>
-</md-toolbar>
+
 <header id="first">
     <div class="header-content">
         <div class="inner container">
             <h1 class="cursive">greenboard</h1>
+            <md-toolbar ng-if="error">
+                <div class="md-toolbar-tools">
+                    {{error}}
+                </div>
+            </md-toolbar>
             <div class="input-field col s6">
                 <input type="text" id="username" ng-model="form.username">
                 <label for="username">USERNAME</label>

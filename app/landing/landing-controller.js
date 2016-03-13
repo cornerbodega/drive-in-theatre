@@ -1,54 +1,36 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('LandingController', ['$location', '$scope', '$http','$anchorScroll', 'NavState',
+    .controller('LandingController', ['$location', '$scope', '$http', 'pnUsers',
     LandingController
 ])
 
-function LandingController($location, $scope, $http, $anchorScroll, NavState) {
+function LandingController($location, $scope, $http, pnUsers) {
     var PATHS = window.PATHS
-    // $scope.showSignIn = function() {
-    //     $scope.sSignIn = true
-    //     $scope.sSignUp = false
-    // }
-    // $scope.showSignUp = function() {
-    //     $scope.sSignIn = false
-    //     $scope.sSignUp = true
-    // }
-    // $scope.test = function() {
-    //     $location.hash('signin');
-    //     $anchorScroll();
-    // }
-    // $scope.$watch(function () { return NavState.landingRoute }, function (newVal, oldVal) {
-    //     if (typeof newVal !== 'undefined') {
-    //          $location.hash(NavState.landingRoute);
-    //          console.log(NavState.landingRoute);
-    //          $anchorScroll();
-    //     }
-    // });
-    // NavState.hideNav = true;
-    // NavState.hide = true
-    // NavState.whereAmI('Landing')
-    // console.log(NavState.hideNav);
-    // console.log($rootScope.hideNav);
+
     $scope.signIn = signIn;
+    // $scope.loginData = {
+    //     "password": "44Million!",
+    //     "license_number": 603347225,
+    //     "username": "luchinisupercritical@gmail.com"
+    // }
     $scope.loginData = {
-        "password": "44Million!",
-        "license_number": 603347225,
-        "username": "luchinisupercritical@gmail.com"
+        "password": "2ndCaptainBly",
+        "license_number": "602093924",
+        "username": "thepottingbench@outlook.com"
     }
-    // $scope.form = loginData;
 
 
     function signIn() {
         // var form = $scope.form
         var form = $scope.loginData
-        // $scope.form.user_id = keyFromUserInfo($scope.form.username)
-        // $http({method: 'POST', data: $scope.form, url: '/api/auth/v0/signIn'})
         $http({method: 'POST', data: form, url: '/api/auth/v0/signIn'})
         .success(function(res){
             console.log(res);
-
+            if(res.success != 1) {
+                console.log('Log In to LCB Failed ' + res.error )
+                return $scope.error = res.error
+            }
             sessionStorage.sessionid = res.sessionid
             sessionStorage.user_id = form.user_id
             sessionStorage.ubi = form.license_number
@@ -64,7 +46,6 @@ function LandingController($location, $scope, $http, $anchorScroll, NavState) {
                 sessionStorage.licensetype = res.licensetype
             })
             $location.path('/home')
-            // return res
         })
         .then(function(context) {
             createUser()
@@ -76,20 +57,33 @@ function LandingController($location, $scope, $http, $anchorScroll, NavState) {
     }
 
     function createUser() {
+        // TEMPORARY
+        var form = $scope.loginData
+
+        var users = pnUsers.fbo()
+        users.$loaded().then(init)
+        function init() {
+            if (users[form.license_number]) {
+                return console.log('user exists!');
+            }
+            else {
+                users[form.license_number] = $scope.form
+            }
+        }
         // $scope.form.user_id = keyFromUserInfo($scope.form.username)
-        $http({method: 'POST', data: $scope.form, url: '/api/users/create'})
+        // $http({method: 'POST', data: $scope.form, url: '/api/users/create'})
 
 
-        .success(function(res){
-            console.log(res);
-            return res
-        })
-        .then(function(context) {
-            console.log(context);
-        })
-        .catch(function(err) {
-            console.log(err);
-        })
+        // .success(function(res){
+        //     console.log(res);
+        //     return res
+        // })
+        // .then(function(context) {
+        //     console.log(context);
+        // })
+        // .catch(function(err) {
+        //     console.log(err);
+        // })
     }
 
 console.log('hello?');
