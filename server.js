@@ -13,7 +13,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http)
 var unirest = require("unirest");
 var Firebase = require('firebase');
-var users = require('./server/users')
+// var users = require('./server/users')
 //
 // var lcbPost = unirest("POST", "https://wslcb.mjtraceability.com/serverjson.asp");
 // lcbPost.headers({
@@ -36,8 +36,8 @@ function placeholder(req, res, next) { return res.send("Endpoint Not Yet Impleme
 // app.post('/api/looneytunes/create', fbc.createLooneyTune);
 
 // WTS
-var wts = require('./server/wts.js');
-app.post('/api/v0/wts/create', wts.create)
+// var wts = require('./server/wts.js');
+// app.post('/api/v0/wts/create', wts.create)
 // app.get('/api/v0/wts/get/:ubi', wts.get)
 
 // INVENTORY
@@ -53,10 +53,10 @@ app.get('/api/vendors/:ubi', vendors.get);
 
 
 // USERS
-app.post('/api/users/create', users.create);
-app.get('/api/users/', users.getAll);
+// app.post('/api/users/create', users.create);
+// app.get('/api/users/', users.getAll);
 // app.get('/api/users/:user_id', placeholder);
-app.post('/api/users/update', placeholder);
+// app.post('/api/users/update', placeholder);
 
 
 // AUTH TODO: MOVE TO OWN FILE

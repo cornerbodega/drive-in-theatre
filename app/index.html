@@ -1,21 +1,15 @@
 <html ng-app="countryApp">
 <head>
     <meta charset="utf-8">
-    <title>NewCo</title>
+    <title>Greenboard MVPMVP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a website for B2B cannabis deal-making" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <!-- <meta name="generator" content="Codeply"> -->
+    <meta name="description" content="Greenboard - Washington's B2B Cannabis Marketplace" />
     <link rel="stylesheet" href="style/styles.css">
-
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" /> -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" /> -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
 
-    <script>
-    UPLOADCARE_PUBLIC_KEY = '55a55d432aed473a7467';
-    </script>
+
+
     <link rel="icon" href="http://potnet.net/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="bower_components/Materialize/sass/marv-materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -35,18 +29,9 @@
     <script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
     <script src="bower_components/angular-uploadcare/angular-uploadcare.js"></script>
     <script src="bower_components/Uploadcare/uploadcare.min.js"></script>
-    <script src="bower_components/moment/min/moment.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="bower_components/underscore/underscore-min.js"></script>
-    <script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
-    <script src="bower_components/angular-centered/angular-centered.js"></script>
-    <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script> -->
-
-
+    <script>UPLOADCARE_PUBLIC_KEY = '55a55d432aed473a7467';</script>
 
     <script src="app.js"></script>
-
     <script src="landing/landing-controller.js"></script>
     <script src="index/index-controller.js"></script>
     <script src="Profile/Profile-Controller.js"></script>
@@ -61,21 +46,10 @@
     <script src="Product/Product-Controller.js"></script>
     <script src="Product/Product.js"></script>
     <script src="Create-Wts-Wizard/Create-Wts-Wizard-Controller.js"></script>
-
-
-    <!-- <script src="utils/underscore-wrapper.js"></script> -->
-
+    <script src="Documentation/Documentation-Controller.js"></script>
 
 </head>
 <body ng-controller="IndexController as vm" class="grey lighten-3" ng-cloak>
-    <!-- <nav>
-        <ul>
-            <li><a>one</a></li>
-            <li><a>one</a></li>
-            <li>otwo</li>
-        </ul>
-    </nav> -->
-
     <div ng-view flex class="grey lighten-3" class="height:100%"></div>
 </body>
 </html>

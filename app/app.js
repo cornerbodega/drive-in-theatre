@@ -1,78 +1,42 @@
 var countryApp = angular.module('countryApp', [
-    'ngRoute',
-    'ngMaterial',
-    'angular-loading-bar',
-    'firebase',
-    'underscore',
-    'angular-centered',
-    'ng-uploadcare',
-    // 'ui.bootstrap',
-    // 'ngResource',
-
+    'ngRoute', // Single-page Angular Routing
+    'ngMaterial', // Angular Material CSS Theme
+    'angular-loading-bar', // Loading bar for http requests
+    'firebase', // For AngularFire binding
+    'underscore', // For filtering, utility functions
+    'ng-uploadcare', // For cloud image upload
 ]);
 
 countryApp.config(function($routeProvider) {
     $routeProvider
-    // sign-in
-    // sign-up
-    // sign-up/502 <link-502-traceability />
-    // sign-up/connoisseur
-    // link-502 <link-502-traceability />
-    .when('/wts/create/', {
+    .when('/documentation', { // Place to put design documentation
+        templateUrl: 'Documentation/Documentation.html',
+        controller: 'DocumentationController',
+    })
+    .when('/wts/create/', { // Page to create a new Want To Sell listing
         templateUrl: 'Create-Wts-Wizard/Create-Wts-Wizard.html',
         controller: 'CreateWtsWizardController',
 
     })
-    .when('/product/:id', {
+    .when('/product/:id', { // Product Detail page
         templateUrl: 'Product/Product.html',
         controller: 'ProductController',
 
     })
-    .when('/home', {
+    .when('/home', { // View my posts, Create new post page
         templateUrl: 'Home/Home.html',
         controller: 'HomeController',
 
     })
-    .when('/market', {
+    .when('/market', { // View community posts page
         templateUrl: 'Market/Market.html',
         controller: 'MarketController',
 
     })
-    .when('/me', {
-        templateUrl: 'Profile/Profile.html',
-        controller: 'ProfileController',
-
-    })
-    .when('/', {
+    .when('/', { // Sign up/ sign in/ demo login page
         templateUrl: 'landing/landing.html',
         controller: 'LandingController',
-        //   controllerAs: 'vm'
     })
-    // .when('/welcome', {
-    //     templateUrl: 'Profile/Profile.html',
-    //     controller: 'ProfileController',
-    //
-    // })
-    // .when('/', {
-    //     templateUrl: 'landing/landing.html',
-    //     controller: 'LandingController',
-    //     //   controllerAs: 'vm'
-    // })
-    // .when('/manifests/', {
-    //   templateUrl: 'Manifests/views/All-Manifests.html',
-    //   controller: 'ManifestsController',
-    //   controllerAs: 'vm'
-    // })
-    // .when('/market/item/:id', {
-    //   templateUrl: 'Market/Item-Detail/item-detail.html',
-    //   controller: 'ItemDetailController',
-    //   controllerAs: 'vm'
-    // })
-
-    // when('/:countryId', {
-    //   templateUrl: 'country-detail.html',
-    //   controller: 'CountryDetailCtrl'
-    // }).
     .otherwise({
         redirectTo: '/'
     });

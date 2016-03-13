@@ -1,14 +1,11 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('MarketController', ['$location', '$scope',
+    .controller('MarketController', [
     MarketController
 ])
 
-function MarketController($location, $scope) {
-    // var PATHS = window.PATHS
-
-    
+function MarketController() {
 };
 
 })();

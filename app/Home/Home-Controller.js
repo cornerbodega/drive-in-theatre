@@ -1,12 +1,11 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('HomeController', ['$location', '$scope', '$http', '$firebaseObject', '_',
+    .controller('HomeController', [
     HomeController
 ])
 
-function HomeController($location, $scope, $http, $fbo, _) {
-    console.log('Home!!');
-        $scope.my_ubi = sessionStorage.ubi
+function HomeController() {
+
 }
 })();

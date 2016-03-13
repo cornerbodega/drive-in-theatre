@@ -386,77 +386,36 @@
             scope: { },
             templateUrl: 'Directives/home/pn-my-posts-list/pn-my-posts-list.html',
             link: function ($scope, element, attrs) {
-                // $scope.my_posts_ids = pnUsers.my_wts_ids()
-                // $scope.wts = WTS.wts_fbo()
-                // $scope.wts_ref = WTS.wts_ref()
-                // console.log($scope.my_posts_ids)
-                // $q.all($scope.wts.$loaded(), $scope.my_posts_ids.$loaded()).then(function(){
-                //     $scope.my_posts_ids.$watch(function(){
-                //         var r = []
-                // //         console.log($scope.my_posts_ids);
-                //         var m = _.filter(Object.keys($scope.my_posts_ids), function(k){
-                //             if (k.charAt(0) != '$') return k
-                //         });
-                //
-                // //         // console.log(my_wts_ids);
-                //          _.map(m, function(id){
-                //              console.log(id);
-                //             var f= $firebaseObject(WTS.wts_ref().child(id) )
-                //             f.$loaded().then(function(){
-                //                 console.log(f);
-                //
-                //             })
-                //             //  console.log($scope.wts_ref.child(id));
-                //             //  console.log();
-                //             // if(!!$scope.wts_ref.child(id)) {
-                //             //     r.push($scope.wts_ref.child(id).val())
-                //             // }
-                //          })
-                // //          console.log(r);
-                //          $scope.my_posts = r
-                //          console.log(r);
-                //     });
-                // })
-
                 $scope.toProduct=function(product){
-                    // console.log(product);
                     if (!product) return
                     Product.view_detail_product = product
                     $location.path('product/' + product.id)
                 }
-
-                console.log('MY POSTS!!');
-                // $scope.type = "Upload Profile Photo"
-                // $scope.myposts =
-                var me_ref = pnUsers.me_ref()
-                var me_wts_id_ref = me_ref.child('wts')
-                var wts_ref = WTS.wts_ref()
-
-                var me_wts_id_fbo = $firebaseObject(me_wts_id_ref)
-                me_wts_id_fbo.$loaded().then(init)
-                function init(){
-                    // console.log('INIT!?!?!?');
-                    var my_wts_ids = _.filter(Object.keys(me_wts_id_fbo), function(k){
-                        if (k.charAt(0) != '$') return k
-                    });
-                    console.log(my_wts_ids);
-
-                    _.map(my_wts_ids, function(id){
-                        wts_ref.on('value', function(dataSnapshot) {
-                            // console.log('hello?!?!' );
-                            // console.log(dataSnapshot.val());
-                            $scope.my_posts = dataSnapshot.val(); // CHANNGE HERE TO MIX WITH WTB
-                            // console.log($scope.me);
-                        });
+                var wts = WTS.wts_fbo()
+                wts.$watch(function(){
+                    // console.log('watch');
+                    var t = []
+                    angular.forEach(wts, function(s){
+                        console.log(s);
+                        t.push(s)
                     })
-
-                    $scope.goToEdit= function(product){
-                        console.log(product);
-                    }
-                }
-
-                // console.log($scope.posts);
-                // $scope.myposts = $scope.myWts
+                    $scope.my_posts = t
+                })
+                // wts.$watch.then(init)
+                // function init() {
+                //     console.log(wts);
+                //         wts.$watch(function(){
+                //         console.log('Watch');
+                //         var my_posts = []
+                //         angular.forEach($scope.wts, function(val, key){
+                //             console.log(key);
+                //             // console.log(s);
+                //             console.log(val);
+                //             $scope.my_posts.push(val)
+                //         })
+                //
+                //     })
+                // }
             }
         }
     })

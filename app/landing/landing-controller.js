@@ -7,27 +7,27 @@
 
 function LandingController($location, $scope, $http, $anchorScroll, NavState) {
     var PATHS = window.PATHS
-    $scope.showSignIn = function() {
-        $scope.sSignIn = true
-        $scope.sSignUp = false
-    }
-    $scope.showSignUp = function() {
-        $scope.sSignIn = false
-        $scope.sSignUp = true
-    }
-    $scope.test = function() {
-        $location.hash('signin');
-        $anchorScroll();
-    }
-    $scope.$watch(function () { return NavState.landingRoute }, function (newVal, oldVal) {
-        if (typeof newVal !== 'undefined') {
-             $location.hash(NavState.landingRoute);
-             console.log(NavState.landingRoute);
-             $anchorScroll();
-        }
-    });
+    // $scope.showSignIn = function() {
+    //     $scope.sSignIn = true
+    //     $scope.sSignUp = false
+    // }
+    // $scope.showSignUp = function() {
+    //     $scope.sSignIn = false
+    //     $scope.sSignUp = true
+    // }
+    // $scope.test = function() {
+    //     $location.hash('signin');
+    //     $anchorScroll();
+    // }
+    // $scope.$watch(function () { return NavState.landingRoute }, function (newVal, oldVal) {
+    //     if (typeof newVal !== 'undefined') {
+    //          $location.hash(NavState.landingRoute);
+    //          console.log(NavState.landingRoute);
+    //          $anchorScroll();
+    //     }
+    // });
     // NavState.hideNav = true;
-    NavState.hide = true
+    // NavState.hide = true
     // NavState.whereAmI('Landing')
     // console.log(NavState.hideNav);
     // console.log($rootScope.hideNav);
@@ -39,9 +39,7 @@ function LandingController($location, $scope, $http, $anchorScroll, NavState) {
     }
     // $scope.form = loginData;
 
-    function keyFromUserInfo(uu) {
-        return uu.replace(/\W/g, '');
-    }
+
     function signIn() {
         // var form = $scope.form
         var form = $scope.loginData
@@ -57,11 +55,11 @@ function LandingController($location, $scope, $http, $anchorScroll, NavState) {
             sessionStorage.me = {}
             $http.get('/api/vendors/'+sessionStorage.ubi)
             .success(function(res){
-                sessionStorage.address2 = res.address1
-                sessionStorage.city = res.city
+                // sessionStorage.address2 = res.address1
+                // sessionStorage.city = res.city
                 sessionStorage.name = res.name
-                sessionStorage.state = res.state
-                sessionStorage.zip = res.zip
+                // sessionStorage.state = res.state
+                // sessionStorage.zip = res.zip
                 sessionStorage.ubi = res.ubi
                 sessionStorage.licensetype = res.licensetype
             })
@@ -80,15 +78,13 @@ function LandingController($location, $scope, $http, $anchorScroll, NavState) {
     function createUser() {
         // $scope.form.user_id = keyFromUserInfo($scope.form.username)
         $http({method: 'POST', data: $scope.form, url: '/api/users/create'})
-        // $http({method: 'POST', data: {name: 'wolverine', text:'Wolverine'}, url: '/api/looneytunes/create'})
-        // $http({method: 'POST', data: $scope.form, url: '/api/auth/v0/signIn'})
+
 
         .success(function(res){
             console.log(res);
             return res
         })
         .then(function(context) {
-            // $http
             console.log(context);
         })
         .catch(function(err) {

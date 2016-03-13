@@ -1,4 +1,3 @@
-<!-- {{product.desc}} -->
     <div>
         <img ng-if="!product.image.sizes.scaled400" class="pnProductGridItemImage" ng-src="{{product.image}}" />
         <img ng-if="product.image.sizes.scaled400" class="pnProductGridItemImage" ng-src="{{product.image.sizes.scaled400}}" />
@@ -45,12 +44,6 @@
             <div  layout-padding ng-if="!product.qa.potency.Total">
                 Not QA Tested
             </div>
-
         </div>
-
     </div>
-
 </div>
-<!-- <pre>
-    {{product | json}}
-</pre> -->

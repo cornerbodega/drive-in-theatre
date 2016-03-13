@@ -2,6 +2,7 @@
 module.exports = {
     create: function (req, res, next) {
         var myRootRef = new Firebase('https://connect502.firebaseio.com/users/'+req.body.license_number);
+        console.log('req.body');
         console.log(req.body);
         myRootRef.update(req.body);
         // res.send(myRootRef);
