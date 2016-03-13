@@ -11,6 +11,11 @@ http://www.bootstrapzero.com
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }*/
+.pn-page-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 21px;
+}
 .pn-product-grid-seller-info {
     /*@include: vertical-align();*/
     font-family: 'Roboto', sans-serif;
