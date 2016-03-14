@@ -11,6 +11,16 @@
     //         }
     //     }
     // })
+    .directive('pnWrapperProductGridItem', function() {
+        return {
+            restrict: 'E',
+            scope: { product: "=" },
+            templateUrl: 'Directives/home/pn-create-wts-wizard/pn-wrapper-product-grid-item.html',
+            link: function($scope, element, attrs) {
+                // console.log($scope.pnStep);
+            }
+        }
+    })
     .directive('pnDetailProductDetail', function() {
         return {
             restrict: 'E',
@@ -537,7 +547,8 @@
                 var colors = ["pn-product-detail-transparent-card"]
                 if(!$scope.pnTransparent) $scope.pnTransparent = 'pn-product-detail-transparent-card'
                 // var colors = ["mcGreen1","mcGreen2","mcGreen3", "mcGreen4"]
-                $scope.product.timeLabel = pnUtils.timeLabler($scope.product.at)
+                if (!$scope.product) return console.log('NO PRODUCT IN PN-PRODUCT-GRID-ITEM! ' + $scope.product );
+                if (!!$scope.product.at) $scope.product.timeLabel = pnUtils.timeLabler($scope.product.at)
                 $scope.product.cardColor = _.sample(colors, 1)
 
                 // console.log($scope.product.timeLabel);

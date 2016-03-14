@@ -6,11 +6,13 @@
         <pn-product-select-create-wts-wizard flex />
     </md-tab>
     <md-tab ng-disabled="!ia_UploadImage" label="Upload Image">
-        <div class="md-padding" pn-background-image="{{selectedItemCreateWts.image}}">
+        <div class="md-padding">
+            <!-- {{selectedItemCreateWts}} -->
             <pn-upload-image-pane-create-wts-wizard />
-            <div class="pn-well pn-well-sm white" layout="row" layout-padding>
+            <pn-wrapper-product-grid-item product="selectedItemCreateWts">
+            <!-- <div class="pn-well pn-well-sm white" layout="row" layout-padding>
                 <pn-item-product-select-create-wts-wizard  item="selectedItemCreateWts" />
-            </div>
+            </div> -->
             <!-- <pn-item-product-select-create-wts-wizard item="selectedItemCreateWts" /> -->
             <br />
             <!-- <div class="width100" pn-background-image="{{selectedItemCreateWts.image}}"></div> -->
@@ -22,7 +24,14 @@
     <md-tab ng-disabled="!ia_DescriptionPrice" label="Description and Price">
         <md-content class="md-padding">
             <pn-desc-price-create-wts-wizard />
-            <pn-item-product-select-create-wts-wizard item="selectedItemCreateWts" />
+            <div class="width100" layout="row" >
+                <div flex pn-background-image="{{selectedItemCreateWts.image}}">
+                    <div>
+                        <pn-product-grid-item  product="selectedItemCreateWts" />
+                    </div>
+                </div>
+            </div>
+            <!-- <pn-item-product-select-create-wts-wizard item="selectedItemCreateWts" /> -->
             <div layout="row" ng-click="pnCreateWts()" layout-align="center center" class="pnGreyGreen waves-effect pn-next-button-create-wts-wizard btn btn-xl" ng-show="pnDescPriceValid">
                 <center><a>CREATE</a></center>
             </div>
