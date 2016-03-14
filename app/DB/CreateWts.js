@@ -24,6 +24,7 @@ function CreateWts(WTS, pnUsers, $q) {
             product.seller = sessionStorage.ubi
             product.sellerInfo = {name: sessionStorage.name, license: sessionStorage.licensetype, ubi: sessionStorage.ubi };
             // wts.add(product).then(function(){console.log('added successfully!');})
+            console.log(product);
             wts[product.id] = product
             wts.$save().then(cb())
             // if (!me.wts) me.wts = {}
