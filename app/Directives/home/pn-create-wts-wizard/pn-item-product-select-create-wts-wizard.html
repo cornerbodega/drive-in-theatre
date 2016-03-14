@@ -1,20 +1,14 @@
 <div layout="row" flex layout-padding>
         <div ng-show="item.image"  flex="33" >
-            <!-- <div class="height70" pn-background-image="{{item.image}}"> -->
             <img class="height100pc pnImageStretch" ng-src="{{item.image}}">
-
-            </div>
-        <!-- <img ng-src="{{item.image}}" class="pnImageStretch" /> -->
-    <!-- </div> -->
+        </div>
     <div layout="column" flex >
         <div>
             <div class="pnProductGridItemPriceWeight" ng-if="item.inventorytypeInfo.weighable">
                 {{item.remaining_quantity}} grams
-
             </div>
             <div class="pnProductGridItemPriceWeight" ng-if="!item.inventorytypeInfo.weighable">
                 {{item.remaining_quantity}} x {{item.usable_weight}} gram packages
-
             </div>
         </div>
         <div layout="row">
@@ -28,7 +22,6 @@
             <ul>
                 <li layout-padding></li>
             </ul>
-             <!-- {"bacteria":{"aerobic_bacteria":"4000","bile_tolerant":"860","coliforms":"410","e_coli_and_salmonella":"0","type":4,"yeast_and_mold":"1500"},"barcode_id":"6177853393140428","inventorytype":"13","lab_license":"0007","moisture":{"moisture":"8.50","type":1},"parent_id":"6020939240000327","potency":{"CBD":"0.04","THC":"23.28","THCA":"0","Total":"23.28","type":2},"result":1,"sample_id":"5275001639309773","test":[{"moisture":"8.50","type":1},{"CBD":"0.04","THC":"23.28","THCA":"0","Total":"23.28","type":2},{"Other":"0","Stems":"0","type":3},{"aerobic_bacteria":"4000","bile_tolerant":"860","coliforms":"410","e_coli_and_salmonella":"0","type":4,"yeast_and_mold":"1500"}],"transactionid":"19545685","transactionid_original":"18493322","use":1} -->
             <ul ng-show="item.qa.potency.Total">
                 <li>Total THC: {{item.qa.potency.Total}}%</li>
                 <li>CBD: {{item.qa.potency.CBD}}%</li>

@@ -14,7 +14,10 @@ function get(req, res) {
 
     function getQAInfo(error, iresponse, ibody){
         console.log(ibody);
-        var barcodeids = _.map(ibody.inventory, function(item){ return item.id })
+        var inventory = _.filter(ibody.inventory, function(i){ return i.remaining_quantity > 0})
+        var inventory = _.filter(inventory, function(i){ return i.deleted < 1})
+        // _.map(ibody.inventory, function(item){ item.id })
+        var barcodeids = _.map(inventory, function(item){ return item.id })
         var qareq = {
             action: 'inventory_qa_check_all',
             sessionid: req.params.sessionid,
@@ -24,7 +27,7 @@ function get(req, res) {
         request(lcbPost(qareq), formatAndReturn);
         function formatAndReturn(error, qaresponse, qabody){
             if (!qabody.data) return console.log('Error 232: No Qa')
-            res.send(formatInventoryAndQA(ibody.inventory, qabody.data));
+            res.send(formatInventoryAndQA(inventory, qabody.data));
         }
 
         function formatInventoryAndQA(inventory, qa) {

@@ -199,6 +199,7 @@
                 $scope.wts = WTS.wts_fbo()
                 function inventoryInit(inventory) {
                     $scope.inventory = _.sortBy(inventory, '-sessiontime')
+                    // $scope.inventory = _.sortBy(inventory, '-sessiontime').slice(0,10)
 
                     $scope.wts.$loaded().then(function(){
                         angular.forEach($scope.wts, function(w){
@@ -208,6 +209,7 @@
                             console.log(w);
                             // console.log(w.id);
                         })
+
                         // var my_wts_ids = _.filter(Object.keys(me_wts_id_fbo), function(k){
                         //     if (k.charAt(0) != '$') return k
                         // });
@@ -218,6 +220,7 @@
                 }
 
                 function chooseWtsInventoryItem(item) {
+                    // console.log(item.image);
                     $scope.selectedItemCreateWts = item
                     $scope.ia_UploadImage = true
                     $scope.data.selectedIndex = 1
@@ -397,7 +400,7 @@
                     var t = []
                     angular.forEach(wts, function(s){
                         console.log(s);
-                        t.push(s)
+                        if(s.seller === sessionStorage.ubi) t.push(s)
                     })
                     $scope.my_posts = t
                 })

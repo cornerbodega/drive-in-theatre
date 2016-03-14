@@ -1,26 +1,26 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('LandingController', ['$location', '$scope', '$http', 'pnUsers',
+    .controller('LandingController', ['$location', '$scope', '$http', 'pnUsers', 'pnUtils',
     LandingController
 ])
 
-function LandingController($location, $scope, $http, pnUsers) {
+function LandingController($location, $scope, $http, pnUsers, pnUtils) {
     var PATHS = window.PATHS
 
     $scope.signIn = signIn;
-    // $scope.loginData = {
-    //     "password": "44Million!",
-    //     "license_number": 603347225,
-    //     "username": "luchinisupercritical@gmail.com"
-    // }
     $scope.loginData = {
-        "password": "2ndCaptainBly",
-        "license_number": "602093924",
-        "username": "thepottingbench@outlook.com"
+        "password": "44Million!",
+        "license_number": 603347225,
+        "username": "luchinisupercritical@gmail.com"
     }
+    // $scope.loginData = {
+    //     "password": "2ndCaptainBly",
+    //     "license_number": "602093924",
+    //     "username": "thepottingbench@outlook.com"
+    // }
 
-
+    var _license_type = ""
     function signIn() {
         // var form = $scope.form
         var form = $scope.loginData
@@ -38,17 +38,23 @@ function LandingController($location, $scope, $http, pnUsers) {
             $http.get('/api/vendors/'+sessionStorage.ubi)
             .success(function(res){
                 // sessionStorage.address2 = res.address1
-                // sessionStorage.city = res.city
+                sessionStorage.city = res.city
                 sessionStorage.name = res.name
                 // sessionStorage.state = res.state
                 // sessionStorage.zip = res.zip
                 sessionStorage.ubi = res.ubi
-                sessionStorage.licensetype = res.licensetype
+                _license_type = pnUtils.getVendorTypeLabelFor(res.licensetype)
+                console.log(_license_type);
+                // console.log(res.licensetype);
+                // sessionStorage.licensetype = pnUtils.getVendorTypeLabelFor(res.licensetype));
+                // console.log(sessionStorage.licensetype);
+                createUser()
+
             })
+
             $location.path('/home')
         })
         .then(function(context) {
-            createUser()
             console.log(context);
         })
         .catch(function(err) {
@@ -59,16 +65,20 @@ function LandingController($location, $scope, $http, pnUsers) {
     function createUser() {
         // TEMPORARY
         var form = $scope.loginData
-
+        console.log(_license_type);
+        form.licensetype = _license_type
+        form.name = sessionStorage.name
+        form.city = sessionStorage.city
         var users = pnUsers.fbo()
         users.$loaded().then(init)
         function init() {
-            if (users[form.license_number]) {
-                return console.log('user exists!');
-            }
-            else {
-                users[form.license_number] = $scope.form
-            }
+            // if (users[form.license_number]) {
+            //     return console.log('user exists!');
+            // }
+            // else {
+                users[form.license_number] = form
+                users.$save()
+            // }
         }
         // $scope.form.user_id = keyFromUserInfo($scope.form.username)
         // $http({method: 'POST', data: $scope.form, url: '/api/users/create'})
