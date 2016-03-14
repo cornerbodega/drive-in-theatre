@@ -1,10 +1,23 @@
 <!-- {{product.desc}} -->
 
 
-    <div class="pn-well pn-well-sm  pnProductGridItem">
+    <div class="pn-well pn-well-sm pn-product-detail-transparent-card pnProductGridItem">
         <div>
             <div class="pn-price-desc-product-detail-text-card"><center>{{product.desc}}</center></div>
-            <div class="pn-price-desc-product-detail-text-card"><center>${{product.price}}</center></div>
+            <!-- <div class="pn-price-desc-product-detail-text-card"><center>${{product.price}}</center></div> -->
+            <br />
+            <div class="pn-price-desc-product-detail-text-card">
+                <center>
+                    <div layout="column">
+                        <div>
+                            <i class="fa fa-phone fa-2x"></i>
+                        </div>
+                        <div class="">
+                            {{product.phone}}
+                        </div>
+                    </div>
+                </center>
+
         </div>
 
     </div>

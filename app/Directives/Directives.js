@@ -11,6 +11,16 @@
     //         }
     //     }
     // })
+    .directive('pnDetailProductDetail', function() {
+        return {
+            restrict: 'E',
+            scope: { product: "=" },
+            templateUrl: 'Directives/market-product-detail/pn-detail-product-detail.html',
+            link: function($scope, element, attrs) {
+                // console.log($scope.pnStep);
+            }
+        }
+    })
     .directive('pnProductGridSellerInfo', function() {
         return {
             restrict: 'E',
@@ -643,6 +653,7 @@
                 $scope.back = function() {
                     $location.path($window.history.back())
                 }
+                $scope._myName = sessionStorage.name
                 // if ($scope.loc === 'market') {
                 //     $scope.links = [
                 //         {name: 'Me', value: 'me'},
