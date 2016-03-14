@@ -2,7 +2,7 @@
     <div layout="row" >
         <div layout="column">
             <div>
-                <div class="pn-product-grid-seller-info">
+                <div ng-if="product.sellerInfo.name" class="pn-product-grid-seller-info">
                     {{product.sellerInfo.name}} ({{product.sellerInfo.license}})
                 </div>
                 <div class="pnProductGridItemStrain">{{product.strain}}</div>
@@ -11,58 +11,31 @@
             </div>
 
             <div class="pnProductGridItemPriceWeight" ng-if="product.inventorytypeInfo.weighable">
-                {{product.remaining_quantity}} grams for ${{product.price}}
+                {{product.remaining_quantity}} grams <span ng-show="product.price">for ${{product.price}}</span>
 
             </div>
             <div class="pnProductGridItemPriceWeight" ng-if="!product.inventorytypeInfo.weighable">
-                {{product.remaining_quantity}} x {{product.usable_weight}} gram packages for ${{product.price}}
+                {{product.remaining_quantity}} x {{product.usable_weight}} gram packages for <span ng-show="product.price">${{product.price}}</span>
 
             </div>
             <div class="pnProductGridItemPriceWeight">
                 {{product.id}}
             </div>
-            <div class="pnProductGridItemPriceWeight">
+            <div ng-if="product.sellerInfo.name" class="pnProductGridItemPriceWeight">
                 {{product.timeLabel}}
+            </div>
+            <div ng-if="!product.sellerInfo.name" class="pnProductGridItemPriceWeight">
+                {{product.sessiontimelabel}}
             </div>
 
         </div>
         <div class="">
             <pn-detail-product-detail product="product" />
         </div>
-
-        <!-- <div layout="column" layout-padding> -->
-
-        <!-- <div layout="row" layout-margin ng-if="product.qa.potency.Total">
-        <div layout="column">
-        <div class="pnProductGridItemInfoLabel">THC</div>
-        <div class="pnProductGridItemTHC">
-        {{product.qa.potency.Total}}%
-    </div>
-</div>
-<div layout="column">
-<div class="pnProductGridItemInfoLabel">CBD</div>
-<div class="pnProductGridItemTHC">
-{{product.qa.potency.CBD}}%
-</div>
-</div> -->
-<!-- Moisture: {{item.qa.moisture.moisture}}% -->
-<!-- <div layout="column">
-<div class="pnProductGridItemInfoLabel">CBD</div>
-<div class="pnProductGridItemTHC">
-{{product.qa.potency.CBD}}%
-</div>
-</div>
-<ul ng-show="item.qa.bacteria">
-<li>Aerobic Bacteria: {{item.qa.bacteria.aerobic_bacteria}}</li>
-<li>Bile Tolerant: {{item.qa.bacteria.bile_tolerant}}</li>
-<li>Coliforms: {{item.qa.bacteria.coliforms}}</li>
-<li>Tested By: <a>{{item.qa.lab_license}}</a></li>
-</ul>
-</div> -->
-<div  layout-padding ng-if="!product.qa.potency.Total">
-    Not QA Tested
-</div>
-<!-- </div> -->
+        <!-- <div  layout-padding ng-if="!product.qa.potency.Total">
+        Not QA Tested
+    </div> -->
+    <!-- </div> -->
 </div>
 <!-- <div class="">
 heello

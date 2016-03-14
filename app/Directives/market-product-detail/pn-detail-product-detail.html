@@ -1,22 +1,4 @@
-<!-- <ul>
-
-</ul>
-<ul ng-show="item.qa.potency.Total">
-    <li>Total THC: {{product.qa.potency.Total}}%</li>
-    <li>CBD: {{product.qa.potency.CBD}}%</li>
-    <li ng-if="item.qa.moisture.moisture">Moisture: {{product.qa.moisture.moisture}}%</li>
-</ul> -->
-<!-- <ul>
-    <li layout-padding></li>
-</ul>
-<ul ng-show="item.qa.bacteria">
-    <li>Aerobic Bacteria: {{product.qa.bacteria.aerobic_bacteria}}</li>
-    <li>Bile Tolerant: {{product.qa.bacteria.bile_tolerant}}</li>
-    <li>Coliforms: {{product.qa.bacteria.coliforms}}</li>
-    <li>Tested By: <a>{{product.qa.lab_license}}</a></li>
-</ul> -->
-
-<div layout="row" layout-margin ng-if="product.qa.potency.Total">
+<div layout="row" layout-padding ng-if="product.qa.potency.Total">
     <div layout="column">
         <div class="pnProductGridItemInfoLabel">THC</div>
         <div class="pnProductGridItemTHC">
@@ -36,7 +18,7 @@
         </div>
     </div>
 </div>
-<div layout="row" layout-margin ng-if="product.qa.bacteria">
+<div layout="row" layout-padding ng-if="product.qa.bacteria">
     <div layout="column">
         <div class="pnProductGridItemInfoLabel">Aerobic Bacteria</div>
         <div class="pnProductGridItemTHC">

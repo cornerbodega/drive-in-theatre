@@ -1,10 +1,25 @@
+<!--
+<div  ng-repeat="item in inventory|filter:search" flex pn-background-image="{{item.image}}" ng-click="chooseWtsInventoryItem(item)">
+
+        <pn-product-grid-item product="item" />
+
+</div> -->
+<!-- <pn-item-product-select-create-wts-wizard  item="item" /> -->
+
 <div class="pn-well pn-well-sm white">
     <input  class="pn-search-product-select-create-item-wizard" ng-model="search" placeholder="Search Inventory"/>
-
 </div>
-<div  ng-repeat="item in inventory|filter:search" ng-click="chooseWtsInventoryItem(item)">
-    <div class="pn-well pn-well-sm white" layout="row" layout-padding>
-        <pn-item-product-select-create-wts-wizard  item="item" />
-
+<div flex class="" ng-repeat="product in inventory|filter:search">
+    <div class="width100 waves-effect" layout="row" >
+        <div ng-if="product.image" pn-background-image="{{product.image}}" ng-click="chooseWtsInventoryItem(product)" flex>
+            <div >
+                <pn-product-grid-item  class="" product="product" />
+            </div>
+        </div>
+        <div ng-if="!product.image" ng-click="chooseWtsInventoryItem(product)" flex >
+            <div >
+                <pn-product-grid-item  class="" product="product" />
+            </div>
+        </div>
     </div>
 </div>
