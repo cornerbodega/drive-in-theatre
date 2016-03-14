@@ -46,7 +46,7 @@ function LandingController($location, $scope, $http, pnUsers, pnUtils) {
                 _license_type = pnUtils.getVendorTypeLabelFor(res.licensetype)
                 console.log(_license_type);
                 // console.log(res.licensetype);
-                // sessionStorage.licensetype = pnUtils.getVendorTypeLabelFor(res.licensetype));
+                sessionStorage.licensetype = _license_type
                 // console.log(sessionStorage.licensetype);
                 createUser()
 
