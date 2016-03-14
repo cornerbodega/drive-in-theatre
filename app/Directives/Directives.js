@@ -364,18 +364,18 @@
 
                 $scope.menu = menu
 
-                var me = pnUsers.me()
-                me.$loaded().then(init)
-                function init() {
-                    console.log(me);
-                    // console.log(me.images);
-                    $scope.profilePicExists = false
-                    pnUsers.ref().child(sessionStorage.ubi).on('child_added', function(){
-                        if (!me.image) return
-                        if (!!me.image.info) $scope.profilePicExists = true
-                        console.log($scope.profilePicExists);
-                    })
-                }
+                // var me = pnUsers.me()
+                // me.$loaded().then(init)
+                // function init() {
+                //     console.log(me);
+                //     // console.log(me.images);
+                //     $scope.profilePicExists = false
+                //     pnUsers.ref().child(sessionStorage.ubi).on('child_added', function(){
+                //         if (!me.image) return
+                //         if (!!me.image.info) $scope.profilePicExists = true
+                //         console.log($scope.profilePicExists);
+                //     })
+                // }
 
                 function menu(createPostType) {
                     console.log(createPostType);
@@ -443,85 +443,85 @@
         }
     })
 
-    .directive('pnChangeProfilePicButton', function ($rootScope) {
-        return {
-            restrict: 'E',
-            scope: { },
-            templateUrl: 'Directives/home/pn-upload-profile-pic-button.html',
-            link: function ($scope, element, attrs) {
-                console.log('PROFILE PIC!!');
-                $scope.label = "Change Profile Photo"
-                // <script>uploadcare.openPanel('#uploader-placeholder');</script>
-                $scope.uploadPP = function() {
-                    // var p = element.find('uploader-placeholder')
-                    var widget = uploadcare.Widget('[role=uploadcare-uploader]');
-                    console.log(widget);
-                    // widget.openDialog()
-                    widget.openDialog(null, {
-                        // ng-model="object.image.info.uuid"
-                        publicKey: "55a55d432aed473a7467",
-                        imagesOnly: true,
-                        // onUploadComplete: 'onUploadComplete(info)',
-                    })
-                    widget.onUploadComplete(function(info){
-                        console.log(info);
-                        var r = new Firebase("https://connect502.firebaseio.com/users/"+sessionStorage.ubi+"/image")
-                        r.set({info: info})
-                        // $rootScope.$apply()
-                    })
-                }
-            }
-        }
-    })
+    // .directive('pnChangeProfilePicButton', function ($rootScope) {
+    //     return {
+    //         restrict: 'E',
+    //         scope: { },
+    //         templateUrl: 'Directives/home/pn-upload-profile-pic-button.html',
+    //         link: function ($scope, element, attrs) {
+    //             console.log('PROFILE PIC!!');
+    //             $scope.label = "Change Profile Photo"
+    //             // <script>uploadcare.openPanel('#uploader-placeholder');</script>
+    //             $scope.uploadPP = function() {
+    //                 // var p = element.find('uploader-placeholder')
+    //                 var widget = uploadcare.Widget('[role=uploadcare-uploader]');
+    //                 console.log(widget);
+    //                 // widget.openDialog()
+    //                 widget.openDialog(null, {
+    //                     // ng-model="object.image.info.uuid"
+    //                     publicKey: "55a55d432aed473a7467",
+    //                     imagesOnly: true,
+    //                     // onUploadComplete: 'onUploadComplete(info)',
+    //                 })
+    //                 widget.onUploadComplete(function(info){
+    //                     console.log(info);
+    //                     var r = new Firebase("https://connect502.firebaseio.com/users/"+sessionStorage.ubi+"/image")
+    //                     r.set({info: info})
+    //                     // $rootScope.$apply()
+    //                 })
+    //             }
+    //         }
+    //     }
+    // })
 
-    .directive('pnUploadProfilePicButton', function () {
-        return {
-            restrict: 'E',
-            scope: { },
-            templateUrl: 'Directives/home/pn-upload-profile-pic-button.html',
-            link: function ($scope, element, attrs) {
-                console.log('PROFILE PIC!!');
-                $scope.label = "Upload Profile Photo"
-                // <script>uploadcare.openPanel('#uploader-placeholder');</script>
-                $scope.uploadPP = function() {
-                    // var p = element.find('uploader-placeholder')
-                    var widget = uploadcare.Widget('[role=uploadcare-uploader]');
-                    console.log(widget);
-                    // widget.openDialog()
-                    widget.openDialog(null, {
-                        // ng-model="object.image.info.uuid"
-                        publicKey: "55a55d432aed473a7467",
-                        imagesOnly: true,
-                        // onUploadComplete: 'onUploadComplete(info)',
-                    })
-                    widget.onUploadComplete(function(info){
-                        console.log(info);
-                        var r = new Firebase("https://connect502.firebaseio.com/users/"+sessionStorage.ubi+"/image")
-                        r.set({info: info})
-                        // var sizes = {}
-                        // sizes.scaled500 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/500x/'
-                        // sizes.scaled400 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/400x/'
-                        // sizes.scaled300 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/300x/'
-                        // sizes.scaled200 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/200x/'
-                        // sizes.scaled100 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/100x/'
-                        //
-                        // r.set({info: info, sizes: sizes})
-                    })
-                    // console.log(uc);
-                    // // uc.then(onUploadComplete(uc.info));
-                    // function onUploadComplete(info) {
-                    //     // console.log(a);
-                    //     console.log(info);
-                    //     console.log('Upload Complete!');
-                    // }
-                    // uploadcare.onUploadComplete(function(){
-                    //     console.log('Upload Complete!!');
-                    // })
-                    // console.log(p);
-                }
-            }
-        }
-    })
+    // .directive('pnUploadProfilePicButton', function () {
+    //     return {
+    //         restrict: 'E',
+    //         scope: { },
+    //         templateUrl: 'Directives/home/pn-upload-profile-pic-button.html',
+    //         link: function ($scope, element, attrs) {
+    //             console.log('PROFILE PIC!!');
+    //             $scope.label = "Upload Profile Photo"
+    //             // <script>uploadcare.openPanel('#uploader-placeholder');</script>
+    //             $scope.uploadPP = function() {
+    //                 // var p = element.find('uploader-placeholder')
+    //                 var widget = uploadcare.Widget('[role=uploadcare-uploader]');
+    //                 console.log(widget);
+    //                 // widget.openDialog()
+    //                 widget.openDialog(null, {
+    //                     // ng-model="object.image.info.uuid"
+    //                     publicKey: "55a55d432aed473a7467",
+    //                     imagesOnly: true,
+    //                     // onUploadComplete: 'onUploadComplete(info)',
+    //                 })
+    //                 widget.onUploadComplete(function(info){
+    //                     console.log(info);
+    //                     var r = new Firebase("https://connect502.firebaseio.com/users/"+sessionStorage.ubi+"/image")
+    //                     r.set({info: info})
+    //                     // var sizes = {}
+    //                     // sizes.scaled500 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/500x/'
+    //                     // sizes.scaled400 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/400x/'
+    //                     // sizes.scaled300 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/300x/'
+    //                     // sizes.scaled200 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/200x/'
+    //                     // sizes.scaled100 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/100x/'
+    //                     //
+    //                     // r.set({info: info, sizes: sizes})
+    //                 })
+    //                 // console.log(uc);
+    //                 // // uc.then(onUploadComplete(uc.info));
+    //                 // function onUploadComplete(info) {
+    //                 //     // console.log(a);
+    //                 //     console.log(info);
+    //                 //     console.log('Upload Complete!');
+    //                 // }
+    //                 // uploadcare.onUploadComplete(function(){
+    //                 //     console.log('Upload Complete!!');
+    //                 // })
+    //                 // console.log(p);
+    //             }
+    //         }
+    //     }
+    // })
 
     .directive('pnProductTypeFilterButton', function () {
         return {
@@ -686,131 +686,131 @@
         }
     })
 
-    .directive('authorHeader', function () {
-        return {
-            restrict: 'E',
-            scope: {
-                author: '='
-            },
-            templateUrl: 'Directives/wts-card/author-header.html',
-            link: function ($scope, element, attrs) {
-                // console.log($scope.wts);
-                var r = new Firebase("https://connect502.firebaseio.com/vendors/"+$scope.author)
-                r.on('value', function(dataSnapshot) {
-                    $scope.me = dataSnapshot.val();
-                    // console.log($scope.me);
-                });
-                var m = new Firebase("https://connect502.firebaseio.com/users/"+$scope.author+"/image/sizes/scaled300")
-                m.on('value', function(dataSnapshot) {
-                    $scope.authorpic = dataSnapshot.val();
-                    console.log($scope.author);
-                });
-            }
-        }
-    })
-    .directive('itemDesc', function () {
-        return {
-            restrict: 'E',
-            scope: {
-                desc: '=',
-                price: '='
-            },
-            templateUrl: 'Directives/wts-card/item-desc.html',
-            link: function ($scope, element, attrs) {
-                // console.log($scope.wts);
-            }
-        }
-    })
-    .directive('wtsCard', function () {
-        return {
-            restrict: 'E',
-            scope: {
-                wts: '='
-            },
-            templateUrl: 'Directives/wts-card/wts-card.html',
-            link: function ($scope, element, attrs) {
-                // console.log($scope.wts);
-                // $scope.imagePath = 'img/card-image.png';
-
-            }
-        }
-    })
-    .directive('newWtsImageUpload', function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'Directives/wts-card/wts-image-upload.html',
-            link: function ($scope, element, attrs) {
-                // console.log('Here i am');
-                $scope.onUCUploadComplete = function (info) {
-                    console.log(info);
-                    // var r = new Firebase("https://connect502.firebaseio.com/wts/"+$scope.wtsid+"/image")
-                    var sizes = {}
-                    sizes.scaled500 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/500x/'
-                    sizes.scaled400 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/400x/'
-                    sizes.scaled300 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/300x/'
-                    sizes.scaled200 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/200x/'
-                    sizes.scaled100 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/100x/'
-
-                    $scope.wts.image = {info: info, sizes: sizes}
-                }
-                // console.log($scope.wts);
-                // $scope.imagePath = 'img/card-image.png';
-
-            }
-        }
-    })
-    .directive('existingWtsImageUpload', function () {
-        return {
-            restrict: 'E',
-            scope: {
-                wtsid: '='
-            },
-            templateUrl: 'Directives/wts-card/wts-image-upload.html',
-            link: function ($scope, element, attrs) {
-                // console.log('Here i am');
-                $scope.onUCUploadComplete = function (info) {
-                    console.log(info);
-                    var r = new Firebase("https://connect502.firebaseio.com/wts/"+$scope.wtsid+"/image")
-                    var sizes = {}
-                    sizes.scaled500 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/500x/'
-                    sizes.scaled400 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/400x/'
-                    sizes.scaled300 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/300x/'
-                    sizes.scaled200 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/200x/'
-                    sizes.scaled100 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/100x/'
-
-                    r.set({info: info, sizes: sizes})
-                }
-                // console.log($scope.wts);
-                // $scope.imagePath = 'img/card-image.png';
-
-            }
-        }
-    })
-    .directive('profilePictureUpload', function () {
-        return {
-            restrict: 'E',
-            scope: {
-                userid: '='
-            },
-            templateUrl: 'Directives/wts-card/profile-picture-upload.html',
-            link: function ($scope, element, attrs) {
-                // console.log('Here i am');
-                $scope.onUCUploadComplete = function (info) {
-                    console.log(info);
-                    var r = new Firebase("https://connect502.firebaseio.com/users/"+$scope.userid+"/image")
-                    var sizes = {}
-                    sizes.scaled500 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/500x/'
-                    sizes.scaled400 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/400x/'
-                    sizes.scaled300 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/300x/'
-                    sizes.scaled200 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/200x/'
-                    sizes.scaled100 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/100x/'
-
-                    r.set({info: info, sizes: sizes})
-                }
-                // console.log($scope.wts);
-                // $scope.imagePath = 'img/card-image.png';
-
-            }
-        }
-    })
+    // .directive('authorHeader', function () {
+    //     return {
+    //         restrict: 'E',
+    //         scope: {
+    //             author: '='
+    //         },
+    //         templateUrl: 'Directives/wts-card/author-header.html',
+    //         link: function ($scope, element, attrs) {
+    //             // console.log($scope.wts);
+    //             var r = new Firebase("https://connect502.firebaseio.com/vendors/"+$scope.author)
+    //             r.on('value', function(dataSnapshot) {
+    //                 $scope.me = dataSnapshot.val();
+    //                 // console.log($scope.me);
+    //             });
+    //             var m = new Firebase("https://connect502.firebaseio.com/users/"+$scope.author+"/image/sizes/scaled300")
+    //             m.on('value', function(dataSnapshot) {
+    //                 $scope.authorpic = dataSnapshot.val();
+    //                 console.log($scope.author);
+    //             });
+    //         }
+    //     }
+    // })
+    // .directive('itemDesc', function () {
+    //     return {
+    //         restrict: 'E',
+    //         scope: {
+    //             desc: '=',
+    //             price: '='
+    //         },
+    //         templateUrl: 'Directives/wts-card/item-desc.html',
+    //         link: function ($scope, element, attrs) {
+    //             // console.log($scope.wts);
+    //         }
+    //     }
+    // })
+    // .directive('wtsCard', function () {
+    //     return {
+    //         restrict: 'E',
+    //         scope: {
+    //             wts: '='
+    //         },
+    //         templateUrl: 'Directives/wts-card/wts-card.html',
+    //         link: function ($scope, element, attrs) {
+    //             // console.log($scope.wts);
+    //             // $scope.imagePath = 'img/card-image.png';
+    //
+    //         }
+    //     }
+    // })
+    // .directive('newWtsImageUpload', function () {
+    //     return {
+    //         restrict: 'E',
+    //         templateUrl: 'Directives/wts-card/wts-image-upload.html',
+    //         link: function ($scope, element, attrs) {
+    //             // console.log('Here i am');
+    //             $scope.onUCUploadComplete = function (info) {
+    //                 console.log(info);
+    //                 // var r = new Firebase("https://connect502.firebaseio.com/wts/"+$scope.wtsid+"/image")
+    //                 var sizes = {}
+    //                 sizes.scaled500 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/500x/'
+    //                 sizes.scaled400 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/400x/'
+    //                 sizes.scaled300 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/300x/'
+    //                 sizes.scaled200 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/200x/'
+    //                 sizes.scaled100 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/100x/'
+    //
+    //                 $scope.wts.image = {info: info, sizes: sizes}
+    //             }
+    //             // console.log($scope.wts);
+    //             // $scope.imagePath = 'img/card-image.png';
+    //
+    //         }
+    //     }
+    // })
+    // .directive('existingWtsImageUpload', function () {
+    //     return {
+    //         restrict: 'E',
+    //         scope: {
+    //             wtsid: '='
+    //         },
+    //         templateUrl: 'Directives/wts-card/wts-image-upload.html',
+    //         link: function ($scope, element, attrs) {
+    //             // console.log('Here i am');
+    //             $scope.onUCUploadComplete = function (info) {
+    //                 console.log(info);
+    //                 var r = new Firebase("https://connect502.firebaseio.com/wts/"+$scope.wtsid+"/image")
+    //                 var sizes = {}
+    //                 sizes.scaled500 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/500x/'
+    //                 sizes.scaled400 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/400x/'
+    //                 sizes.scaled300 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/300x/'
+    //                 sizes.scaled200 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/200x/'
+    //                 sizes.scaled100 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/100x/'
+    //
+    //                 r.set({info: info, sizes: sizes})
+    //             }
+    //             // console.log($scope.wts);
+    //             // $scope.imagePath = 'img/card-image.png';
+    //
+    //         }
+    //     }
+    // })
+    // .directive('profilePictureUpload', function () {
+    //     return {
+    //         restrict: 'E',
+    //         scope: {
+    //             userid: '='
+    //         },
+    //         templateUrl: 'Directives/wts-card/profile-picture-upload.html',
+    //         link: function ($scope, element, attrs) {
+    //             // console.log('Here i am');
+    //             $scope.onUCUploadComplete = function (info) {
+    //                 console.log(info);
+    //                 var r = new Firebase("https://connect502.firebaseio.com/users/"+$scope.userid+"/image")
+    //                 var sizes = {}
+    //                 sizes.scaled500 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/500x/'
+    //                 sizes.scaled400 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/400x/'
+    //                 sizes.scaled300 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/300x/'
+    //                 sizes.scaled200 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/200x/'
+    //                 sizes.scaled100 = 'https://ucarecdn.com/'+info.uuid+'/-/resize/100x/'
+    //
+    //                 r.set({info: info, sizes: sizes})
+    //             }
+    //             // console.log($scope.wts);
+    //             // $scope.imagePath = 'img/card-image.png';
+    //
+    //         }
+    //     }
+    // })
 })();

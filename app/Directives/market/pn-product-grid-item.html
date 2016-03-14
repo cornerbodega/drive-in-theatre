@@ -3,7 +3,7 @@
         <div layout="column">
             <div>
                 <div ng-if="product.sellerInfo.name" class="pn-product-grid-seller-info">
-                    {{product.sellerInfo.name}} ({{product.sellerInfo.license}})
+                    {{product.sellerInfo.name}} <span ng-if="product.sellerInfo.license">({{product.sellerInfo.license}})
                 </div>
                 <div class="pnProductGridItemStrain">{{product.strain}}</div>
                 <div class="pn-product-grid-seller-info">{{product.inventorytypeInfo.label}}</div>
