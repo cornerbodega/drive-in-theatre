@@ -244,9 +244,8 @@ db.once('open', function() {
 //     });
 // }
 
-// export NODE_ENV=production
-// process.env.mode = 'PRODUCTION';
-var port = process.env.PORT || 8080;
+
+var port = process.env.PORT || 5000;
 http.listen(port, function() {
     console.log("Listening on " + port);
 });
