@@ -5,6 +5,7 @@ var countryApp = angular.module('countryApp', [
     'firebase', // For AngularFire binding
     'underscore', // For filtering, utility functions
     'ng-uploadcare', // For cloud image upload
+    'mobile-angular-ui',
 ]);
 
 countryApp.config(function($routeProvider) {
