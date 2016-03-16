@@ -1,16 +1,7 @@
-/*
 
-Landing Zero theme - A free landing page theme from BootstrapZero
-http://www.bootstrapzero.com
-
-*/
-/*@mixin vertical-align($position: relative) {
-  position: $position;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}*/
+.pn-landing-card {
+    background: rgba(0, 0, 0, 0.8);
+}
 .pn-page-title {
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
