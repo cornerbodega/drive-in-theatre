@@ -13,6 +13,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http)
 var unirest = require("unirest");
 var Firebase = require('firebase');
+var fs = require('fs')
 // var users = require('./server/users')
 //
 // var lcbPost = unirest("POST", "https://wslcb.mjtraceability.com/serverjson.asp");
@@ -244,8 +245,18 @@ db.once('open', function() {
 //     });
 // }
 
+// var options = {
+//   key: fs.readFileSync('key.pem'),
+//   cert: fs.readFileSync('cert.pem')
+// };
 
-var port = process.env.PORT || 5000;
-http.listen(port, function() {
-    console.log("Listening on " + port);
+// var https = require('https').createServer(options, app);
+
+var hport = process.env.PORT || 5000;
+var sport = process.env.PORT || 8000;
+// https.listen(sport, function() {
+//     console.log("Listening on " + sport);
+// });
+http.listen(hport, function() {
+    console.log("Listening on " + hport);
 });

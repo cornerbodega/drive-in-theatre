@@ -1,6 +1,10 @@
 <html ng-app="countryApp">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <!-- <meta charset="utf-8" /> -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
     <title>Greenboard MVPMVP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Greenboard - Washington's B2B Cannabis Marketplace" />
@@ -15,6 +19,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/mobile-angular-ui/dist/css/mobile-angular-ui.min.css">
+
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-material/angular-material.min.js"></script>
@@ -30,6 +36,7 @@
     <script src="bower_components/angular-uploadcare/angular-uploadcare.js"></script>
     <script src="bower_components/Uploadcare/uploadcare.min.js"></script>
     <script>UPLOADCARE_PUBLIC_KEY = '55a55d432aed473a7467';</script>
+    <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
 
     <script src="app.js"></script>
     <script src="Utilities/constants.js"></script>
@@ -51,7 +58,7 @@
     <script src="DB/firebaseData.service.js"></script>
 
 </head>
-<body ng-controller="IndexController as vm" class="grey lighten-3" ng-cloak>
+<body ng-controller="IndexController as vm" class="grey lighten-3" ui-prevent-touchmove-defaults ng-cloak>
     <div ng-view flex class="grey lighten-3" class="height:100%"></div>
 </body>
 </html>
