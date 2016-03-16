@@ -1,11 +1,11 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('MarketController', [
+    .controller('MarketController', ['$location'
     MarketController
 ])
 
-function MarketController() {
+function MarketController($location) {
     if(!sessionStorage.sessionid) $location.path('/')
 };
 

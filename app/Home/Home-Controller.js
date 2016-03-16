@@ -1,11 +1,11 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('HomeController', [
+    .controller('HomeController', [ '$location',
     HomeController
 ])
 
-function HomeController() {
+function HomeController($location) {
     if(!sessionStorage.sessionid) $location.path('/')
 
 }
