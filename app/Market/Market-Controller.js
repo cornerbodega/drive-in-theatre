@@ -1,7 +1,7 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('MarketController', ['$location'
+    .controller('MarketController', ['$location',
     MarketController
 ])
 
