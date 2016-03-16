@@ -633,6 +633,7 @@
     .directive('pnNav', function ($location, $window) {
         return {
             restrict: 'E',
+            // transclude: true,
             scope: {
                 loc: '='
             },
@@ -665,19 +666,6 @@
                     $location.path($window.history.back())
                 }
                 $scope._myName = sessionStorage.name
-                // if ($scope.loc === 'market') {
-                //     $scope.links = [
-                //         {name: 'Me', value: 'me'},
-                //         {name: 'Cart', value: 'cart'}
-                //     ];
-                // }
-                //
-                // if ($scope.loc === 'me') {
-                //     $scope.links = [
-                //         {name: 'Market', value: 'market'},
-                //         {name: 'Cart', value: 'cart'}
-                //     ];
-                // }
 
                 $scope.goTo = function (p){
                     $location.path(p);
