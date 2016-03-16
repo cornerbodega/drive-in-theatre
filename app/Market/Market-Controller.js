@@ -6,6 +6,7 @@
 ])
 
 function MarketController() {
+    if(!sessionStorage.sessionid) $location.path('/')
 };
 
 })();

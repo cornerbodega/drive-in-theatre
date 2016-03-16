@@ -6,6 +6,7 @@
 ])
 
 function HomeController() {
+    if(!sessionStorage.sessionid) $location.path('/')
 
 }
 })();
