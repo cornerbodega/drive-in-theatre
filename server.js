@@ -253,10 +253,10 @@ db.once('open', function() {
 // var https = require('https').createServer(options, app);
 
 var hport = process.env.PORT || 5000;
-var sport = process.env.PORT || 8000;
+// var sport = process.env.PORT || 8000;
 // https.listen(sport, function() {
 //     console.log("Listening on " + sport);
 // });
 http.listen(hport, function() {
-    console.log("Listening on " + sport);
+    console.log("Listening on " + 8000);
 });
