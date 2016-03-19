@@ -258,5 +258,5 @@ var sport = process.env.PORT || 8000;
 //     console.log("Listening on " + sport);
 // });
 http.listen(hport, function() {
-    console.log("Listening on " + hport);
+    console.log("Listening on " + sport);
 });
