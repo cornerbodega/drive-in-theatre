@@ -637,7 +637,7 @@
             scope: {
                 loc: '='
             },
-            templateUrl: 'Directives/nav/pn-nav.html',
+            templateUrl: 'Directives/nav/pn-nav1.html',
             link: function ($scope, element, attrs) {
                 if ($scope.loc === 'market') {
                     allFalse();
