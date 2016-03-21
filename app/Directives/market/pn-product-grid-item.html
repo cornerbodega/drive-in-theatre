@@ -2,9 +2,6 @@
     <div layout="column" >
         <div layout="column">
             <div>
-                <div ng-if="product.sellerInfo.name" class="pn-product-grid-seller-info">
-                    {{product.sellerInfo.name}} <span ng-if="product.sellerInfo.license">({{product.sellerInfo.license}})
-                </div>
                 <div class="pnProductGridItemStrain">{{product.strain}}</div>
                 <div class="pn-product-grid-seller-info">{{product.inventorytypeInfo.label}}</div>
 
@@ -15,7 +12,7 @@
 
             </div>
             <div class="pnProductGridItemPriceWeight" ng-if="!product.inventorytypeInfo.weighable">
-                {{product.remaining_quantity}} x {{product.usable_weight}} gram packages for <span ng-show="product.price">${{product.price}}</span>
+                {{product.remaining_quantity}} x {{product.usable_weight}} gram packages <span ng-show="product.price">for ${{product.price}}</span>
 
             </div>
             <div class="pnProductGridItemPriceWeight">
@@ -27,7 +24,9 @@
             <div ng-if="!product.sellerInfo.name" class="pnProductGridItemPriceWeight">
                 {{product.sessiontimelabel}}
             </div>
-
+            <div ng-if="product.sellerInfo.name" class="pn-product-grid-seller-info">
+                {{product.sellerInfo.name}} <span ng-if="product.sellerInfo.license">({{product.sellerInfo.license}})
+            </div>
         </div>
         <div class="">
             <pn-detail-product-detail product="product" />
