@@ -248,14 +248,25 @@
                     // console.log($scope.inventory);
 
                 }
-
+                $scope.ia = { qaTesting: false, uploadImage: false }
                 function chooseWtsInventoryItem(item) {
                     // console.log(item.image);
                     $scope.selectedItemCreateWts = item
-                    $scope.ia_UploadImage = true
+                    $scope.ia.uploadImage = true
+                    $scope.ia.qaTesting = true
                     $scope.data.selectedIndex = 1
                     // console.log(item);
                 }
+
+            }
+        }
+    })
+    .directive('pnQaConfirmCreateWtsWizard', function($http, WTS) {
+        return {
+            restrict: 'E',
+            // scope: { },
+            templateUrl: 'Directives/home/pn-create-wts-wizard/pn-qa-confirm-create-wts-wizard/pn-qa-confirm-create-wts-wizard.html',
+            link: function($scope, element, attrs) {
 
             }
         }
@@ -284,10 +295,10 @@
                         $scope.ia_DescriptionPrice = true;
                         $scope.data.selectedIndex = 2
                     }
-                    // if (step === 'desc') {
-                        // $scope.ia_Confirm = true;
-                        // $scope.data.selectedIndex = 3
-                    // }
+                    if (step === 'QA') {
+                        $scope.ia_Confirm = true;
+                        $scope.data.selectedIndex = 1
+                    }
                 }
                 $scope.pnCreateWts = function() {
                     CreateWts.create($scope.selectedItemCreateWts, function(){

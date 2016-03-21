@@ -1,0 +1,36 @@
+<div layout="column" flex >
+    <div>
+        <div class="pnProductGridselectedItemCreateWtsPriceWeight" ng-if="selectedItemCreateWts.inventorytypeInfo.weighable">
+            {{selectedItemCreateWts.remaining_quantity}} grams
+        </div>
+        <div class="pnProductGridselectedItemCreateWtsPriceWeight" ng-if="!selectedItemCreateWts.inventorytypeInfo.weighable">
+            {{selectedItemCreateWts.remaining_quantity}} x {{selectedItemCreateWts.usable_weight}} gram packages
+        </div>
+    </div>
+    <div layout="row">
+        <ul>
+            <li>Barcode: {{selectedItemCreateWts.id}}</li>
+            <li>Strain: <a>{{selectedItemCreateWts.strain}}</a></li>
+            <li ng-if="selectedItemCreateWts.productname">Productname: {{selectedItemCreateWts.productname}}</li>
+            <li>Quantity: {{selectedItemCreateWts.remaining_quantity}}</li>
+            <li ng-if="selectedItemCreateWts.usable_weight">Usable Weight: {{selectedItemCreateWts.usable_weight}}</li>
+        </ul>
+        <ul>
+            <li layout-padding></li>
+        </ul>
+        <ul ng-show="selectedItemCreateWts.qa.potency.Total">
+            <li>Total THC: {{selectedItemCreateWts.qa.potency.Total}}%</li>
+            <li>CBD: {{selectedItemCreateWts.qa.potency.CBD}}%</li>
+            <li ng-if="selectedItemCreateWts.qa.moisture.moisture">Moisture: {{selectedItemCreateWts.qa.moisture.moisture}}%</li>
+        </ul>
+        <ul>
+            <li layout-padding></li>
+        </ul>
+        <ul ng-show="selectedItemCreateWts.qa.bacteria">
+            <li>Aerobic Bacteria: {{selectedItemCreateWts.qa.bacteria.aerobic_bacteria}}</li>
+            <li>Bile Tolerant: {{selectedItemCreateWts.qa.bacteria.bile_tolerant}}</li>
+            <li>Coliforms: {{selectedItemCreateWts.qa.bacteria.coliforms}}</li>
+            <li>Tested By: <a>{{selectedItemCreateWts.qa.lab_license}}</a></li>
+        </ul>
+    </div>
+</div>

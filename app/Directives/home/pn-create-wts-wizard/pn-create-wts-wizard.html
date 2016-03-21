@@ -5,7 +5,28 @@
     <md-tab label="Select a Product">
         <pn-product-select-create-wts-wizard flex />
     </md-tab>
-    <md-tab ng-disabled="!ia_UploadImage" label="Upload Image">
+    <md-tab ng-disabled="!ia.qaTesting" label="QA Testing">
+        <div class="md-padding">
+            <!-- {{selectedItemCreateWts}} -->
+            <div layout="vertical-align" layout-margin>
+                <!-- <div>
+                    <pn-upload-image-pane-create-wts-wizard />
+                </div> -->
+                <pn-qa-confirm-create-wts-wizard />
+                <div class="">
+                    <button layout="row" ng-click="pnGoToNextStepCreateWizard('upload')" layout-align="center center" class="pnGreyGreen  btn btn-xl white-text" ng-show="selectedItemCreateWts.image">
+                        NEXT
+                    </button>
+                </div>
+            </div>
+
+            <!-- <pn-wrapper-product-grid-item product="selectedItemCreateWts"> -->
+
+            <br />
+
+        </div>
+    </md-tab>
+    <md-tab ng-disabled="!ia.uploadImage" label="Upload Image">
         <div class="md-padding">
             <!-- {{selectedItemCreateWts}} -->
             <div layout="row" layout-margin>
@@ -33,7 +54,7 @@
         <md-content class="md-padding">
             <div layout="row" ng-click="pnCreateWts()" layout-align="center center" class="pnGreyGreen  pn-next-button-create-wts-wizard btn btn-xl" ng-show="pnDescPriceValid">
                 <center><a>CREATE</a></center>
-            </div>	
+            </div>
             <pn-desc-price-create-wts-wizard />
             <pn-wrapper-product-grid-item product="selectedItemCreateWts">
 

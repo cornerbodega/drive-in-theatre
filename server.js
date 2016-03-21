@@ -52,6 +52,9 @@ app.get('/api/vendors', vendors.get);
 app.get('/api/vendors/:ubi', vendors.get);
 // app.post('/api/vendors/find', vendors.find)
 
+// LABS
+var vendors = require('./server/labs.js');
+labs.refresh()
 
 // USERS
 // app.post('/api/users/create', users.create);
