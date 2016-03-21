@@ -5,15 +5,20 @@ var countryApp = angular.module('countryApp', [
     'firebase', // For AngularFire binding
     'underscore', // For filtering, utility functions
     'ng-uploadcare', // For cloud image upload
-    'mobile-angular-ui',
+    // 'mobile-angular-ui',
+
 ]);
 
 countryApp.config(function($routeProvider) {
     $routeProvider
-    .when('/documentation', { // Place to put design documentation
-        templateUrl: 'Documentation/Documentation.html',
-        controller: 'DocumentationController',
+    .when('/sign-in', { // Place to put design documentation
+        templateUrl: 'Sign-In/Sign-In.html',
+        controller: 'SignInController',
     })
+    // .when('/documentation', { // Place to put design documentation
+    //     templateUrl: 'Documentation/Documentation.html',
+    //     controller: 'DocumentationController',
+    // })
     .when('/wts/create/', { // Page to create a new Want To Sell listing
         templateUrl: 'Create-Wts-Wizard/Create-Wts-Wizard.html',
         controller: 'CreateWtsWizardController',

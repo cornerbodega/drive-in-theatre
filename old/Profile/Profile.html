@@ -6,7 +6,7 @@
 <center><pn-product-type-filter-button ng-click="pnProductTypeFilterAction(type)" ng-repeat="type in types" type="type"></center>
 </div>
 <div flex ng-repeat="product in products | filter:search">
-<pn-product-grid-item class="waves-effect" product="product">
+<pn-product-grid-item class="" product="product">
 </div>
 </div>
 </div> -->
@@ -34,11 +34,11 @@
 
         </div>
         <div>
-            <div class="pn-profile-create-new-listing-button waves-effect waves-green red" flex>
-                <!-- class="btn-flat waves-effect waves-dark" -->
-                <a ng-click="showCreateWts=!showCreateWts" class="btn-flat waves-effect waves-dark" layout="row" layout-align="center center">Create New Listing</i></a>
+            <div class="pn-profile-create-new-listing-button  waves-green red" flex>
+                <!-- class="btn-flat  waves-dark" -->
+                <a ng-click="showCreateWts=!showCreateWts" class="btn-flat  waves-dark" layout="row" layout-align="center center">Create New Listing</i></a>
 
-                <!-- <center><h5 class="waves-effect waves-dark" ng-click="showCreateWts=!showCreateWts">Create New Listing <i class="fa fa-plus-square"></i></h5></center> -->
+                <!-- <center><h5 class=" waves-dark" ng-click="showCreateWts=!showCreateWts">Create New Listing <i class="fa fa-plus-square"></i></h5></center> -->
                 <div ng-show="showCreateWts" flex>
                     <!-- <h6>I am...</h6> -->
                     <md-tabs md-dynamic-height md-border-bottom>
@@ -76,7 +76,7 @@
 
                             </div>
 
-                            <a ng-click="createWts()" class="btn-flat waves-effect waves-dark" layout="row" layout-align="center end">Create</i></a>
+                            <a ng-click="createWts()" class="btn-flat  waves-dark" layout="row" layout-align="center end">Create</i></a>
                         </md-tab>
                         <md-tab label="I Want to Buy">
                             <md-input-container class="md-block">
@@ -84,7 +84,7 @@
                                 <!-- <input  ng-model="newLTBinput"> -->
                                 <textarea ng-model="newLTBinput" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                             </md-input-container>
-                            <a class="btn-flat waves-effect waves-dark" layout="row" layout-align="center end" ng-click="newWTB()">Create</i></a>
+                            <a class="btn-flat  waves-dark" layout="row" layout-align="center end" ng-click="newWTB()">Create</i></a>
 
                         </md-tab>
 
