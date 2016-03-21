@@ -11,6 +11,16 @@
     //         }
     //     }
     // })
+    .directive('pnHome', function() {
+        return {
+            restrict: 'E',
+            scope: {  },
+            templateUrl: 'Directives/home/pn-home/pn-home.html',
+            link: function($scope, element, attrs) {
+
+            }
+        }
+    })
     .directive('pnWrapperProductGridItem', function() {
         return {
             restrict: 'E',
