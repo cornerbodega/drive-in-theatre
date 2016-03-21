@@ -29,9 +29,12 @@ countryApp.config(function($routeProvider) {
         controller: 'ProductController',
 
     })
-    .when('/home', { // View my posts, Create new post page
-        templateUrl: 'Home/Home.html',
-        controller: 'HomeController',
+    .when('/home', { // Create new post page
+        templateUrl: 'Create-Wts-Wizard/Create-Wts-Wizard.html',
+        controller: 'CreateWtsWizardController',
+
+        // templateUrl: 'Home/Home.html',
+        // controller: 'HomeController',
 
     })
     .when('/market', { // View community posts page

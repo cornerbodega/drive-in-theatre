@@ -673,6 +673,21 @@
             }
         }
     })
+    .directive('pnBottomNav', function ($location) {
+        return {
+            restrict: 'E',
+            scope: {
+                loc: '='
+            },
+            templateUrl: 'Directives/nav/pn-bottom-nav.html',
+            link: function ($scope, element, attrs) {
+
+                $scope.goTo = function (p){
+                    $location.path(p);
+                }
+            }
+        }
+    })
 
     // .directive('authorHeader', function () {
     //     return {
