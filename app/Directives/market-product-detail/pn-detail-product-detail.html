@@ -11,14 +11,14 @@
             {{product.qa.potency.CBD}}%
         </div>
     </div>
-    <div layout="column" ng-if="product.qa.moisture.moisture">
+    <div ng-if="showExtra" layout="column" ng-if="product.qa.moisture.moisture">
         <div class="pnProductGridItemInfoLabel">Moisture</div>
         <div class="pnProductGridItemTHC">
             {{product.qa.moisture.moisture}}%
         </div>
     </div>
 </div>
-<div layout="row" layout-padding ng-if="product.qa.bacteria">
+<div layout="row" ng-if="showExtra" layout-padding ng-if="product.qa.bacteria">
     <div layout="column">
         <div class="pnProductGridItemInfoLabel">Aerobic Bacteria</div>
         <div class="pnProductGridItemTHC">
