@@ -3,7 +3,8 @@
     <!-- <button class="btn btn-flat white-text" ng-disabled="disabled.trace">Actions</button> -->
     <!-- <button class="btn btn-flat white-text" ng-disabled="disabled.qa">QA</button>
     <button class="btn btn-flat white-text" ng-disabled="disabled.publish">Publish</button> -->
-    <md-tabs md-selected="data.selectedIndex" flex md-dynamic-height md-border-bottom>
+
+    <md-tabs ng-show="numSelected > 0" md-selected="data.selectedIndex" flex md-dynamic-height md-border-bottom>
         <md-tab class="white-text" label="Publish">
             <div class="md-padding">
                 <button class="btn btn-raised white-text" ng-disabled="disabled.publish">Publish</button>
