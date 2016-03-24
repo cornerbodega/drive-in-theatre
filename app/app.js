@@ -6,6 +6,7 @@ var countryApp = angular.module('countryApp', [
     'underscore', // For filtering, utility functions
     'ng-uploadcare', // For cloud image upload
     'pn-labs',
+    'vs-repeat'
     // 'pn-landing',
     // 'mobile-angular-ui',
 

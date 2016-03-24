@@ -1,0 +1,26 @@
+<!-- <div >
+<div vs-repeat class="card small">
+<div ng-repeat="item in inventory">
+{{item.id}}
+</div>
+</div>
+
+</div> -->
+<div class="input-field col s6">
+    <input type="text" id="search" ng-model="search">
+    <label for="search"><i class="fa fa-search"></i> Search</label>
+</div>
+<div class="repeater-container">
+    <table style="width: 100%;">
+        <tbody vs-repeat vs-scroll-parent=".repeater-container">
+            <tr ng-click="pnSelectItem(item)"
+            ng-class="item.$selected ? 'item-element well green darken-3 white-text' : 'item-element well'"  ng-repeat="item in inventory|filter:search">
+
+                <td><span>{{item.id}} </span></td>
+                <td><span>{{item.strain}} </span></td>
+                <td><span>{{item.inventorytypelabel}} </span></td>
+                <td><span>{{item.pnQuantitiyLabel}} </span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

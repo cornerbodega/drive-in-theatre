@@ -47,6 +47,15 @@ function get(req, res) {
                         if (!i.strain) i.strain = "Mixed"
                         i.clientGroupTag = i.strain + ' - ' + i.inventorytypelabel
                         i.sessiontimelabel = pnToTime(i.sessiontime)
+
+                        // <p  ng-if="item.inventorytypeInfo.weighable">
+                        //     {{item.remaining_quantity}} grams
+                        // </p>
+                        // <p  ng-if="!item.inventorytypeInfo.weighable">
+                        //     {{item.remaining_quantity}} x {{item.usable_weight}} gram packages
+                        // </p>
+                        if (i.inventorytypeInfo.weighable) i.pnQuantitiyLabel = i.remaining_quantity + ' grams'
+                        if (!i.inventorytypeInfo.weighable) i.pnQuantitiyLabel = i.remaining_quantity + ' x '+ i.usable_weight + ' grams'
                     };
                 });
             });
