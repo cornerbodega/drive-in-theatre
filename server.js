@@ -47,14 +47,13 @@ app.get('/api/inventory/:sessionid', inventory.get)
 
 // VENDORS
 var vendors = require('./server/vendors.js');
-// vendors.refresh()
+        // vendors.refresh()
 app.get('/api/vendors', vendors.get);
 app.get('/api/vendors/:ubi', vendors.get);
-// app.post('/api/vendors/find', vendors.find)
 
 // LABS
-var vendors = require('./server/labs.js');
-labs.refresh()
+var labs = require('./server/labs.js');
+        // labs.refresh()
 
 // USERS
 // app.post('/api/users/create', users.create);

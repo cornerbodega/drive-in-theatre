@@ -44,10 +44,13 @@ function get(req, res) {
                         })
                         i.inventorytypeInfo = getTypeInfo(i.inventorytype);
                         i.inventorytypelabel = i.inventorytypeInfo.label
+                        if (!i.strain) i.strain = "Mixed"
+                        i.clientGroupTag = i.strain + ' - ' + i.inventorytypelabel
                         i.sessiontimelabel = pnToTime(i.sessiontime)
                     };
                 });
             });
+
             return inventory
         };
         function pnToTime(sessiontime) {

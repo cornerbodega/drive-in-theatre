@@ -18,8 +18,8 @@ function refresh(req, res, cb) {
         // make this by ubi
         var labs = {}
         var ref = new Firebase ("https://connect502.firebaseio.com/labs")
-        body.vendor.map(function(lab) {
-            b[l.location] = lab
+        body.qa_lab.map(function(lab) {
+            labs[lab.location] = lab
         })
         ref.set(labs)
     });

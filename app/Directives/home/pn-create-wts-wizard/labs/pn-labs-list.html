@@ -1,0 +1,14 @@
+<div flex class="" ng-repeat="lab in labs | filter:search">
+    <div class="width100" layout="row" >
+        <div ng-if="lab.image" ng-click="toLabDetail(lab)" flex pn-background-image="{{lab.image}}">
+            <div >
+                <pn-lab-summary lab="lab" />
+            </div>
+        </div>
+        <div ng-if="!lab.image" ng-click="toLabDetail(lab)" flex>
+            <div >
+                <pn-lab-summary lab="lab" />
+            </div>
+        </div>
+    </div>
+</div>

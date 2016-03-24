@@ -1,7 +1,11 @@
-<md-toolbar>
-    <div class="md-toolbar-tools">
-      <span><h1 class="cursive">greenboard </h1></span>
+<md-toolbar class="pn-transparent">
+    <div class="md-toolbar-tools pn-transparent">
+        <!-- <span flex="20">
+            <div ng-show="labDetail" class="waves-effect" ng-click="back()"><i class="fa fa-angle-left fa-2x"></i></div>
+        </span> -->
+      <div><h1 class="cursive">greenboard</h1></div>
       <span flex></span>
-      <md-button ng-click="goTo('home')"><i class="fa fa-home fa-3x"></i></md-button>
-      <md-button ng-click="goTo('market')"><i class="fa fa-line-chart fa-3x"></i></md-button>
+      <button class="btn btn-flat white-text" aria-label="home" ng-click="goTo('home')"><i class="fa fa-home fa-2x"></i></button>
+      <button class="btn btn-flat white-text" aria-label="labs" ng-click="goTo('labs')"><i class="fa fa-tasks fa-2x"></i></button>
+      <button class="btn btn-flat white-text" aria-label="market" ng-click="goTo('market')"><i class="fa fa-line-chart fa-2x"></i></button>
 </md-toolbar>

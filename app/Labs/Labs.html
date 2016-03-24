@@ -1,0 +1,52 @@
+<div class="column">
+    <pn-nav loc="'product'" />
+    <div class="row">
+        <!-- <pn-product-detail-page product="product" flex  /> -->
+        <pn-labs-list />
+    </div>
+</div>
+<!-- <div ng-repeat="lab in labs">
+    <pn-lab-item-labs-list lab="lab"/>
+</div> -->
+<script type="text/ng-template" id="pn-labs-list.html">
+
+    <div flex class="" ng-repeat="lab in labs | filter:search">
+        <div class="width100" layout="row" >
+            <div ng-if="lab.image" ng-click="toLabDetail(lab)" flex pn-background-image="{{lab.image}}">
+                <div >
+                    <pn-lab-summary lab="lab" />
+                </div>
+            </div>
+            <div ng-if="!lab.image" ng-click="toLabDetail(lab)" flex>
+                <div >
+                    <pn-lab-summary lab="lab" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<!-- <script type="text/ng-template" id="pn-lab-item-labs-list.html">
+    <pn-lab-summary lab="lab" />
+</script> -->
+
+<script type="text/ng-template" id="pn-lab-summary.html">
+    <div class="pn-well pn-well-sm pn-product-detail-transparent-card width100" >
+        <div layout="column">
+            <div class="pn-text-20 pn-product-detail-text">{{lab.name}}</div>
+            <div class="pn-text-18">{{lab.city}}</div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="pn-lab-details.html">
+<div class="pn-well pn-well-sm pn-product-detail-transparent-card width100" >
+    <div layout="column">
+        <div class="pn-text-20 pn-product-detail-text">{{lab.name}}</div>
+        <div class="pn-text-18">{{lab.address1}}</div>
+        <div class="pn-text-18">{{lab.address2}}</div>
+        <div class="pn-text-18">{{lab.city}}, WA {{lab.zip}}</div>
+    </div>
+</div>
+</script>

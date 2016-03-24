@@ -1,4 +1,8 @@
 
+.pn-transparent {
+    background: rgba(255, 255, 255, 0);
+}
+
 .pn-landing-card {
     background: rgba(0, 0, 0, 0.8);
 }
@@ -14,6 +18,12 @@
     font-size: 17px;
 }
 .pn-text-18: {
+    /*@include: vertical-align();*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+.pn-text-20: {
     /*@include: vertical-align();*/
     font-family: 'Roboto', sans-serif;
     font-weight: 400;

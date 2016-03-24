@@ -5,6 +5,8 @@ var countryApp = angular.module('countryApp', [
     'firebase', // For AngularFire binding
     'underscore', // For filtering, utility functions
     'ng-uploadcare', // For cloud image upload
+    'pn-labs',
+    // 'pn-landing',
     // 'mobile-angular-ui',
 
 ]);
@@ -32,10 +34,14 @@ countryApp.config(function($routeProvider) {
     .when('/home', { //Create new post page
         templateUrl: 'Home/Home.html',
         controller: 'HomeController',
-
-        // templateUrl: 'Home/Home.html',
-        // controller: 'HomeController',
-
+    })
+    .when('/labs', { //Create new post page
+        templateUrl: 'Labs/Labs.html',
+        controller: 'LabsController',
+    })
+    .when('/labs/:id', { //Create new post page
+        templateUrl: 'Labs/Labs-Detail.html',
+        controller: 'LabsDetailController',
     })
     .when('/market', { // View community posts page
         templateUrl: 'Market/Market.html',

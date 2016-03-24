@@ -1,3 +1,82 @@
+Inventory Items need to be in firebase OR on a mongo... or something
+
+and/or I need pagination.
+
+Because otherwise the potting bench will not work. And I can't ship in good conscience.
+
+Remember the wish.
+
+
+1. Usage model
+2. Reliance
+3. Amazon log in. Amazon pay.
+
+
+1. Usage Model
+    Producer processors, retailers, labs get the link
+    The link leads to '/'
+
+    '/' landing
+        Amazon Sign-In Widget
+            onSuccess(setSessionAndlinkWithFirebaseAcount(ubi))
+        Sign Up for Greenboard Button
+            Leads to '/sign-up'
+
+    '/sign-up'
+        Amazon Sign-In Widget
+            onSuccess(showNewUserInfoForm())
+        New User Info Form
+            form.username
+            form.password
+            form.license_number
+            Create Account Button
+                ng-click="createAccount(form)"
+            createAccount = function(form) {
+                lcbpost(form, function(){
+                    if !success tell user to try FORM again. Do not pass go.
+                    if success go to ('/home')
+                })
+            }
+        Home is profile page
+            Only you can see your list of inventory
+            Each inventory Item will have a Strain, Inventory Type, Quantity, BarcodeID, date created, and QA information.
+            For each inventory item, the user will be able to:
+                A. Add a picture
+                B. Add a description of the item
+                C. Add an asking price for the item
+                D. If the item has not been QA tested, schedule a pickup from a partnering QA lab.
+                    D.1 Email labs to find partners! Ask them to pay 15% of business you give them.
+                E. If the item has passed QA testing, publish the item to the public marketplace
+                F. For free accounts, first post is free, future posts to the public marketplace are $20. Paid Accounts are $50/month and can create unlimited posts.
+                    F.1 Phone call. I will make these deals happen. I will get these deals to happen. If necessary, at the beginning, we can do it manually but make it look like it's all tech.  And it is all tech...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Client-ready MVP requires a standardized UI and a very specific goal.
 
 Start out with Trim pitch because I understand it and it's more novel and lower risk for clients.

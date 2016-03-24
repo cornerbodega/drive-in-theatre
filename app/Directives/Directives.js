@@ -11,16 +11,7 @@
     //         }
     //     }
     // })
-    .directive('pnHome', function() {
-        return {
-            restrict: 'E',
-            scope: {  },
-            templateUrl: 'Directives/home/pn-home/pn-home.html',
-            link: function($scope, element, attrs) {
-
-            }
-        }
-    })
+    
     .directive('pnWrapperProductGridItem', function() {
         return {
             restrict: 'E',
@@ -69,6 +60,17 @@
             templateUrl: 'Directives/market-product-detail/pn-price-desc-product-detail-text-card.html',
             link: function($scope, element, attrs) {
 
+            }
+        }
+    })
+    .directive('pnToQaWizardButton', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'Directives/home/pn-create-wts-wizard/pn-qa-confirm-create-wts-wizard/pn-to-qa-button-qa-confirm-create-wts-wizard.html',
+            link: function($scope, element, attrs) {
+                $scope.toLabSelect = function() {
+                    $location.path('/labs/select');
+                }
             }
         }
     })
@@ -215,6 +217,7 @@
             scope: { item: "=" },
             templateUrl: 'Directives/home/pn-create-wts-wizard/pn-item-product-select-create-wts-wizard.html',
             link: function($scope, element, attrs) {
+
             }
         }
     })
@@ -236,7 +239,7 @@
                             _.map(inventory, function(i){
                                 if (w.id === i.id) i.image = w.image
                             })
-                            console.log(w);
+                            // console.log(w);
                             // console.log(w.id);
                         })
 
@@ -261,13 +264,34 @@
             }
         }
     })
-    .directive('pnQaConfirmCreateWtsWizard', function($http, WTS) {
+    .directive('pnQaConfirmCreateWtsWizard', function(Labs, $location) {
         return {
             restrict: 'E',
             // scope: { },
             templateUrl: 'Directives/home/pn-create-wts-wizard/pn-qa-confirm-create-wts-wizard/pn-qa-confirm-create-wts-wizard.html',
             link: function($scope, element, attrs) {
+                $scope.$watch(function () { return $scope.selectedItemCreateWts }, function (newVal, oldVal) {
+                    if (typeof newVal !== 'undefined') {
+                        var labs = Labs.fbo()
+                        console.log($scope.selectedItemCreateWts);
+                        labs.$loaded().then(init)
+                        function init() {
+                            console.log($scope.selectedItemCreateWts);
+                            if (!$scope.selectedItemCreateWts) return
+                            var labb = labs[$scope.selectedItemCreateWts.qa.lab_license]
+                            if (!!labb) {
+                                $scope.selectedItemCreateWts.qa.lab_license_label = labb.name
+                                $scope.selectedItemCreateWts.qa.pnLab = labb
+                                console.log($scope.selectedItemCreateWts.qa);
+                            }
 
+                        }
+                    }
+                })
+                $scope.toLab = function (){
+                    Labs.view.lab = $scope.selectedItemCreateWts.qa.pnLab
+                    $location.path('/labs/' + $scope.selectedItemCreateWts.qa.lab_license)
+                }
             }
         }
     })
@@ -281,6 +305,7 @@
                 // var me = pnUsers.me()
                 // me.$loaded().then(init)
                 // $scope.label = "Create Post"
+
                 $scope.data = {
                     selectedIndex: 0,
                 };
@@ -660,37 +685,39 @@
             },
             templateUrl: 'Directives/nav/pn-nav1.html',
             link: function ($scope, element, attrs) {
-                if ($scope.loc === 'market') {
+                // if ($scope.loc === 'market') {
+                //     allFalse();
+                //     $scope.market = true;
+                // }
+                // if ($scope.loc === 'me') {
+                //     allFalse();
+                //     $scope.me = true;
+                // }
+                // if ($scope.loc === 'product') {
+                //     allFalse();
+                //     $scope.product = true;
+                // }
+                if ($scope.loc === 'labDetail') {
                     allFalse();
-                    $scope.market = true;
-                }
-                if ($scope.loc === 'me') {
-                    allFalse();
-                    $scope.me = true;
-                }
-                if ($scope.loc === 'product') {
-                    allFalse();
-                    $scope.product = true;
-                }
-                if ($scope.loc === 'sell') {
-                    allFalse();
-                    $scope.sell = true;
+                    $scope.labDetail = true;
                 }
                 function allFalse() {
-                    $scope.me = false;
-                    $scope.market = false;
-                    $scope.product = false
-                    $scope.sell = false;
+                    $scope.labDetail = false;
+                //     $scope.me = false;
+                //     $scope.market = false;
+                //     $scope.product = false
+                //     $scope.sell = false;
                 }
-                console.log($scope.sell);
+                // // console.log($scope.sell);
                 $scope.back = function() {
                     $location.path($window.history.back())
                 }
-                $scope._myName = sessionStorage.name
+                // $scope._myName = sessionStorage.name
 
                 $scope.goTo = function (p){
                     $location.path(p);
                 }
+
             }
         }
     })
