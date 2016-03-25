@@ -22,10 +22,14 @@ countryApp.config(function($routeProvider) {
     //     templateUrl: 'Documentation/Documentation.html',
     //     controller: 'DocumentationController',
     // })
-    .when('/wts/create/', { // Page to create a new Want To Sell listing
-        templateUrl: 'Create-Wts-Wizard/Create-Wts-Wizard.html',
-        controller: 'CreateWtsWizardController',
-
+    // .when('/wts/create/', { // Page to create a new Want To Sell listing
+    //     templateUrl: 'Create-Wts-Wizard/Create-Wts-Wizard.html',
+    //     controller: 'CreateWtsWizardController',
+    //
+    // })
+    .when('/publish', { // Page to create a new Want To Sell listing
+        templateUrl: 'Publish-Wts-Wizard/Publish-Wts-Wizard.html',
+        controller: 'PublishWtsWizardController',
     })
     .when('/product/:id', { // Product Detail page
         templateUrl: 'Product/Product.html',

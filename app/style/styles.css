@@ -266,11 +266,11 @@ a {
     transition: all .35s;
 }
 
-a:hover,
+/*a:hover,
 a:focus {
     color: #9c27c1;
     outline: 0;
-}
+}*/
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
@@ -689,9 +689,9 @@ padding: 10px 20px;
 -o-transition: background-color 0.3s ease;
 transition: background-color 0.3s ease;
 }
-.item-element:hover{
+/*.item-element:hover{
 background-color: hsla(180, 100%, 50%, 0.3);
-}
+}*/
 tr.item-element {
 height: 30px;
 }
@@ -731,12 +731,12 @@ li.imp.active a{
 color: hsl(0, 100%, 35%);
 font-weight: bold;
 }
-li.imp a:hover{
+/*li.imp a:hover{
 color: hsl(0, 100%, 45%);
 }
 li.imp.active a:hover{
 color: hsl(0, 100%, 35%);
-}
+}*/
 li.imp2 a{
 color: magenta;
 font-weight: bold;
@@ -745,12 +745,12 @@ li.imp2.active a{
 color: magenta;
 font-weight: bold;
 }
-li.imp2 a:hover{
+/*li.imp2 a:hover{
 color: magenta;
 }
 li.imp2.active a:hover{
 color: magenta;
-}
+}*/
 .perf-container{
 overflow: auto;
 max-height: 300px;

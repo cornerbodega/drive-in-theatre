@@ -7,7 +7,7 @@
     <md-tabs ng-show="numSelected > 0" md-selected="data.selectedIndex" flex md-dynamic-height md-border-bottom>
         <md-tab class="white-text" label="Publish">
             <div class="md-padding">
-                <button class="btn btn-raised white-text" ng-disabled="disabled.publish">Publish</button>
+                <button class="btn btn-raised white-text" ng-disabled="disabled.publish" ng-click="publish()">Publish</button>
             </div>
         </md-tab>
         <md-tab  label="QA Testing">

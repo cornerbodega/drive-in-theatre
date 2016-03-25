@@ -9,16 +9,16 @@ function LandingController($location, $scope, $http, pnUsers, pnUtils) {
     var PATHS = window.PATHS
 
     $scope.signIn = signIn;
-    // $scope.loginData = {
-    //     "password": "44Million!",
-    //     "license_number": 603347225,
-    //     "username": "luchinisupercritical@gmail.com"
-    // }
     $scope.loginData = {
-        "password": "2ndCaptainBly",
-        "license_number": "602093924",
-        "username": "thepottingbench@outlook.com"
+        "password": "44Million!",
+        "license_number": 603347225,
+        "username": "luchinisupercritical@gmail.com"
     }
+    // $scope.loginData = {
+    //     "password": "2ndCaptainBly",
+    //     "license_number": "602093924",
+    //     "username": "thepottingbench@outlook.com"
+    // }
 
     var _license_type = ""
     function signIn() {
