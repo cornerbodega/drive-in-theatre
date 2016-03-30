@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="input-field col s6">
+        <input ng-model="item.price" ng-change="pnValidatePublishForm(item)" ng-currency min="1" id="price" type="text">
+        <label for="price">Price<label>
+    </div>
+    <div class="input-field col s6">
+        <input ng-model="item.desc"  ng-change="pnValidatePublishForm(item)" id="desc" type="text">
+        <label for="desc">Description<label>
+    </div>
+</div>

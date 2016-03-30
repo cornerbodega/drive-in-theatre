@@ -8,19 +8,39 @@
     .directive('pnInventoryActions', pnInventoryActions)
     .directive('pnInventorySelected', pnInventorySelected)
 
-    function pnVrGroupInventoryByTypeList($timeout) {
+    function pnVrGroupInventoryByTypeList(WTS) {
         return {
             restrict: 'E',
             templateUrl: 'Home/templates/pn-vr-group-inventory-by-type-list.html',
             link: function($scope, element, attrs) {
-                $scope.disabled = {}
-                $scope.disabled.trace = true
-                $scope.disabled.qa = true
-                $scope.disabled.publish = true
+                //
+                // $scope.disabled = {}
+                // $scope.disabled.trace = true
+                // $scope.disabled.qa = true
+                // $scope.disabled.publish = true
+                attachImages()
+                function attachImages(){
+                    var wts = WTS.wts_fbo()
+                    wts.$loaded().then(init)
+                    function init() {
+                        angular.forEach($scope.inventory, function(item) {
+                            if (!wts[item.id]) return
+                            if (!wts[item.id].image) return
+                            item.image = wts[item.id].image
+                            console.log(item);
+                        })
+                        // $scope.$apply()
+                        // angular.forEach(wts, function(w) {
+                        //
+                        // })
+                    }
+                }
+                $scope.products = $scope.inventory
                 $scope.$watch(function () { return $scope.inventory }, function (newVal, oldVal) {
                     if (typeof newVal !== 'undefined') {
                         // pnSetCategories()
                         $scope.total = $scope.inventory.length
+                        attachImages()
                         // console.log($scope.total);
                     }
                 });

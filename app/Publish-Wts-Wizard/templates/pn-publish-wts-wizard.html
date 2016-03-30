@@ -17,6 +17,16 @@ Publish -->
  -->
 <!-- Implement Firebase WTS publish capability -->
 <!-- Implement login and pay with Amazon  -->
-<div ng-repeat="item in selectedItems">
+<div ng-repeat="item in selectedItems" class="pn-well pn-well-sm">
+    <div  >
+        <img class="pnPublishImagePreview" ng-show="item.image" ng-src="{{item.image}}">
+    </div>
+    <div><h3>{{item.strain}} - {{item.inventorytypelabel}}</h3></div>
+    <div>{{item.id}}</div>
+    <div>{{item.pnQuantitiyLabel}}</div>
+    <br/>
+    <pn-price-desc-publish />
+
     <pn-upload-item-image />
+    <pn-publish-submit-button />
 </div>

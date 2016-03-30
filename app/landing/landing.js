@@ -52,7 +52,7 @@ function LandingController($location, $scope, $http, pnUsers, pnUtils) {
 
             })
 
-            $location.path('/home')
+            $location.path('/market')
         })
         .then(function(context) {
             console.log(context);

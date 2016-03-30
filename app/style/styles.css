@@ -1,4 +1,13 @@
+.pnInvThumb {
+    height: auto;
+    width:100%;
+    /*border-radius: 50%;*/
 
+}
+.pnPublishImagePreview {
+    height: 250;
+    width:auto;
+}
 .pn-transparent {
     background: rgba(255, 255, 255, 0);
 }

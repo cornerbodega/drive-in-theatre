@@ -10,17 +10,61 @@
     <input type="text" id="search" ng-model="search">
     <label for="search"><i class="fa fa-search"></i> Search</label>
 </div>
-<div class="repeater-container">
-    <table style="width: 100%;">
+<!-- <div class="repeater-container"> -->
+    <div ng-repeat="item in inventory|filter:search">
+        <div layout="row" flex>
+            <div ng-show="item.image" pn-background-image="item.image" flex="33" >
+                {{item.image}}
+                <!-- <img class="pnInvThumb" ng-src="{{item.image}}"> -->
+            </div>
+            <div flex>
+                <pn-product-grid-item  class="" product="item" />
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <pn-market-grid flex  /> -->
+    <!-- <div flex class="" ng-repeat="product in products | filter:search">
+        <div class="width100" layout="row" >
+            <div  ng-click="toProduct(product)" flex pn-background-image="{{product.image}}">
+                <div >
+                    {{product.image}}
+                    <pn-product-grid-item  class="" product="product" />
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- <div class="width100 " ng-click="toProduct(post)" ng-repeat="item in inventory|filter:search">
+        <div flex pn-background-image="{{item.image}}">
+            <div >
+                <pn-product-grid-item class="" product="item">
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- <table class="striped" style="width: 100%;">
         <tbody vs-repeat vs-scroll-parent=".repeater-container">
             <tr ng-click="pnSelectItem(item)"
-            ng-class="item.$selected ? 'item-element well green darken-3 white-text' : 'item-element well'"  ng-repeat="item in inventory|filter:search">
-
-                <td><span>{{item.id}} </span></td>
-                <td><span>{{item.strain}} </span></td>
-                <td><span>{{item.inventorytypelabel}} </span></td>
-                <td><span>{{item.pnQuantitiyLabel}} </span></td>
-            </tr>
+            ng-class="item.$selected ? 'item-element well green darken-3 white-text' : 'item-element well'"
+            ng-repeat="item in inventory|filter:search">
+            <td>
+                <span layout-padding>
+                    <center>
+                        <img class="pnInvThumb" ng-src="{{item.image}}">
+                    </center>
+                </span>
+            </td>
+            <td>
+                <span>{{item.id}}</span>
+                <span>{{item.strain}}</span>
+                <span>{{item.inventorytypelabel}}</span>
+            </td>
+            <td><span>{{item.pnQuantitiyLabel}} </span></td>
+        </tr>
         </tbody>
-    </table>
-</div>
+    </table> -->
+<!-- </div> -->
