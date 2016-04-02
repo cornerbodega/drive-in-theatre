@@ -15,7 +15,7 @@ var countryApp = angular.module('countryApp', [
 
 countryApp.config(function($routeProvider) {
     $routeProvider
-    .when('/iap_complete/:info', { //
+    .when('/iap_complete', { //
         templateUrl: 'Home/Home.html',
         controller: 'HomeController',
     })
