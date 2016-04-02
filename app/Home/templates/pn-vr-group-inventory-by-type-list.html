@@ -12,12 +12,14 @@
 </div>
 <!-- <div class="repeater-container"> -->
     <div ng-repeat="item in inventory|filter:search">
-        <div layout="row" flex>
+        <!-- <div layout="row" flex>
             <div ng-show="item.image" pn-background-image="item.image" flex="33" >
                 {{item.image}}
-                <!-- <img class="pnInvThumb" ng-src="{{item.image}}"> -->
-            </div>
+                <img class="pnInvThumb" ng-src="{{item.image}}">
+            </div> -->
             <div flex>
+                <img class="pnInvThumb" ng-src="{{item.image}}">
+                
                 <pn-product-grid-item  class="" product="item" />
             </div>
 

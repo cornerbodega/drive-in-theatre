@@ -1,0 +1,61 @@
+<center>
+    <div class="container">
+        <h1 class="cursive">Greenboard</h1>
+
+        <div class=""><button ng-click="showSignIn=!showSignIn">Sign In</button></div>
+        <div ng-show="showSignIn">
+            <div class="input-field col s6">
+                <input type="text" id="username" ng-model="in.username">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="password" id="password" ng-model="in.password">
+                <label for="password">Password</label>
+            </div>
+            <div class=""><button ng-click="in.go()">Go!</button></div>
+
+        </div>
+
+        <!-- <div class="divider"></div> -->
+        <div class=""><p>- Or -</p></div>
+        <!-- <div class="divider"></div> -->
+        <div class=""><button ng-click="showSignUp=!showSignUp">Sign Up</button></div>
+        <div ng-show="showSignUp">
+            <div ng-show="">
+
+            </div>
+            <div class="input-field col s6">
+                <input type="text" id="name" ng-model="up.name">
+                <label for="name">Your Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" id="name" ng-model="up.name">
+                <label for="name">Business Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" id="username" ng-model="up.username">
+                <label for="username"> WSLCB Traceability Username</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="password" id="password" ng-model="up.password">
+                <label for="password"> WSLCB Traceability Password</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" id="ubi" ng-model="up.ubi">
+                <label for="ubi">UBI</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" id="ubi" ng-model="ubi">
+                <label for="ubi">Phone Number</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" id="ubi" ng-model="up.email">
+                <label for="ubi">Preferred Email</label>
+            </div>
+            <div class=""><button ng-click="up.go()">Go!</button></div>
+
+        </div>
+
+    </div>
+
+</center>

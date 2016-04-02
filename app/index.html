@@ -39,6 +39,7 @@
     <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
     <script src="bower_components/angular-vs-repeat/src/angular-vs-repeat.min.js"></script>
     <script src="bower_components/ng-currency/dist/ng-currency.min.js"></script>
+    <script async src="https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js"></script>
 
     <script src="app.js"></script>
     <script src="Utilities/constants.js"></script>
@@ -59,13 +60,12 @@
     <script src="Documentation/Documentation-Controller.js"></script>
     <script src="DB/firebaseData.service.js"></script>
     <script src="Sign-In/Sign-In.controller.js"></script>
+    <script src="Sign-Up/Sign-Up.js"></script>
     <script src="Labs/pn-labs.js"></script>
     <script src="Publish-Wts-Wizard/Publish-Wts-Wizard.js"></script>
 
 </head>
-<body ng-controller="IndexController as vm" class="green lighten-3">
-    <div ng-view flex class="grey lighten-3 app-content"></div>
-
-
+<body ng-controller="IndexController as vm" class="">
+    <div ng-view flex class="app-content"></div>
 </body>
 </html>

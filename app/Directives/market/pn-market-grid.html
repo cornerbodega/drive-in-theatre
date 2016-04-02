@@ -1,9 +1,11 @@
 <div flex class="" ng-repeat="product in products | filter:search">
     <div class="width100" layout="row" >
-        <div  ng-click="toProduct(product)" flex pn-background-image="{{product.image}}">
-            <div >
+        <!-- <div  ng-click="toProduct(product)" flex pn-background-image="{{product.image}}"> -->
+        <!-- <div  > -->
+            <div ng-click="toProduct(product)" flex>
+                <img class="pnInvThumb" ng-src="{{product.image}}">
                 <pn-product-grid-item  class="" product="product" />
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 </div>

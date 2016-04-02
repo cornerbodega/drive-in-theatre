@@ -15,9 +15,17 @@ var countryApp = angular.module('countryApp', [
 
 countryApp.config(function($routeProvider) {
     $routeProvider
-    .when('/sign-in', { // Place to put design documentation
+    .when('/iap_complete/:info', { //
+        templateUrl: 'Home/Home.html',
+        controller: 'HomeController',
+    })
+    .when('/sign-in', { //
         templateUrl: 'Sign-In/Sign-In.html',
         controller: 'SignInController',
+    })
+    .when('/', { // Sign uP
+        templateUrl: 'Sign-Up/Sign-Up.html',
+        controller: 'SignUpController',
     })
     // .when('/documentation', { // Place to put design documentation
     //     templateUrl: 'Documentation/Documentation.html',
@@ -54,7 +62,7 @@ countryApp.config(function($routeProvider) {
         controller: 'MarketController',
 
     })
-    .when('/', { // Sign up/ sign in/ demo login page
+    .when('/landing', { // Sign up/ sign in/ demo login page
         templateUrl: 'landing/landing.html',
         controller: 'LandingController',
     })

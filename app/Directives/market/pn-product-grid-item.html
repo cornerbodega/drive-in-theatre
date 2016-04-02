@@ -1,9 +1,8 @@
 <div class="pn-well pn-well-sm pn-product-detail-transparent-card width100" >
     <div layout="column" >
         <div layout="column">
-            <div>
-                <div class="pnProductGridItemStrain">{{product.strain}}</div>
-                <div class="pn-product-grid-seller-info">{{product.inventorytypeInfo.label}}</div>
+            <div layout="column">
+                <div class="pnProductGridItemStrain">{{product.strain}} </div>
 
             </div>
 
@@ -15,28 +14,24 @@
                 {{product.remaining_quantity}} x {{product.usable_weight}} gram packages <span ng-show="product.price">for ${{product.price}}</span>
 
             </div>
-            <div class="pnProductGridItemPriceWeight">
+            <!-- <div class="pnProductGridItemPriceWeight">
                 {{product.id}}
-            </div>
-            <div ng-if="product.sellerInfo.name" class="pnProductGridItemPriceWeight">
+            </div> -->
+            <!-- <div ng-if="product.sellerInfo.name" class="pnProductGridItemPriceWeight">
                 {{product.timeLabel}}
-            </div>
-            <div ng-if="!product.sellerInfo.name" class="pnProductGridItemPriceWeight">
+            </div> -->
+            <!-- <div ng-if="!product.sellerInfo.name" class="pnProductGridItemPriceWeight">
                 {{product.sessiontimelabel}}
-            </div>
-            <div ng-if="product.sellerInfo.name" class="pn-product-grid-seller-info">
+            </div> -->
+            <!-- <div ng-if="product.sellerInfo.name" class="pn-product-grid-seller-info">
                 {{product.sellerInfo.name}} <span ng-if="product.sellerInfo.license">({{product.sellerInfo.license}})
-            </div>
+            </div> -->
         </div>
         <div class="">
+            <div class="pn-product-grid-seller-info">{{product.inventorytypeInfo.label}}</div>
             <pn-detail-product-detail product="product" />
+
         </div>
-        <!-- <div  layout-padding ng-if="!product.qa.potency.Total">
-        Not QA Tested
-    </div> -->
-    <!-- </div> -->
 </div>
-<!-- <div class="">
-heello
-</div> -->
+
 </div>

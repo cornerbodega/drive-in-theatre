@@ -14,7 +14,6 @@ function pnUsers($firebaseObject) {
         fbo: fbo,
         me: me,
         me_ref: me_ref,
-        // my_wts_ids: my_wts_ids,
     }
 
     function ref() {
