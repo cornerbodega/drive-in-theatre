@@ -1,11 +1,29 @@
-<md-toolbar class="pn-transparent">
-    <div class="md-toolbar-tools pn-transparent">
+<md-toolbar class="pnGreyGreen">
+    <div class="md-toolbar-tools green darken-3">
         <!-- <span flex="20">
-            <div ng-show="labDetail" class="waves-effect" ng-click="back()"><i class="fa fa-angle-left fa-2x"></i></div>
-        </span> -->
-      <div><h1 class="cursive" ng-click="goTo('market')">greenboard</h1></div>
-      <span flex></span>
-      <button class="btn btn-flat white-text" aria-label="home" ng-click="goTo('home')"><i class="fa fa-home fa-2x"></i></button>
-      <!-- <button class="btn btn-flat white-text" aria-label="labs" ng-click="goTo('labs')"><i class="fa fa-tasks fa-2x"></i></button> -->
-      <!-- <button class="btn btn-flat white-text" aria-label="market" ng-click="goTo('market')"><i class="fa fa-line-chart fa-2x"></i></button> -->
+        <div ng-show="labDetail" class="waves-effect" ng-click="back()"><i class="fa fa-angle-left fa-2x"></i></div>
+    </span> -->
+    <div><h1 class="cursive" ng-click="goTo('market')">greenboard</h1></div>
+    <span flex></span>
+    <md-button aria-label="home" ng-click="goTo('home')"><i class="fa fa-home fa-2x"></i></md-button>
+    <md-menu>
+        <md-button aria-label="Open Settings Menu"  ng-click="$mdOpenMenu($event)">
+            <i class="fa fa-gear fa-2x"></i>
+        </md-button>
+        <md-menu-content width="6">
+          <md-menu-item>
+            <md-button ng-click="pnSignOut()">
+              <i class="fa fa-sign-out"></i> Sign Out
+            </md-button>
+          </md-menu-item>
+          <!-- <md-menu-item ng-repeat="item in [1, 2, 3]">
+            <md-button ng-click="ctrl.announceClick($index)">
+              <md-icon md-menu-align-target md-svg-icon="call:no-sim"></md-icon>
+              Option {{item}}
+            </md-button>
+          </md-menu-item> -->
+        </md-menu-content>
+      </md-menu>
+    <!-- <button class="btn btn-flat white-text" aria-label="labs" ng-click="goTo('labs')"><i class="fa fa-tasks fa-2x"></i></button> -->
+    <!-- <button class="btn btn-flat white-text" aria-label="market" ng-click="goTo('market')"><i class="fa fa-line-chart fa-2x"></i></button> -->
 </md-toolbar>

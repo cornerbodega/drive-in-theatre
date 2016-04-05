@@ -20,11 +20,32 @@
     font-weight: 600;
     font-size: 21px;
 }
-.pn-product-grid-seller-info {
-    /*@include: vertical-align();*/
+
+.pnTxtSm {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: 17px;
+    font-size: 15px;
+}
+.pnTxtLg: {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+.pnTxtMd: {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+/*.pnProductGridItemStrain {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+}*/
+.pn-txt-sm: {
+    /*@include: vertical-align();*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
 }
 .pn-text-18: {
     /*@include: vertical-align();*/

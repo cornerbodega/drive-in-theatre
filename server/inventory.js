@@ -14,6 +14,7 @@ function get(req, res) {
 
     function getQAInfo(error, iresponse, ibody){
         console.log(ibody);
+        if (!ibody) return console.log('There aint no inventory body response from the lcb!')
         var inventory = _.filter(ibody.inventory, function(i){ return i.remaining_quantity > 0})
         var inventory = _.filter(inventory, function(i){ return i.deleted < 1})
         // _.map(ibody.inventory, function(item){ item.id })

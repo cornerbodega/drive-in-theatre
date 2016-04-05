@@ -1,5 +1,12 @@
-<center>
-    <pn-inventory-actions />
-    <pn-inventory-selected />
-</center>
+
+<div class="z-depth-2">
+    <center>
+        <pn-inventory-actions />
+        <pn-inventory-selected />
+    </center>
+    <div class="input-field col s6">
+        <input type="text" id="search" ng-model="search">
+        <label for="search"><i class="fa fa-search"></i> Search</label>
+    </div>
+</div>
 <pn-vr-group-inventory-by-type-list  />

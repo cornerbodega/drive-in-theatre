@@ -616,7 +616,7 @@
     .directive('pnProductGridItem', function (pnUtils) {
         return {
             restrict: 'E',
-            scope: { product: '=', hideImage: '=' },
+            scope: { product: '=', hideImage: '=', showid: '=' },
             templateUrl: 'Directives/market/pn-product-grid-item.html',
             link: function ($scope, element, attrs) {
                 // console.log($scope.product);

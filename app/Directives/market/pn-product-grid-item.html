@@ -2,7 +2,7 @@
     <div layout="column" >
         <div layout="column">
             <div layout="column">
-                <div class="pnProductGridItemStrain">{{product.strain}} </div>
+                <div class="pnProductGridItemStrain">{{product.strain}} {{product.inventorytypeInfo.label}}</div>
 
             </div>
 
@@ -28,7 +28,7 @@
             </div> -->
         </div>
         <div class="">
-            <div class="pn-product-grid-seller-info">{{product.inventorytypeInfo.label}}</div>
+            <div class="pn-product-grid-seller-info">{{product.id}}</div>
             <pn-detail-product-detail product="product" />
 
         </div>

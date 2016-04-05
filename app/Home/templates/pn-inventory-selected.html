@@ -1,3 +1,9 @@
-<div layout-margin ng-show="numSelected > 0" >
-    {{numSelected}} / {{total}} items selected 
+<div layout-"row" ng-show="numSelected > 0" >
+    <div class="">
+        {{numSelected}} / {{total}} items selected
+    </div>
+    <div layout-padding></div>
+    <div class="">
+        <a ng-click="deselectAll()">Deselect All</a>
+    </div>
 </div>
