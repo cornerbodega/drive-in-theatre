@@ -8,12 +8,12 @@
 </div> -->
 
 <!-- <div class="repeater-container" vs-repeat>
-    <div ng-repeat="item in inventory|filter:search"> -->
+<div ng-repeat="item in inventory|filter:search"> -->
+<div class="container">
+    <div class="repeater-container" vs-repeat>
+        <div ng-repeat="item in inventory|filter:search">
 
-<div class="repeater-container" vs-repeat>
-    <div ng-repeat="item in inventory|filter:search">
-
-            <div ng-class="{'pn-well pn-well-sm pn-product-detail-transparent-card':item, 'pnGreyGreen': item.$selected}" ng-click="pnSelectItem(item)">
+            <div ng-class="{'pn-well pn-well-sm':item, 'pnGreyGreen': item.$selected}" ng-click="pnSelectItem(item)">
 
                 <div layout="column" >
                     <div layout="column">
@@ -47,73 +47,71 @@
                         <div class="pnTxtSm">
                             {{item.id}}
                         </div>
-                        <!-- <div class="pnProductGridItemPriceWeight">
-                            {{item.id}}
-                        </div> -->
-                        <!-- <div ng-if="item.sellerInfo.name" class="pnProductGridItemPriceWeight">
-                            {{item.timeLabel}}
-                        </div> -->
-                        <!-- <div ng-if="!item.sellerInfo.name" class="pnProductGridItemPriceWeight">
-                            {{item.sessiontimelabel}}
-                        </div> -->
-                        <!-- <div ng-if="item.sellerInfo.name" class="pn-item-grid-seller-info">
-                            {{item.sellerInfo.name}} <span ng-if="item.sellerInfo.license">({{item.sellerInfo.license}})
-                        </div> -->
+
                     </div>
                     <div class="">
                         <!-- <div class="pn-item-grid-seller-info">{{item.id}}</div> -->
                         <!-- <pn-detail-item-detail item="item" /> -->
 
                     </div>
-            </div>
-
-            </div>
-
-
-        </div>
-    </div>
-
-    <!-- <pn-market-grid flex  /> -->
-    <!-- <div flex class="" ng-repeat="product in products | filter:search">
-        <div class="width100" layout="row" >
-            <div  ng-click="toProduct(product)" flex pn-background-image="{{product.image}}">
-                <div >
-                    {{product.image}}
-                    <pn-product-grid-item  class="" product="product" />
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
+</div>
+<!-- <div class="pnProductGridItemPriceWeight">
+{{item.id}}
+</div> -->
+<!-- <div ng-if="item.sellerInfo.name" class="pnProductGridItemPriceWeight">
+{{item.timeLabel}}
+</div> -->
+<!-- <div ng-if="!item.sellerInfo.name" class="pnProductGridItemPriceWeight">
+{{item.sessiontimelabel}}
+</div> -->
+<!-- <div ng-if="item.sellerInfo.name" class="pn-item-grid-seller-info">
+{{item.sellerInfo.name}} <span ng-if="item.sellerInfo.license">({{item.sellerInfo.license}})
+</div> -->
+<!-- <pn-market-grid flex  /> -->
+<!-- <div flex class="" ng-repeat="product in products | filter:search">
+<div class="width100" layout="row" >
+<div  ng-click="toProduct(product)" flex pn-background-image="{{product.image}}">
+<div >
+{{product.image}}
+<pn-product-grid-item  class="" product="product" />
+</div>
+</div>
+</div>
+</div> -->
 
 
-    <!-- <div class="width100 " ng-click="toProduct(post)" ng-repeat="item in inventory|filter:search">
-        <div flex pn-background-image="{{item.image}}">
-            <div >
-                <pn-product-grid-item class="" product="item">
-            </div>
-        </div>
-    </div> -->
+<!-- <div class="width100 " ng-click="toProduct(post)" ng-repeat="item in inventory|filter:search">
+<div flex pn-background-image="{{item.image}}">
+<div >
+<pn-product-grid-item class="" product="item">
+</div>
+</div>
+</div> -->
 
 
-    <!-- <table class="striped" style="width: 100%;">
-        <tbody vs-repeat vs-scroll-parent=".repeater-container">
-            <tr ng-click="pnSelectItem(item)"
-            ng-class="item.$selected ? 'item-element well green darken-3 white-text' : 'item-element well'"
-            ng-repeat="item in inventory|filter:search">
-            <td>
-                <span layout-padding>
-                    <center>
-                        <img class="pnInvThumb" ng-src="{{item.image}}">
-                    </center>
-                </span>
-            </td>
-            <td>
-                <span>{{item.id}}</span>
-                <span>{{item.strain}}</span>
-                <span>{{item.inventorytypelabel}}</span>
-            </td>
-            <td><span>{{item.pnQuantitiyLabel}} </span></td>
-        </tr>
-        </tbody>
-    </table> -->
+<!-- <table class="striped" style="width: 100%;">
+<tbody vs-repeat vs-scroll-parent=".repeater-container">
+<tr ng-click="pnSelectItem(item)"
+ng-class="item.$selected ? 'item-element well green darken-3 white-text' : 'item-element well'"
+ng-repeat="item in inventory|filter:search">
+<td>
+<span layout-padding>
+<center>
+<img class="pnInvThumb" ng-src="{{item.image}}">
+</center>
+</span>
+</td>
+<td>
+<span>{{item.id}}</span>
+<span>{{item.strain}}</span>
+<span>{{item.inventorytypelabel}}</span>
+</td>
+<td><span>{{item.pnQuantitiyLabel}} </span></td>
+</tr>
+</tbody>
+</table> -->
 <!-- </div> -->

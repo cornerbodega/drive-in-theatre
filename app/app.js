@@ -15,6 +15,22 @@ var countryApp = angular.module('countryApp', [
 
 countryApp.config(function($routeProvider) {
     $routeProvider
+    .when('/adjust-weight', { //
+        templateUrl: 'Home/Inventory-Actions/Adjust-Weight.html',
+        controller: 'AdjustInventoryController',
+    })
+    .when('/create-manifest', { //
+        templateUrl: 'Home/Inventory-Actions/Create-Manifest.html',
+        controller: 'CreateManifestController',
+    })
+    .when('/transfer-outbound', { //
+        templateUrl: 'Home/Inventory-Actions/Transfer-Outbound.html',
+        controller: 'TransferOutboundController',
+    })
+    .when('/receive-inbound', { //
+        templateUrl: 'Home/Inventory-Actions/Receive-Inbound.html',
+        controller: 'ReceiveInboundController',
+    })
     .when('/iap_complete', { //
         templateUrl: 'Home/Home.html',
         controller: 'HomeController',

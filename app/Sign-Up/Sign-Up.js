@@ -29,7 +29,7 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
                 console.log('Log In to LCB Failed ' + res.error )
                 return $scope.in.error = res.error
             }
-            sessionStorage.ubi = $scope.in.ubi
+            sessionStorage.ubi = form.license_number
             sessionStorage.sessionid = res.sessionid
 
             $location.path('/market');

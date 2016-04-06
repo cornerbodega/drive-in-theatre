@@ -10,12 +10,19 @@
     // .directive('pnTraceabiltyActions', pnTraceabiltyActions)
     .directive('pnTraceActions', pnTraceActions)
 
-    function pnTraceActions() {
+    function pnTraceActions($location, pnTraceability) {
         return {
             restrict: 'E',
             templateUrl: 'Home/templates/pn-trace-actions.html',
             link: function($scope, element, attrs) {
-
+                $scope.toAction = function(type) {
+                    if (type === 'adjust-weight') $location.path('/adjust-weight')
+                    if (type === 'create-manifest') $location.path('/create-manifest')
+                    if (type === 'transfer-outbound') $location.path('/transfer-outbound')
+                    if (type === 'receive-inbound') $location.path('/receive-inbound')
+                    pnTraceability.selected = $scope.selected
+                    pnTraceability.numSelected = $scope.numSelected
+                }
             }
         }
     };

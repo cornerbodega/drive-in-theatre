@@ -41,11 +41,19 @@ function placeholder(req, res, next) { return res.send("Endpoint Not Yet Impleme
 // app.post('/api/v0/wts/create', wts.create)
 // app.get('/api/v0/wts/get/:ubi', wts.get)
 
-// INVENTORY
+// Vehicles
+var vehicles = require('./server/vehicles.js');
+app.get('/api/vehicles/:sessionid', vehicles.get)
+
+// Employees
+var employees = require('./server/employees.js');
+app.get('/api/employees/:sessionid', employees.get)
+
+// Inventory
 var inventory = require('./server/inventory.js');
 app.get('/api/inventory/:sessionid', inventory.get)
 
-// VENDORS
+// Vendors
 var vendors = require('./server/vendors.js');
         // vendors.refresh()
 app.get('/api/vendors', vendors.get);

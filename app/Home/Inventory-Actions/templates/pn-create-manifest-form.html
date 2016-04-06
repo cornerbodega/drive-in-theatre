@@ -1,0 +1,31 @@
+location: {{location}}
+
+<!-- action: inventory_manifest
+employee_id: select vr employee
+vehicle_id: select vr vehicle
+location: from pn vendors api
+stop_overview:[ // add stop, remove stop
+    {
+        approximate_departure: datetime
+        approximate_arrival: datetime
+        approximate_route: text field
+        vendor_license: select vr vendor
+        stop_number: automatic
+        barcodeid: []
+    }
+] -->
+<!-- <md-virtual-repeat-container id="vertical-container">
+     <div md-virtual-repeat="vendor in vendors"
+         class="repeated-item" flex>
+       {{vendor}}
+     </div>
+ </md-virtual-repeat-container> -->
+<!-- <div class="container">
+    <div class="input-field col s6">
+        <input type="text" id="username" ng-model="form.username">
+        <label for="username">USERNAME</label>
+    </div>
+</div> -->
+
+<pn-select-employee />
+<pn-select-vehicle />
