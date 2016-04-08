@@ -13,16 +13,16 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
             API:'4.0', action: 'login', username: $scope.in.email, password: $scope.in.password, license_number: $scope.in.ubi
         }
         console.log(form);
-        $scope.loginData = {
-            "password": "2ndCaptainBly",
-            "license_number": "602093924",
-            "username": "thepottingbench@outlook.com"
-        }
         // $scope.loginData = {
-        //     "password": "44Million!",
-        //     "license_number": 603347225,
-        //     "username": "luchinisupercritical@gmail.com"
+        //     "password": "2ndCaptainBly",
+        //     "license_number": "602093924",
+        //     "username": "thepottingbench@outlook.com"
         // }
+        $scope.loginData = {
+            "password": "44Million!",
+            "license_number": 603347225,
+            "username": "luchinisupercritical@gmail.com"
+        }
         form = $scope.loginData
         $http({method: 'POST', data: form, url: '/api/auth/v0/signIn'}).success(function(res) {
             if(res.success != 1) {

@@ -44,6 +44,7 @@ function placeholder(req, res, next) { return res.send("Endpoint Not Yet Impleme
 // Inventory Manifest
 var manifests = require('./server/manifests.js');
 app.post('/api/manifests/create', manifests.create)
+app.get('/api/manifests/:sessionid', manifests.get)
 
 
 // Vehicles
