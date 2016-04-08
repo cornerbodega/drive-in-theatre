@@ -1,7 +1,22 @@
 <pn-nav />
 <!-- {{selected}} -->
 <div class="container">
-    <pn-create-manifest-form />    
+    <pn-create-manifest-form />
+    <div ng-show="selected.length === 1">
+        {{selected.length}} item
+    </div>
+    <div ng-show="selected.length > 1">
+        {{selected.length}} items
+    </div>
+    <div ng-repeat="item in selected">
+        <pn-selected-item item="item">
+
+    </div>
+    <div layout-padding></div>
+    <center>
+    <button class="btn btn-flat" ng-click="submitCreateManifestForm()">Next</button>
+    </center>
+
 </div>
 
 <!-- action: inventory_manifest

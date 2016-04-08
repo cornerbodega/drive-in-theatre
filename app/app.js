@@ -8,6 +8,7 @@ var countryApp = angular.module('countryApp', [
     'pn-labs',
     'vs-repeat',
     'ng-currency',
+
     // 'pn-landing',
     // 'mobile-angular-ui',
 
@@ -85,4 +86,10 @@ countryApp.config(function($routeProvider) {
     .otherwise({
         redirectTo: '/'
     });
+});
+
+countryApp.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+  // .primaryPalette('pink')
+ // .accentPalette('orange');
 });

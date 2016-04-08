@@ -1,0 +1,18 @@
+<!-- {{vendors}} -->
+<md-select id="vendors" placeholder="Recipient" ng-model="createManifestForm.vendor">
+    <md-option ng-repeat="vendor in vendors">
+        {{vendor.name}}
+    </md-option>
+</md-select>
+
+
+
+<!-- <md-autocomplete
+    md-items="vendor in vendors"
+    md-item-text="vendor.name"
+    placeholder="Recipient">
+    <md-item-template>
+        <span md-highlight-text="searchText" md-highlight-flags="^i">{{vendor.name}}</span>
+    </md-item-template>
+    <md-not-found>Vendor not found</md-not-found>
+</md-autocomplete> -->

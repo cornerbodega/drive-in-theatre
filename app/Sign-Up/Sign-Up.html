@@ -2,7 +2,8 @@
     <div class="container">
         <h1 class="cursive">Greenboard</h1>
 
-        <div class=""><button ng-click="showSignIn=!showSignIn">Sign In</button></div>
+        <div class=""><button ng-show="!showSignIn" ng-click="showSignIn=true">Sign In</button></div>
+        <div class=""><button ng-show="showSignIn" ng-click="in.go()">Sign In</button></div>
         <div class="">
             <h2 class="warning">{{in.error}}</h2>
         </div>
@@ -19,14 +20,15 @@
                 <input type="password" id="ubi" ng-model="in.ubi">
                 <label for="ubi">UBI</label>
             </div>
-            <div class=""><button ng-click="in.go()">Go!</button></div>
+            <!-- <div class=""><button ng-click="in.go()">Go!</button></div> -->
 
         </div>
 
         <!-- <div class="divider"></div> -->
         <div class=""><p>- Or -</p></div>
         <!-- <div class="divider"></div> -->
-        <div class=""><button ng-click="showSignUp=!showSignUp">Sign Up</button></div>
+        <div class=""><button ng-show="!showSignUp" ng-click="showSignUp=true">Sign Up</button></div>
+        <div class=""><button ng-show="showSignUp" ng-click="up.go()">Sign Up</button></div>
         <div ng-show="showSignUp">
             <div class="">
                 <h2 class="warning">{{up.error}}</h2>
@@ -55,7 +57,7 @@
                 <input type="text" id="ubi" ng-model="ubi">
                 <label for="ubi">Phone Number</label>
             </div>
-            <div class=""><button ng-click="up.go()">Go!</button></div>
+            <!-- <div class=""><button ng-click="up.go()">Go!</button></div> -->
 
         </div>
 
