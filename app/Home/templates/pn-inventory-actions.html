@@ -5,20 +5,14 @@
     <button class="btn btn-flat white-text" ng-disabled="disabled.publish">Publish</button> -->
 
     <md-tabs  md-selected="data.selectedIndex" flex md-dynamic-height md-border-bottom>
+        
+        <!-- <md-tab  label="Traceability">
+            <div class="md-padding">
 
-        <!-- <md-tab  label="QA Testing">
-            <div class="md-padding">
-                <button class="btn btn-raised white-text" ng-disabled="disabled.publish">Schedule Pickup</button>
-            </div>
-        </md-tab> -->
-        <md-tab  label="Traceability">
-            <div class="md-padding">
-                <!-- <button class="btn btn-raised white-text" ng-disabled="disabled.publish">Schedule Pickup</button> -->
-                <!-- <pn-inventory-selected /> -->
                 <pn-trace-actions />
 
             </div>
-        </md-tab>
+        </md-tab> -->
         <md-tab class="white-text" label="Publish">
             <div class="md-padding">
                 <button class="btn btn-raised white-text" ng-disabled="disabled.publish" ng-click="publish()">Publish</button>
