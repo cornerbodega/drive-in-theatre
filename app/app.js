@@ -16,6 +16,10 @@ var countryApp = angular.module('countryApp', [
 
 countryApp.config(function($routeProvider) {
     $routeProvider
+    .when('/settings', { //
+        templateUrl: 'Settings/Settings.html',
+        controller: 'SettingsController',
+    })
     .when('/adjust-weight', { //
         templateUrl: 'Home/Inventory-Actions/Adjust-Weight.html',
         controller: 'AdjustInventoryController',

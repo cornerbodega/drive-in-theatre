@@ -2,31 +2,31 @@
     <div class="container">
         <h1 class="cursive">Greenboard</h1>
 
-        <div class=""><button ng-show="!showSignIn" ng-click="showSignIn=true">Sign In</button></div>
-        <div class=""><button ng-show="showSignIn" ng-click="in.go()">Sign In</button></div>
+        <!-- <div class=""><button ng-show="!showSignIn" ng-click="showSignIn=true">Sign In</button></div> -->
         <div class="">
-            <h2 class="warning">{{in.error}}</h2>
+            <h2 class="warning">{{error}}</h2>
         </div>
-        <div ng-show="showSignIn">
+        <div >
             <div class="input-field col s6">
-                <input type="text" id="username" ng-model="in.email">
+                <input type="text" id="username" ng-model="email">
                 <label for="username">Email</label>
             </div>
             <div class="input-field col s6">
-                <input type="password" id="password" ng-model="in.password">
+                <input type="password" id="password" ng-model="password">
                 <label for="password">Password</label>
             </div>
             <div class="input-field col s6">
-                <input type="password" id="ubi" ng-model="in.ubi">
+                <input type="password" id="ubi" ng-model="ubi">
                 <label for="ubi">UBI</label>
             </div>
             <!-- <div class=""><button ng-click="in.go()">Go!</button></div> -->
+            <div class=""><button ng-click="go()">Sign In</button></div>
 
         </div>
 
-        <!-- <div class="divider"></div> -->
-        <div class=""><p>- Or -</p></div>
-        <!-- <div class="divider"></div> -->
+
+        <!-- <div class=""><p>- Or -</p></div>
+
         <div class=""><button ng-show="!showSignUp" ng-click="showSignUp=true">Sign Up</button></div>
         <div class=""><button ng-show="showSignUp" ng-click="up.go()">Sign Up</button></div>
         <div ng-show="showSignUp">
@@ -57,9 +57,8 @@
                 <input type="text" id="ubi" ng-model="ubi">
                 <label for="ubi">Phone Number</label>
             </div>
-            <!-- <div class=""><button ng-click="up.go()">Go!</button></div> -->
 
-        </div>
+        </div> -->
 
     </div>
 

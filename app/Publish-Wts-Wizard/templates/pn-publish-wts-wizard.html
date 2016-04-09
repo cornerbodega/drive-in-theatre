@@ -21,12 +21,15 @@ Publish -->
     <div  >
         <img class="pnPublishImagePreview" ng-show="item.image" ng-src="{{item.image}}">
     </div>
+
     <div><h3>{{item.strain}} - {{item.inventorytypelabel}}</h3></div>
-    <div>{{item.id}}</div>
-    <div>{{item.pnQuantitiyLabel}}</div>
+
+    <div class="pnTxtMd">{{item.id}}</div>
+    <div class="pnTxtMd">{{item.pnQuantitiyLabel}}</div>
     <br/>
+    <pn-upload-item-image />
+    
     <pn-price-desc-publish />
 
-    <pn-upload-item-image />
     <pn-publish-submit-button />
 </div>

@@ -2,11 +2,11 @@
 (function(){
     angular
     .module('countryApp')
-    .factory('CreateWts', [ 'WTS', 'pnUsers', '$q',
+    .factory('CreateWts', [ 'WTS', 'pnUsers', '$q', 'pnPhones',
     CreateWts
 ])
 
-function CreateWts(WTS, pnUsers, $q) {
+function CreateWts(WTS, pnUsers, $q, pnPhones) {
 
     var _CreateWts = {
         create: create
@@ -21,10 +21,21 @@ function CreateWts(WTS, pnUsers, $q) {
             // console.log(me);
             // console.log(product)
             var licensetype = ""
-            if (sessionStorage.licensetype) licensetype = sessionStorage.licensetype
+            // if (sessionStorage.licensetype) licensetype = sessionStorage.licensetype
             product.at = Date.now()
             product.seller = sessionStorage.ubi
-            product.sellerInfo = {name: sessionStorage.name, license: licensetype, ubi: sessionStorage.ubi };
+            product.sellerInfo = {name: sessionStorage.name, license: sessionStorage.licensetype, ubi: sessionStorage.ubi };
+            product.sellerName = sessionStorage.name
+            product.sellerLicense = sessionStorage.licensetype
+            console.log(product.sellerPhone);
+            if(product.sellerPhone) {
+                var phones = pnPhones.fbo()
+                phones.$loaded().then(function(){
+                    if(!phones[sessionStorage.ubi]) phones[sessionStorage.ubi] = []
+                    phones[sessionStorage.ubi].push(product.sellerPhone)
+                    phones.$save()
+                })
+            }
             // wts.add(product).then(function(){console.log('added successfully!');})
             console.log(product);
             wts[product.id] = product

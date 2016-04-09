@@ -4,7 +4,15 @@
         <label for="price">Price<label>
     </div>
     <div class="input-field col s6">
-        <input ng-model="item.desc"  ng-change="pnValidatePublishForm(item)" id="desc" type="text">
-        <label for="desc">Description<label>
+        <textarea id="desc" class="materialize-textarea" ng-model="item.desc"  ng-change="pnValidatePublishForm(item)" type="text"></textarea>
+        <label for="desc">Product Description<label>
     </div>
+    <div class="input-field col s6">
+        <input ng-model="item.sellerName"  ng-change="pnValidatePublishForm(item)" id="sellerName" type="text">
+        <label for="sellerName">Contact Name<label>
+    </div>
+
+    <input  ng-model="item.sellerPhone"  ng-change="pnValidatePublishForm(item)" phone-input placeholder="Phone Number">
+
+
 </div>

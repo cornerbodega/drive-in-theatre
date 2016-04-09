@@ -1,13 +1,11 @@
-md-input-container.md-default-theme label,
- md-input-container.md-default-theme .md-placeholder{
-    color:black !important;
-}
 
+.pnBorder {
+    background: #000000;
+}
 .pnInvThumb {
     height: auto;
     width:100%;
     /*border-radius: 50%;*/
-
 }
 .pnPublishImagePreview {
     height: 250;
@@ -251,6 +249,12 @@ md-input-container.md-default-theme label,
     font-weight: 500;
     font-size: 20px;
 }
+.pnText{
+    font-family: 'Roboto', sans-serif;
+    /*font-weight: 500;*/
+    /*font-size: 20px;*/
+}
+
 .marvAuthorThumb{
     width:70px; /* you can use % */
     height: auto;

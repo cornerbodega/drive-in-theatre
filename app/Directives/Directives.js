@@ -706,7 +706,7 @@
         }
     })
 
-    .directive('pnNav', function ($location, $window) {
+    .directive('pnNav', function ($location, $window, $http) {
         return {
             restrict: 'E',
             // transclude: true,
@@ -742,11 +742,18 @@
                 $scope.back = function() {
                     $location.path($window.history.back())
                 }
+
+                $http.get('/api/vendors/'+sessionStorage.ubi).success(function(res){
+                    $scope.myName = res.name
+                    console.log(res);
+                })
                 // $scope._myName = sessionStorage.name
 
                 $scope.goTo = function (p){
                     $location.path(p);
                 }
+
+                
 
             }
         }
