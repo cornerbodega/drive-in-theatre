@@ -113,13 +113,29 @@
         }
     })
 
-    .directive('pnProductDetailTextCard', function() {
+    .directive('pnProductDetailTextCard', function(pnFirebase) {
         return {
             restrict: 'E',
             scope: { product: "=" },
             templateUrl: 'Directives/market-product-detail/pn-product-detail-text-card.html',
             link: function($scope, element, attrs) {
                 console.log($scope.product);
+                $scope.requestManifest = function() {
+                    var manifest_requests = pnFirebase.fba('manifest_requests/'+$scope.product.id)
+                    // console.log(manifest_requests);
+
+                    // manifest_requests.loaded().then(function(){
+                        // if (!manifest_requests[$scope.product.id])
+                        // if(manifest_requests[$scope.product.id]) console.log();
+                        // manifest_requests[$scope.product.id].push(sessionStorage.ubi)
+                        // if (!manifest_requests[$scope.product.id]) manifest_requests[$scope.product.id] = {}
+                        manifest_requests[sessionStorage.ubi] = true
+                        manifest_requests.$save().then(function requestManifestSuccess(){
+                            $scope.requested = true
+                        // })
+
+                    })
+                }
             }
         }
     })
@@ -753,7 +769,7 @@
                     $location.path(p);
                 }
 
-                
+
 
             }
         }

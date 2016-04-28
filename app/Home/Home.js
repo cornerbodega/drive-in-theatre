@@ -45,7 +45,7 @@
                 $scope.disabled = {}
                 // $scope.disabled.trace = true
                 // $scope.disabled.qa = true
-                // $scope.disabled.publish = true
+                $scope.disabled.publish = true
                 attachImages()
                 function attachImages(){
                     var wts = WTS.wts_fbo()
@@ -82,16 +82,17 @@
                         if(!!value.$selected) selected.push(value);
                     });
                     $scope.selected = selected
-                    if (selected.length > 0) {
-                        $scope.disabled.qa = false;
-                        $scope.disabled.trace = false;
-                        $scope.disabled.publish = false;
-                    } else {
-                        $scope.disabled.qa = true;
-                        $scope.disabled.trace = true;
-                        $scope.disabled.publish = true;
-                    }
+                    // if (selected.length > 0) {
+                    //     $scope.disabled.qa = false;
+                    //     $scope.disabled.trace = false;
+                    //     $scope.disabled.publish = false;
+                    // } else {
+                    //     $scope.disabled.qa = true;
+                    //     $scope.disabled.trace = true;
+                    //     $scope.disabled.publish = true;
+                    // }
                     $scope.numSelected = selected.length
+                    $scope.numSelected > 0 ? $scope.disabled.publish = false : $scope.disabled.publish = true
                 }
             }
         }

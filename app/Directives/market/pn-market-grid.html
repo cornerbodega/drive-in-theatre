@@ -1,14 +1,20 @@
-<div layout-padding flex  ng-repeat="product in products | filter:search">
+
+<div layout-padding flex ng-repeat="product in products | filter:search">
     <div class="width100" layout="row">
-        <div class="pnGreyGreen pnText" flex>
+        <div class="pnGreyGreen pnText" layout-xs="column" ng-click="toProduct(product)" flex>
         <!-- <div class="pnGreyGreen pnText" ng-click="toProduct(product)" flex> -->
-            <div layout-padding class="pnProductGridItemStrain" flex>
+            <div layout-padding class="pnProductGridItemStrain1" flex>
                 <span>{{product.sellerName}}</span>
-                <span flex></span>
-                <span>{{product.sellerPhone | tel}}</span>
+                <!-- <span flex></span> -->
+                <!-- <span>{{product.sellerPhone | tel}}</span> -->
             </div>
-            <pn-product-grid-item  class="" product="product" />
+            <!-- <pn-product-grid-item  class="" product="product" /> -->
+
             <img class="pnInvThumb" ng-src="{{product.image}}">
+            <div class="pn-well pn-well-sm pn-product-detail-transparent-card">
+                <pn-selected-item  item="product" />
+
+            </div>
 
         </div>
     </div>

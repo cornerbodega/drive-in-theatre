@@ -1,6 +1,8 @@
 <div layout="row" flex>
-    <div class="" flex="100">
-        <pn-product-grid-item hide-image="true"   product="product" />
+    <div class="pn-well pn-well-sm pn-product-detail-transparent-card" flex="100">
+        <!-- <pn-product-grid-item hide-image="true"   product="product" /> -->
+        <pn-selected-item item="product" />
+        <!-- {{product}} -->
     </div>
     <!-- <div class="red" flex>
         <pn-detail-product-detail product="product" />
@@ -8,4 +10,13 @@
 </div>
 
 <pn-price-desc-product-detail-text-card product="product"/>
+<div class="pn-well pn-well-sm pn-product-detail-transparent-card" flex="100">
+    <center>
+        <div class="pnProductGridItemStrain">
+            {{product.sellerPhone|tel}}
+        </div>
+        <!-- <button ng-show="!requested" class="btn btn-flat" ng-click="requestManifest()">Request Manifest</button>
+        <button ng-show="requested" class="btn btn-flat" ng-click="cancelRequestManifest()">Cancel Request</button> -->
+    </center>
+</div>
 <!-- <pn-add-to-cart-button-product-detail class=" width100 pn-add-to-cart-product-detail-button" flex /> -->

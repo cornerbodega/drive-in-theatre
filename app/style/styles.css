@@ -2,10 +2,13 @@
 .pnBorder {
     background: #000000;
 }
+.roundedCorners {
+    border-radius: 50%;
+}
+
 .pnInvThumb {
     height: auto;
     width:100%;
-    /*border-radius: 50%;*/
 }
 .pnPublishImagePreview {
     height: 250;
@@ -15,16 +18,16 @@
     background: rgba(255, 255, 255, 0);
 }
 
-.pn-landing-card {
+/*.pn-landing-card: {
     background: rgba(0, 0, 0, 0.8);
-}
+}*/
 .pn-page-title {
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     font-size: 21px;
 }
 
-.pnTxtSm {
+.pnTxtSm: {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 15px;
@@ -39,11 +42,11 @@
     font-weight: 400;
     font-size: 20px;
 }
-/*.pnProductGridItemStrain {
+.pnProductGridItemStrain1 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 20px;
-}*/
+}
 .pn-txt-sm: {
     /*@include: vertical-align();*/
     font-family: 'Roboto', sans-serif;

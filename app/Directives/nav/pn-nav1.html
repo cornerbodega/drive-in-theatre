@@ -4,11 +4,11 @@
         <div ng-show="labDetail" class="waves-effect" ng-click="back()"><i class="fa fa-angle-left fa-2x"></i></div>
     </span> -->
     <md-menu>
+        <!-- <div><h1 class="cursive" ng-click="goTo('market')">greenboard</h1></div> -->
+
         <div aria-label="Open Settings Menu"  ng-click="$mdOpenMenu($event)">
-            <!-- <i class="fa fa-gear "></i> -->
-            <div class="pnProductGridItemStrain">
-                {{myName}}
-            </div>
+            <i class="fa fa-gear "></i>
+
         </div>
         <md-menu-content width="6">
             <md-menu-item>
@@ -21,23 +21,19 @@
               <i class="fa fa-sign-out"></i> Sign Out
             </md-button>
           </md-menu-item>
-
-          <!-- <md-menu-item ng-repeat="item in [1, 2, 3]">
-            <md-button ng-click="ctrl.announceClick($index)">
-              <md-icon md-menu-align-target md-svg-icon="call:no-sim"></md-icon>
-              Option {{item}}
-            </md-button>
-          </md-menu-item> -->
         </md-menu-content>
       </md-menu>
     <span flex></span>
-    <!-- <div><h1 class="cursive" ng-click="goTo('market')">greenboard</h1></div> -->
 
-    <div aria-label="market" ng-click="goTo('market')"><i class="fa fa-globe fa-2x"></i></div>
-    <div layout-padding></div>
-    <div aria-label="home" ng-click="goTo('home')"><i class="fa fa-home fa-2x"></i></div>
-    <div layout-padding></div>
 
+    <div layout-padding></div>
+    <div aria-label="home" ng-click="goTo('home')">
+        <div class="pnProductGridItemStrain">
+            {{myName}}
+        </div>
+    </div>
+    <div layout-padding></div>
+<div aria-label="market" ng-click="goTo('market')"><i class="fa fa-globe fa-2x"></i></div>
 
     <!-- <button class="btn btn-flat white-text" aria-label="labs" ng-click="goTo('labs')"><i class="fa fa-tasks fa-2x"></i></button> -->
     <!-- <button class="btn btn-flat white-text" aria-label="market" ng-click="goTo('market')"><i class="fa fa-line-chart fa-2x"></i></button> -->
