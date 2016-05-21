@@ -286,7 +286,7 @@
         return {
             restrict: 'E',
             scope: {item:'='},
-            templateUrl: 'Home/Inventory-Actions/Forms/Create-Manifest/templates/pn-inventory-item-list-row.html',
+            templateUrl: 'Traceability-Form/field_templates/pn-inventory-item-list-row.html',
             link: function($scope, element, attrs) {
 
             }

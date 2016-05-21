@@ -12,6 +12,7 @@ angular.module("countryApp")
                 pathstring += pathpart
                 //console.log(pathpart);
                 var iconAndLabel = TraceabilityMenuService.getIconAndLabel(pathpart)
+                if (!pathpart) return
                 if (!iconAndLabel) return console.log('Error! no Icon And Label for' + pathpart);
                 var icon = iconAndLabel.icon
                 var label = iconAndLabel.label

@@ -1,0 +1,12 @@
+<div layout-gt-xs="row" flex>
+    <!-- <div layout="row" flex="50"> -->
+        <div flex>{{item.strain}}</div>
+        <div flex>{{item.inventorytypelabel}}</div>
+        <div flex>{{item.roomLabel}}</div>
+    <!-- </div> -->
+    <!-- <div layout="row" flex="50"> -->
+        <div flex>{{item.pnQuantitiyLabel}}</div>
+        <div flex><span ng-show="{{item.qa.potency.Total}}">{{item.qa.potency.Total}} % </span> <span ng-if="item.qa.result"><i class="fa fa-check"></i></span></div>
+        <div flex>{{item.id}}</div>
+    <!-- </div> -->
+</div>
