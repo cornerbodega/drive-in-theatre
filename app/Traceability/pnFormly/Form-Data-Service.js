@@ -57,7 +57,7 @@ function FormDataService(FieldDataService, $location) {
         var form = []
         // addfield(form, 'select_inbound_manifest_to_receive')
         addfield(form, 'select_items_to_accept')
-        addfield(form, 'receive_items')
+        // addfield(form, 'receive_items')
 
         return form
     }
@@ -364,7 +364,7 @@ function FormDataService(FieldDataService, $location) {
             form.push(field);
             return form
         } else {
-            console.log('Error! Field not found: ')
+            console.log('Error! Field not found for: ' + field)
             console.log('field');
             console.log(field);
             console.log('task');
