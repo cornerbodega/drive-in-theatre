@@ -9,9 +9,44 @@
 </ui-select> -->
 
 <!-- <center><label>{{to.label}}</label></center> -->
-<md-select aria-label="Select {{to.label}}" ng-model="model[options.key]">
+<!-- <md-select aria-label="Select {{to.label}}" ng-model="model[options.key]">
 
-    <!-- <md-option ng-repeat="option[to.valueProp] as option in to.options">{{option.label}}</md-option> -->
     <md-option ng-if="to.valueProp" ng-value="option[to.valueProp]" ng-repeat="option in to.options">{{option.label}}</md-option>
     <md-option ng-if="!to.valueProp" ng-value="option" ng-repeat="option in to.options">{{option.label}}</md-option>
-</md-select>
+</md-select> -->
+
+<!-- {{to.options}} -->
+<!-- <center>
+<div class="">
+    <a ng-click="showInventory = !showInventory"><span  ng-show="!showInventory">Select</span><span  ng-show="showInventory">Hide </span> Inventory</a>
+</div>
+</center> -->
+
+<!-- <div  ng-show="showInventory"> -->
+
+<div class="input-field col s6">
+    <input-container>
+    <input id="search" type="text" ng-model="search">
+
+        <!-- <input type="text" id="search" ng-model="search" /> -->
+        <!-- <label for="search"><i class="fa fa-search"></i> Search</label> -->
+        <label for="search"><i class="fa fa-search"></i> {{to.label}}</label>
+    </input-container>
+</div>
+<center>
+    <div class="repeater-container">
+        <!-- {{to.options}} -->
+        <div vs-repeat layout-padding>
+            <div ng-repeat="option in to.options|filter: search"
+            ng-click="select(option)" ng-class="option.id === selected.id ? 'md-3-line green darken-3 white-text' : ''" layout="row" >
+            <!-- ng-class="item.$selected ? 'md-3-line green darken-3 white-text' : 'md-3-line'" -->
+            {{option.label}}
+            <!-- <div ng-if="!to.valueProp" ng-click="option" ng-repeat="option in to.options">{{option.label}}</md-option> -->
+            </div>
+        </div>
+    </div>
+<!-- </div> -->
+<div layout-padding class="green darken-3 white-text">
+    {{to.label}}: {{selected.label}}
+</div>
+</center>

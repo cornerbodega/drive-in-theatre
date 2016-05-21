@@ -188,7 +188,7 @@
         [
             'myquantity',
             // 'pnInput',
-            'pn-select',
+            // 'pn-select',
             'pn-input',
             // 'pn-select-inventory-item',
             'mydatetime',
@@ -197,7 +197,18 @@
         ],
         template: w
     });
-
+    var g = ''
+        +'<div class="container"><center><input-container>'
+        +'<formly-transclude></formly-transclude>'
+        +'</input-container></center></div>'
+    formlyConfig.setWrapper({
+        types:
+        [
+            'pn-select',
+            'pn-select-inventory-item',
+        ],
+        template: g
+    });
 });
 
 })();

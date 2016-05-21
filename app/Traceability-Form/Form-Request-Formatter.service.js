@@ -223,7 +223,7 @@ function FormRequestFormatter() {
                 req.data.barcodeid = form.inventoryitem.id
                 req.data.remove_quantity = form.remove_quantity
                 req.data.remove_quantity_uom = 'g'
-                req.derivative_type = form.derivative_type
+                req.derivative_type = form.new_derivative_type.id
                 req.derivative_quantity = form.derivative_quantity
                 req.derivative_usable = form.derivative_usable
                 req.derivative_strain = form.derivative_strain

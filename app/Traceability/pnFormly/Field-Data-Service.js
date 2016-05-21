@@ -874,6 +874,13 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             // placeholder: 'Select the type of inventory being created',
             options: inventorytypeinfoarray(),
         },
+        controller: function ($scope, pnData) {
+            $scope.select = function(option){
+                $scope.selected = option
+                $scope.model.new_derivative_type = option
+            }
+        }
+
     }
     f.inventory_convert_remove_quantity = {
         key: 'remove_quantity',
