@@ -1,0 +1,36 @@
+<div layout="col">
+    <div><my-menu-bar /></div>
+    <!-- <div class="container"> -->
+    <div class="md-padding">
+
+        <div flex>
+            <md-input-container>
+                <label><i class="fa fa-search"></i> Search</label>
+                <input ng-change="searching()" ng-model="search" />
+            </md-input-container>
+        </div>
+<!-- class="well well-sm"  -->
+        <div ng-repeat="type in mytypes" >
+            <div ng-click="toggleshowtype(type)" ng-if="type.showtype"><i class="fa fa-angle-down"></i>
+                <strong>{{type.label}} ({{inventorybytype[type.label].length}})</strong></div>
+                <div ng-click="toggleshowtype(type)" ng-if="!type.showtype"><i class="fa fa-angle-right"></i>
+                    {{type.label}} ({{inventorybytype[type.label].length}})</div>
+                    <div ng-if="type.showtype" ng-repeat="item in inventorybytype[type.label] | filter:search">
+                        <p /><div class="well well-sm z-depth-1" >
+                            <div ng-click="toggledetail(item)" ng-if='!item.showdetail'><i class="fa fa-angle-right"></i> {{item.inventorylabel}}</div>
+                            <div ng-click="toggledetail(item)" ng-if='item.showdetail'><i class="fa fa-angle-down"></i> {{item.inventorylabel}}</div>
+                            <p ng-if='item.showdetail' />
+                            <table class="table" ng-if='item.showdetail'>
+                                <tr ng-repeat="field in item.displayfields">
+                                    <td><label>{{field.label}}</label></td>
+                                    <td>{{item[field.value]}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>

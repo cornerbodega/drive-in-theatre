@@ -1,0 +1,36 @@
+<div class="pn-well pn-well-sm">
+    <div layout="column" >
+        <div layout="column">
+            <div layout="column">
+                <div class="pnProductGridItemStrain">{{item.strain}} {{item.inventorytypeInfo.label}}</div>
+            </div>
+            <div layout="row" layout-margin ng-if="item.qa.potency.Total">
+                <div layout="column" >
+                    <div class="">
+                        THC
+                    </div>
+                    <div class="">
+                        {{item.qa.potency.Total}}%
+                    </div>
+                </div>
+                <div layout="column" >
+                    <div class="">
+                        CBD
+                    </div>
+                    <div class="">
+                        {{item.qa.potency.CBD}}%
+                    </div>
+                </div>
+            </div>
+            <div class="pnTxtMd" ng-if="item.inventorytypeInfo.weighable">
+                {{item.remaining_quantity}} grams <span ng-show="item.price">for ${{item.price}}</span>
+            </div>
+            <div class="pnTxtMd" ng-if="!item.inventorytypeInfo.weighable">
+                {{item.remaining_quantity}} x {{item.usable_weight}} gram packages <span ng-show="item.price">for ${{item.price}}</span>
+            </div>
+            <div class="pnTxtSm">
+                ID: {{item.id}}
+            </div>
+        </div>
+    </div>
+</div>

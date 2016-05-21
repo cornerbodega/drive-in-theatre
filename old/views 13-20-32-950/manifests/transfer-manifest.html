@@ -1,0 +1,15 @@
+<div layout="col">
+    <div><my-menu-bar /></div>
+    <!-- <div class="container"> -->
+    <div class="md-padding">
+        <!-- {{manifests}} -->
+        <div ng-repeat="manifest in manifests">
+            {{manifest.label}} ID: {{manifest.manifestid}}
+            <div ng-repeat="stop in manifest.stops">
+
+            <div ng-repeat="item in stop.items">
+                 &nbsp;&nbsp;&nbsp;{{item.inventoryid}} {{item.description}} {{item.price}}
+        </div>
+        <p />
+    </div>
+</div>

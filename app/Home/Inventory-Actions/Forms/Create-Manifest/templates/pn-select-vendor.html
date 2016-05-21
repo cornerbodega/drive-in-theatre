@@ -1,6 +1,6 @@
 <!-- {{vendors}} -->
-<md-select id="vendors" placeholder="Recipient" ng-model="createManifestForm.vendor">
-    <md-option ng-repeat="vendor in vendors">
+<md-select id="vendors" placeholder="Recipient" ng-model="stop.vendor">
+    <md-option ng-value="vendor" ng-repeat="vendor in vendors">
         {{vendor.name}}
     </md-option>
 </md-select>

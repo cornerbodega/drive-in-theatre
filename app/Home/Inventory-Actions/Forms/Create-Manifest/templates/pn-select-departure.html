@@ -2,42 +2,42 @@
 <md-input-container>
     <label>Departure</label>
     <md-input-container>
-        <md-select id="dep.month" placeholder="{{placeholders.month}}" ng-model="createManifestForm.departure.month">
+        <md-select id="dep.month" placeholder="{{placeholders.month}}" ng-model="stop.departure.month">
             <md-option ng-repeat="month in months" value="{{month}}">
                 {{month}}
             </md-option>
         </md-select>
     </md-input-container>
     <md-input-container>
-        <md-select id="dep.day" placeholder="{{placeholders.day}}" ng-model="createManifestForm.departure.day">
+        <md-select id="dep.day" placeholder="{{placeholders.day}}" ng-model="stop.departure.day">
             <md-option ng-repeat="day in days" value="{{day}}">
                 {{day}}
             </md-option>
         </md-select>
     </md-input-container>
     <md-input-container>
-        <md-select id="dep.year" placeholder="{{placeholders.year}}" ng-model="createManifestForm.departure.year">
+        <md-select id="dep.year" placeholder="{{placeholders.year}}" ng-model="stop.departure.year">
             <md-option>
                 2016
             </md-option>
         </md-select>
     </md-input-container>
     <md-input-container>
-        <md-select id="arr.hour" placeholder="12" ng-model="createManifestForm.departure.hour">
+        <md-select id="arr.hour" placeholder="12" ng-model="stop.departure.hour">
             <md-option ng-repeat="hour in [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{hour}}">
                 {{hour}}
             </md-option>
         </md-select>
     </md-input-container>
     <md-input-container>
-        <md-select id="arr.mins" placeholder="00" ng-model="createManifestForm.departure.mins">
+        <md-select id="arr.mins" placeholder="00" ng-model="stop.departure.mins">
             <md-option ng-repeat="min in mins" value="{{min.id}}">
                 {{min.label}}
             </md-option>
         </md-select>
     </md-input-container>
     <md-input-container>
-        <md-select id="arr.m" placeholder="AM" ng-model="createManifestForm.departure.m">
+        <md-select id="arr.m" placeholder="AM" ng-model="stop.departure.m">
             <md-option ng-repeat="m in ['AM', 'PM']">
                 {{m}}
             </md-option>

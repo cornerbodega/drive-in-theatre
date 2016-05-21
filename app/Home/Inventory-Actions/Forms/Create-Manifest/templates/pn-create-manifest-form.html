@@ -1,13 +1,34 @@
 
 <center>
-    <h3>Create Manifest</h3>
+    <!-- <h3>Create Manifest</h3> -->
     <h4 class="warning">{{error}}</h4>
 </center>
 <div layout="column">
     <pn-select-employee />
     <pn-select-vehicle />
-    <pn-select-vendor />
-    <pn-select-departure />
-    <pn-select-arrival />
-    <pn-enter-route />
+    <div layout-padding></div>
+    <div ng-repeat="stop in stops">
+        <!-- <div class="">
+            Stop Number {{stop.stop_number}} {{stop.vendor}}
+        </div> -->
+        <!-- {{stop}} -->
+        <div>Stop Number {{stop.stop_number}} <span ng-show="stop.vendor">to {{stop.vendor.name}}</span> </div>
+        <div ng-repeat="item in stop.items" >
+            <!-- {{stop.items}} -->
+            <pn-inventory-item-list-row ng-click="removeItemFromStop(stop, item)" item="item" />
+        </div>
+        <div layout-padding></div>
+        <div class="">
+            <pn-select-inventory-item />
+        </div>
+        <pn-select-vendor />
+        <pn-select-departure />
+        <pn-select-arrival />
+        <pn-enter-route />
+    </div>
+    <div class="">
+        <center><button class="btn btn-flat" ng-click="addStop()">Add Stop</button></center>
+    </div>
+    <div layout-padding></div>
+
 </div>

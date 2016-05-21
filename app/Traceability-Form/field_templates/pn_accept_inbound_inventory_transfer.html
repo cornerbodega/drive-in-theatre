@@ -1,0 +1,22 @@
+<!-- <center><label>{{to.label}}</label></center>
+<md-select ng-model="model[options.key]">
+
+<md-option ng-value="option[to.valueProp]" ng-repeat="option in to.options">{{option.label}}</md-option>
+</md-select> -->
+<div class="container">
+
+</div>
+<center>
+    <div class="">
+        <label>{{to.placeholder}}</label>
+    </div>
+    <div class="layout-padding">
+
+    </div>
+    <div ng-repeat="item in to.items">
+        <md-checkbox ng-model="model.accept[item.barcode_id]" ng-click="acceptInfo(item)">{{item.quantity}} grams of {{item.strain}} {{item.product}}  <br /> ID: {{item.barcode_id}} </md-checkbox>
+        <div class="layout-padding">
+
+    </div>
+
+</center>

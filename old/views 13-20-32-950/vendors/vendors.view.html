@@ -1,0 +1,27 @@
+<div layout="col">
+    <div><my-menu-bar /></div>
+    <div class="md-padding">
+        <!-- {{vm.labs}} -->
+        <md-input-container>
+            <label><i class="fa fa-search"></i> Search</label>
+            <input aria-label="search" ng-model="search">
+        </md-input-container>
+        <table class="table">
+            <tr>
+                <th>Vendor</th>
+                <th>Type</th>
+                <th>Location</th>
+            </tr>
+            <tr ng-repeat="vendor in vm.vendors |filter:search">
+                <td>{{vendor.name}}</td>
+                <td>{{vendor.type}}</td>
+                <td>
+                    <ul>
+                    <li>{{vendor.addresslabel}}</li>
+                    <li>{{vendor.phone}}</li>
+                    <ul>
+
+            </td>
+            </tr>
+    </div>
+</div>

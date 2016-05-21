@@ -1,0 +1,160 @@
+<div ng-repeat="manifest in model.manifests">
+    <!-- {
+    "stopcount": 1,
+    "employee_dob": "10/18/1984",
+    "origination_phone": "6178756637",
+    "origination_zip": "991739728",
+    "sessiontime": "1450375749",
+    "completion_date": "1450375749",
+    "location": "412600",
+    "deleted": 0,
+    "origination_street": "4326 LYONS HILL RD   STE B",
+    "manifestid": "4252707830049155",
+    "origination_license_number": "412600",
+    "origination_name": "LUCHINI SUPERCRITICAL",
+    "transactionid": "16879965",
+    "employee_vehicle_details": "2012 blue Suzuki SX4 AXE4681",
+    "employee_id": "MCDONKJ169PQ",
+    "employee_name": "Kyle McDonald",
+    "transactionid_original": "16879931",
+    "origination_state": "WA",
+    "employee_vehicle_identification": "JS2YB5A36C6307375",
+    "fulfilled": 1,
+    "total_item_count": 1,
+    "origination_city": "SPRINGDALE",
+    "stops": [
+    {
+    "deleted": 0,
+    "license_number": "0007",
+    "stopnumber": 1,
+    "location": "412600",
+    "arrive_time": "1450463652",
+    "manifestid": "4252707830049155",
+    "transactionid": "16879931",
+    "name": "Testing Technologies",
+    "sessiontime": "1450375749",
+    "street": "19834 Viking Ave. NW",
+    "state": "WA",
+    "phone": "360-340-1251",
+    "item_count": 1,
+    "transactionid_original": "16879931",
+    "depart_time": "1450463652",
+    "travel_route": "Head north on Lyons Hill Rd toward Springdale Hunters Rd. Turn right onto Springdale Hunters Rd. Turn right onto WA-231 S. Turn right onto US-2 W/W Broadway Ave. Turn left onto WA-231 S. Turn left onto WA-23 S (signs for Sprague). Turn right to merge onto I-90 W toward Seattle. Keep left to stay on I-90 W. Take exit 25 for WA-18 W toward Auburn/Tacoma. Turn left onto Echo Glen Rd. Continue onto WA-18 W. Take the Interstate 5 S exit. Merge onto I-5 S. Take exit 132B for Washington 16 W toward Bremerton. Keep left and merge onto WA-16 W. Continue onto WA-3 N. Take the Finn Hill Road exit. Turn right onto NW Finn Hill Rd. Turn right onto Viking Ave NW",
+    "zip": "98370",
+    "city": "Poulsbo",
+    "items": [
+    {
+    "transactionid_original": "16879931",
+    "sessiontime": "1450375749",
+    "location": "412600",
+    "stopnumber": 1,
+    "deleted": 0,
+    "requiresweighing": 1,
+    "manifestid": "4252707830049155",
+    "quantity": "1.00",
+    "inventoryid": "9332070448487983",
+    "description": "Kief",
+    "transactionid": "16879931",
+    "price": "$0.00",
+    "priceperunit": "$0"
+}
+]
+}
+],
+"label": "[4252707830049155] 12/17/2015, 1:09:09 PM  to Testing Technologies ($0)",
+"totalprice": 0,
+"transferred": true,
+"transfers": [
+{
+"transactionid_original": "16879965",
+"sessiontime": "1450375807",
+"price": "0.00",
+"is_refund": 0,
+"manifest_stop": "1",
+"strain": "Kief",
+"transactionid": "16899058",
+"outbound_license": "412600",
+"deleted": 0,
+"location": "412600",
+"inventoryid": "9332070448487983",
+"manifestid": "4252707830049155",
+"quantity": "1.00",
+"inventorytype": 5
+}
+]
+}
+] -->
+<table class="table">
+    <tr>
+        <!-- <td>{{manifest.label}}</td> -->
+        <!-- Print Manifest Button? or just print website?... -->
+        <!-- <td><print-barcode desc="manifest.label" barcode="manifest.id" /></td> -->
+        <!-- <td><print-barcode desc="manifest.label" barcode="manifest.id" /></td> -->
+        <td colspan="2"><strong>{{manifest.label}}</strong></td>
+    </tr>
+
+    <tr>
+        <td><label>Manifest ID</label></td>
+        <td>{{manifest.manifestid}}</td>
+    </tr>
+    <tr>
+        <td><label>From</label></td>
+        <td>
+            <ul>
+                <li>{{manifest.origination_name}}</li>
+                <li>License #: {{manifest.origination_license_number}}</li>
+                <li>{{manifest.origination_street}}</li>
+                <li>{{manifest.origination_city}}, {{manifest.origination_state}}, {{manifest.origination_zip}}</li>
+                <!-- <li></li>
+                <li>{{manifest.origination_zip}}</li> -->
+                <!-- <li>Company: {{manifest.origination}}</li> -->
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><label>Transporter</label></td>
+        <td>
+            <ul>
+                <li>{{manifest.employee_name}}</li>
+                <li>DOB: {{manifest.employee_dob}}</li>
+                <!-- <li>Company: {{manifest.origination}}</li> -->
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><label>Vehicle</label></td>
+        <td>
+            <ul>
+                <li>{{manifest.employee_vehicle_details}}</li>
+                <li>VIN: {{manifest.employee_vehicle_identification}}</li>
+            </ul>
+        </td>
+    </tr>
+    <tr ng-repeat="stop in manifest.stops">
+        <td><label>To</label></td>
+        <td>
+            <ul>
+                <li>{{stop.name}}</li>
+                <li>License #: {{stop.license_number}}</li>
+                <li>{{stop.street}}</li>
+                <li>{{stop.city}}, {{stop.state}}, {{stop.zip}}</li>
+                <li>Total Item(s): {{stop.item_count}}</li>
+                <li>Total Price: ${{stop.stop_total_price}}</li>
+                <li>
+                    <table>
+                        <tr ng-repeat="item in stop.items">
+                            <td>{{item.inventoryid}} {{item.description}}
+                                <div ng-show="!!item.price">{{item.price}} ({{item.quantity}} x {{item.priceperunit}} per unit)</div></td>
+                                <!-- <td>{{item.inventoryid}} {{item.quantity}} x {{item.description}} {{item.price}}</td> -->
+                                <td><my-barcode barcode="item.inventoryid"></my-barcode></td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li>Route: {{stop.travel_route}}</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- {{model.manifests}} -->

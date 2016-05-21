@@ -1,0 +1,112 @@
+<div ng-repeat="item in model.inventoryitems">
+    <!-- {
+  "action": "view_inventory",
+  "inventoryitems": [
+    {
+      "plantid": null,
+      "sessiontime": "1447981692",
+      "transactionid": "17121919",
+      "is_sample": null,
+      "remaining_quantity": "549.70",
+      "inventorystatus": null,
+      "seized": null,
+      "id": "6020939240000313",
+      "strain": "Royal Queen",
+      "transactionid_original": "14884342",
+      "inventoryparentid": [
+        "6020939240000313"
+      ],
+      "currentroom": null,
+      "source_id": null,
+      "net_package": null,
+      "deleted": 0,
+      "usable_weight": "611.70",
+      "parentid": [
+        "3156736095828603",
+        "4036438580299483",
+        "9549109251299741",
+        "9186797051156185",
+        "4353321959510593",
+        "5512150769968307",
+        "5289771277975065",
+        "3560440946623278",
+        "8852769630153499"
+      ],
+      "wet": 0,
+      "productname": null,
+      "inventorystatustime": "1450036317",
+      "location": "412600",
+      "inventorytype": 13,
+      "datelabel": "11/19/2015, 8:08:12 PM",
+      "inventorylabel": "[6020939240000313] 549.70 g Royal Queen",
+      "weighable": true,
+      "inventorytypelabel": "Flower Lot",
+      "category": "Flower Lot",
+      "expand": 1,
+      "displayfields": [
+        {
+          "label": "ID",
+          "value": "id",
+          "isbarcode": true
+        },
+        {
+          "label": "Remaining Quantity",
+          "value": "remaining_quantity"
+        },
+        {
+          "label": "Usable Weight",
+          "value": "usable_weight"
+        },
+        {
+          "label": "Last Modified",
+          "value": "datelabel"
+        },
+        {
+          "label": "Strain Name",
+          "value": "strain"
+        }
+      ]
+    }
+  ]
+} -->
+        <table class="table">
+            <tr>
+                <td><strong>{{item.inventorylabel}}</strong></td>
+                <td><print-barcode desc="item.inventorylabel" barcode="item.id" /></td>
+                <!-- <td colspan="2">{{item.inventorylabel}}</td> -->
+            </tr>
+
+            <tr>
+                <td><label>ID</label></td>
+                <td>{{item.id}}</td>
+            </tr>
+            <tr>
+                <td><label>Type</label></td>
+                <td>{{item.inventorytypelabel}}</td>
+            </tr>
+            <tr>
+                <td><label>Strain</label></td>
+                <td>{{item.strain}}</td>
+            </tr>
+            <tr>
+                <td><label>Remaining Quantity</label></td>
+                <td>{{item.remaining_quantity}}</td>
+            </tr>
+            <tr>
+                <td><label>Usable Weight</label></td>
+                <td>{{item.usable_weight}}</td>
+            </tr>
+            <tr>
+                <td><label>Parents</label></td>
+                <td><ul ng-repeat="parent in item.parentid"><li>{{parent}}</li></ul></td>
+            </tr>
+            <tr>
+                <td><label>Added</label></td>
+                <td>{{item.datelabel}}</td>
+            </tr>
+
+
+        </table>
+    </div>
+
+<!-- {{model.items}} -->

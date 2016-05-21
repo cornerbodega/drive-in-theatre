@@ -1,0 +1,36 @@
+<div layout="col">
+
+    <div><my-menu-bar /></div>
+
+
+    <div class="md-padding">
+        <div flex ng-cloak>
+          <md-grid-list
+                md-cols-sm="1" md-cols-md="4" md-cols-gt-md="4"
+                md-row-height-gt-md="1:1" md-row-height="4:3"
+                md-gutter="16px" md-gutter-gt-sm="8px" >
+            <md-grid-tile ng-repeat="option in vm.tasks"
+                          md-rowspan="{{option.span.row}}"
+                          md-colspan="{{option.span.col}}"
+                          md-colspan-sm="1"
+                          class="{{option.id}}"
+                          ng-click="vm.selecttask(option.id)"
+            >
+                        <!-- <center><p class="md-padding"><b>{{option[to.labelProp]}}<b></p></center> -->
+                          <i class="fa {{option.icon}} fa-5x" style="color:white"></i>
+
+              <!-- <md-icon md-svg-icon="{{option.icon}}"></md-icon> -->
+              <md-grid-tile-footer class="footercaptionbox z-depth-1">
+                <div class='footercaption'>
+                        <h3>{{option.label}}</h3>
+                </div>
+
+              </md-grid-tile-footer>
+            </md-grid-tile>
+          </md-grid-list>
+        </div>
+         <!-- +'<md-tab ng-repeat="option in to.options"><a ng-click="ondashboardsubmit()">{{option[to.labelProp]}}</a></md-tab></md-tabs>' -->
+
+    </div>
+</div>
+<!-- </div> -->

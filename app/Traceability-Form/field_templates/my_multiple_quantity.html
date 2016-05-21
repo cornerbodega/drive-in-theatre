@@ -1,0 +1,6 @@
+<div ng-repeat="item in model.inventoryitems" class="well well-sm z-depth-1">
+    <md-input-container>
+        <label>New Quantity for {{item.inventorylabel}}</label>
+        <input ng-model="model[options.key][item.id]" />
+    </md-input-container>
+</div>

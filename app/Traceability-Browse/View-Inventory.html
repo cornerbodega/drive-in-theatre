@@ -1,0 +1,23 @@
+
+        <div class="repeater-container">
+            <div class="input-field col s6">
+                <input type="text" id="search" ng-model="search">
+                <label for="search"><i class="fa fa-search"></i> Search</label>
+            </div>
+            <div vs-repeat layout-padding>
+                <div ng-repeat="item in inventory|filter: search"
+                ng-click="select(item)" layout="row" >
+                    <!-- <div ng-show="!item.$selected" flex> -->
+                    <div layout="row" flex>
+                        <div flex='15'>{{item.strain}}</div>
+                        <div flex='15'>{{item.inventorytypelabel}}</div>
+                        <div flex='15'>{{item.roomLabel}}</div>
+                        <div flex='20'>{{item.pnQuantitiyLabel}}</div>
+                        <div flex='20'><span ng-show="{{item.qa.potency.Total}}">{{item.qa.potency.Total}} % </span> <span ng-if="item.qa.result"><i class="fa fa-check"></i></span></div>
+                        <div flex='15'>{{item.id}}</div>
+                    </div>
+
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>

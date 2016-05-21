@@ -759,10 +759,10 @@
                     $location.path($window.history.back())
                 }
 
-                $http.get('/api/vendors/'+sessionStorage.ubi).success(function(res){
-                    $scope.myName = res.name
-                    console.log(res);
-                })
+                // $http.get('/api/vendors/'+sessionStorage.ubi).success(function(res){
+                    $scope.myName = sessionStorage.myName
+                //     console.log(res);
+                // })
                 // $scope._myName = sessionStorage.name
 
                 $scope.goTo = function (p){
@@ -774,6 +774,7 @@
             }
         }
     })
+
     .directive('pnBottomNav', function ($location) {
         return {
             restrict: 'E',

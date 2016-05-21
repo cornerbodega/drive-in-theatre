@@ -9,7 +9,8 @@
     function pnTraceability() {
         var _pnTraceability = {
             request: {},
-            response: {}
+            response: {},
+            
         }
 
         return _pnTraceability

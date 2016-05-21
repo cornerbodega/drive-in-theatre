@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 // var twilio = require('twilio')(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN)
 var http = require('http').Server(app);
 // var io = require('socket.io')(http)
-var unirest = require("unirest");
+// var unirest = require("unirest");
 var Firebase = require('firebase');
 var fs = require('fs')
 // var users = require('./server/users')
@@ -41,23 +41,40 @@ function placeholder(req, res, next) { return res.send("Endpoint Not Yet Impleme
 // app.post('/api/v0/wts/create', wts.create)
 // app.get('/api/v0/wts/get/:ubi', wts.get)
 
+// Response Formatter
+
+// app.get('/api/response-formatter', pnResponseFormatter.format)
+
+// var inbound_transfers = require('./server/inbound_transfers.js');
+// app.get('/server/inbound_transfers/:sessionid/:location', inbound_transfers.get)
+// Sync Check
+var sync_check = require('./server/sync_check.js');
+app.get('/api/sync_check/:sessionid', sync_check.get)
+
 // Inventory Manifest
 var manifests = require('./server/manifests.js');
 app.post('/api/manifests/create', manifests.create)
 app.get('/api/manifests/:sessionid', manifests.get)
 
+// Plants
+// var plants = require('./server/plants.js');
+// app.get('/api/plants/:sessionid', plants.get)
 
 // Vehicles
-var vehicles = require('./server/vehicles.js');
-app.get('/api/vehicles/:sessionid', vehicles.get)
+// var vehicles = require('./server/vehicles.js');
+// app.get('/api/vehicles/:sessionid', vehicles.get)
 
 // Employees
-var employees = require('./server/employees.js');
-app.get('/api/employees/:sessionid', employees.get)
+// var employees = require('./server/employees.js');
+// app.get('/api/employees/:sessionid', employees.get)
 
 // Inventory
-var inventory = require('./server/inventory.js');
-app.get('/api/inventory/:sessionid', inventory.get)
+// var inventory = require('./server/inventory.js');
+// app.get('/api/inventory/:sessionid', inventory.get)
+
+// Post Wrapper
+var postWrapper = require('./server/post-wrapper.js')
+app.post('/api/post-wrapper', postWrapper.post)
 
 // Vendors
 var vendors = require('./server/vendors.js');
@@ -188,17 +205,7 @@ db.once('open', function() {
 //     });
 // })
 //
-// app.post('/LCB/postWrapper', function(req, res) {
-//     console.log(req.body);
-//     request({
-//         url: "https://wslcb.mjtraceability.com/serverjson.asp",
-//         method: "POST",
-//         json: true,   // <--Very important!!!
-//         body: req.body
-//     }, function (error, response, body){
-//         res.send(body);
-//     });
-// })
+
 //
 // app.post('/mail/testmessage/', function(req, res){
 //     // res.send(sendMail());

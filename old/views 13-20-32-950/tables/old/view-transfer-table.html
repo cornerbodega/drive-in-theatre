@@ -1,0 +1,35 @@
+<div class="well well-sm" ng-repeat="transfer in vm.transfer">
+    <h3>RECEIVED INBOUND TRANSFER (${{transfer.price}})</h3>
+    <h4>{{transfer.timelabel}} (Manifest # {{transfer.manifestid}}) </h4>
+    <ul class="list-group">
+        <!-- <li class="list-group-item"><b>Manifest ID</b> </li> -->
+
+        <li class="list-group-item"><b>Inventory Item</b>
+        </li>
+        <li class="list-group-item">
+            <div layout="row">
+                <div>
+                    <div layout="col">
+                        <my-barcode barcode="transfer.inventoryid"></my-barcode>
+                    </div>
+                </div>
+                <div>
+                    <div layout="col">
+                        <div>{{transfer.inventorytypelabel}} x {{transfer.quantity}}</div>
+                        <div>{{transfer.inventoryid}}</div>
+                        <div>${{transfer.price}} ({{transfer.priceperunit}} per unit)</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item"><b>From</b></li>
+        <li class="list-group-item">
+            <ul>
+                <li class="list-group-item">{{transfer.vendor.name}}, I-502 License # {{transfer.outbound_license}}, UBI # {{transfer.vendor.ubi}}</li>
+                <li class="list-group-item">{{transfer.vendor.address1}}</li>
+                <li class="list-group-item">{{transfer.vendor.city}}, {{transfer.vendor.state}}, {{transfer.vendor.zip}}</li>
+            </ul>
+        </li>
+
+    </ul>
+</div>

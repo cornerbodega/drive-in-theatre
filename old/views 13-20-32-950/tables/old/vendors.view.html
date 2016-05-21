@@ -1,0 +1,22 @@
+<div layout="col">
+    <div><my-menu-bar /></div>
+    <!-- <div class="container"> -->
+    <div class="md-padding">
+        <my-view-vendors-map />
+    </div>
+    <div layout="row" class="md-padding">
+        <!-- <md-subheader class="md-no-sticky"> -->
+        <div flex>
+            <md-input-container>
+                <label><i class="fa fa-search"></i> Search</label>
+                <input ng-change="vm.searchchanged()" ng-model="vm.search" />
+            </md-input-container>
+        </div>
+        <div ng-if="vm.search.length > 0" class="md-padding">Showing {{vm.showmarkers.length}} / {{vm.vendors.length}}</div>
+        <!-- </md-subheader> -->
+    </div>
+    <div>
+        <!-- List and Menu  -->
+        <my-view-vendors-table />
+    </div>
+</div>

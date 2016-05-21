@@ -25,14 +25,44 @@ function get(req, res) {
             barcodeid: barcodeids
         };
 
-        request(lcbPost(qareq), formatAndReturn);
-        function formatAndReturn(error, qaresponse, qabody){
+        request(lcbPost(qareq), getRoomsInfo);
+        function getRoomsInfo(error, qaresponse, qabody) {
             if (!qabody.data) return console.log('Error 232: No Qa')
-            res.send(formatInventoryAndQA(inventory, qabody.data));
+            var roomsreq = {
+                action: 'sync_inventory_room',
+                sessionid: req.params.sessionid,
+            }
+            request(lcbPost(roomsreq), formatAndReturn);
+            function formatAndReturn(error, roomsresponse, roomsbody){
+                console.log(roomsbody);
+                var rooms = roomsbody.inventory_room
+                if (!rooms) return console.log('Error 244: No Rooms!')
+                res.send(formatInventoryAndQA(inventory, qabody.data, roomsbody.inventory_room));
+                // var inventory = formatInventoryAndQA(inventory, qabody.data)
+                // res.send(formatRooms(inventory, rooms))
+            }
         }
 
-        function formatInventoryAndQA(inventory, qa) {
+        // function formatRooms(inventory, rooms) {
+        //     // _.map(inventory, function(i){
+        //     //     i.roomLabel = getRoomName(i.currentroom)
+        //     //     console.log(i.roomLabel);
+        //     // })
+        //     // function getRoomName(roomid) {
+        //     //     return _.find(inventory, {roomid: roomid}).name
+        //     // }
+        //     return inventory
+        // }
+
+
+        function formatInventoryAndQA(inventory, qa, rooms) {
             _.map(inventory, function(i) {
+                _.map(rooms, function(r) {
+                    if (r.roomid === i.currentroom) {
+                        i.roomLabel = r.name;
+                        // console.log(i.roomLabel);
+                    }
+                })
                 _.map(qa, function(q) {
                     if (q.barcode_id === i.id) {
                         i.qa = q;

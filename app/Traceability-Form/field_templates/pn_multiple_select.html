@@ -1,0 +1,30 @@
+
+
+<!-- Helo?
+<label ng-if="model[options.key]">{{to.label}}</label>
+<ui-select multiple ng-model="model[options.key]" class="form-control" id="myinput" theme="select2">
+    <ui-select-match placeholder="{{to.placeholder}}">
+        {{$item[to.labelProp]}}
+    </ui-select-match>
+    <ui-select-choices data-repeat="{{to.ngOptions}}" group-by="'category'" position="down">
+        <span ng-bind-html="option[to.labelProp] | highlight: $select.search"></span>
+    </ui-select-choices>
+</ui-select> -->
+<!-- Multiple select! -->
+<!-- <label ng-if="model[options.key]">{{to.label}}</label> -->
+<!--  -->
+<!-- <  ng-repeat=> -->
+
+<!-- </div> -->
+
+<!-- <md-select ng-model="model[options.key]">
+    <md-option ng-repeat="option in to.options">{{option[to.labelProp]}}</md-option>
+</md-select> -->
+
+<div >
+    <!-- ng-model="model[options.key]" -->
+    <div ng-repeat="option in to.options">
+        {{option}}
+        {{option[to.labelProp]}}
+    </div>
+</div>

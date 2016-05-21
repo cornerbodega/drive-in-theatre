@@ -1,0 +1,51 @@
+<div ng-repeat="plant in model.plants">
+    <!-- "harvestcollect": 1,
+      "sessiontime": "1429729199",
+      "id": "7645047015211840",
+      "location": "416545",
+      "deletetime": null,
+      "harvestscheduletime": null,
+      "seized": null,
+      "removescheduled": 0,
+      "mother": 0,
+      "removescheduletime": null,
+      "deleted": 0,
+      "harvestscheduled": 0,
+      "removereason": null,
+      "parentid": "6020939240000151",
+      "transactionid": "6035285",
+      "transactionid_original": "3543402",
+      "curecollect": null,
+      "state": 1,
+      "strain": "Matanuska",
+      "room": "6",
+      "converted": 0,
+      "plantstatus": "Drying",
+      "plantbirthday": "2015-04-22",
+      "plantlabel": "[7645047015211840] Matanuska 2015-04-22" -->
+        <table class="table">
+            <tr>
+                <td >{{plant.plantlabel}}</td>
+                <td><print-barcode desc="plant.plantlabel" barcode="plant.id" /></td>
+            </tr>
+            <tr>
+                <td><label>Strain</label></td>
+                <td>{{plant.strain}}</td>
+            </tr>
+            <tr>
+                <td><label>Started</label></td>
+                <td>{{plant.plantbirthday}}</td>
+            </tr>
+            <tr>
+                <td><label>Room</label></td>
+                <td>{{plant.plant_room_name}}</td>
+            </tr>
+            <tr>
+                <td><label>Status</label></td>
+                <td>{{plant.plantstatus}}</td>
+            </tr>
+
+        </table>
+    </div>
+
+<!-- {{model.plants}} -->

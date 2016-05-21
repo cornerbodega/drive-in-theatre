@@ -1,0 +1,85 @@
+<!-- Manifests -->
+<!-- manifest -->
+<div flex>
+    <md-input-container>
+        <label><i class="fa fa-search"></i> Search</label>
+        <input ng-change="searching()" ng-model="search" />
+    </md-input-container>
+</div>
+
+<div ng-repeat="manifest in manifests | filter: search">
+    <!-- <div class="well well-sm"> -->
+    <div ng-if="manifest.show" ng-click="toggleshow(manifest)"><i class="fa fa-angle-down"></i> {{manifest.label}}</div>
+        <div ng-if="!manifest.show" ng-click="toggleshow(manifest)"><i class="fa fa-angle-right"></i> {{manifest.label}}</div>
+        <!-- <div><button class="button" ng-click="vm.toprint()">[print]</button></div> -->
+        <!-- <div layout="row"> -->
+            <!-- <div flex="75">{{manifest.label}}</div> -->
+            <!-- TODO: Make the download CSV button WORK!!! -->
+            <!-- <div flex="25"><button type="button" ng-click="dlcsv()" class="btn btn-default" downloadcsv>Download CSV</button></div> -->
+        <!-- </div> -->
+        <!-- <h5>{{manifest.total_item_count}} inventory items total.</h5> -->
+        <ul class="list-group" ng-if="manifest.show">
+            <!-- <li class="list-group-item"><b>Manifest ID</b> </li> -->
+
+            <li class="list-group-item"><b>Manifest ID {{manifest.manifestid}}</b></li>
+            <li class="list-group-item"><b>Transporter</b></li>
+            <li class="list-group-item">
+                <ul>
+                    <li class="list-group-item">{{manifest.employee_name}}, DOB {{manifest.employee_dob}}</li>
+                    <li class="list-group-item">{{manifest.employee_vehicle_details}}</li>
+                    <!-- <li class="list-group-item">{{manifest.origination_city}}, {{manifest.origination_state}}, {{manifest.origination_zip}}</li>
+                    <li class="list-group-item">Phone: {{manifest.origination_phone}}</li> -->
+                </ul>
+            </li>
+            <li class="list-group-item"><b>From</b></li>
+            <li class="list-group-item">
+                <ul>
+                    <li class="list-group-item">{{manifest.origination_name}}, I-502 License # {{manifest.origination_license_number}}</li>
+                    <li class="list-group-item">{{manifest.origination_street}}</li>
+                    <li class="list-group-item">{{manifest.origination_city}}, {{manifest.origination_state}}, {{manifest.origination_zip}}</li>
+                    <li class="list-group-item">Phone: {{manifest.origination_phone}}</li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><b>To</b>
+            </li>
+            <li class="list-group-item">
+                <ul ng-repeat="stop in manifest.stops">
+                    <li class="list-group-item">{{stop.name}}, I-502 License # {{stop.license_number}}</li>
+                    <li class="list-group-item">{{stop.street}}</li>
+                    <li class="list-group-item">{{stop.city}}, {{stop.state}}, {{stop.zip}}</li>
+                    <li class="list-group-item">Phone: {{stop.phone}}</li>
+                    <li class="list-group-item">{{stop.travel_route}}</li>
+                    <li class="list-group-item"><b>Items being delivered to {{stop.name}}</b>
+                    </li>
+                    <li class="list-group-item">
+                        <ul ng-repeat="item in stop.items">
+                            <li class="list-group-item">
+                                <div class="col">
+                                    <div layout="row">
+                                        <div>
+                                            <div layout="col">
+                                                <my-barcode barcode="item.inventoryid"></my-barcode>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div layout="col">
+                                                <div>{{item.description}} x {{item.quantity}}</div>
+                                                <div>{{item.inventoryid}}</div>
+                                                <div ng-show="!!item.price">{{item.price}} ({{item.priceperunit}} per unit)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group" flex>
+                                    <label>Total price for {{item.inventoryid}}</label>
+                                    <input class="form-control" ng-model="item.myprice">
+                                </div> -->
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    <!-- </div> -->
+</div>

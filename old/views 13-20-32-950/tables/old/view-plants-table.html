@@ -1,0 +1,21 @@
+{{noplantswarning}}
+<div class="well well-sm">{{plants.length}} plants in cultivation</div>
+
+<div class="well well-sm">
+    <div flex>
+        <md-input-container>
+            <label><i class="fa fa-search"></i> Search</label>
+            <input ng-model="search" />
+        </md-input-container>
+    </div>
+    <table class="table">
+        <tr>
+            <th ng-repeat="vf in displayfields">{{vf.label}}</th>
+        </tr>
+        <tr ng-repeat="plant in plants | filter:search">
+            <td  ng-repeat="vf in plant.displayfields">
+                {{plant[vf.value]}}
+            </td>
+        </tr>
+    </table>
+</div>

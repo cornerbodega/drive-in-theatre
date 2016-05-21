@@ -1,0 +1,117 @@
+<!-- <div >
+<div vs-repeat class="card small">
+<div ng-repeat="item in inventory">
+{{item.id}}
+</div>
+</div>
+
+</div> -->
+
+<!-- <div class="repeater-container" vs-repeat>
+<div ng-repeat="item in inventory|filter:search"> -->
+<div class="container">
+    <div class="repeater-container" vs-repeat>
+        <div ng-repeat="item in inventory|filter:search">
+
+            <div ng-class="{'pn-well pn-well-sm':item, 'pnGreyGreen': item.$selected}" ng-click="pnSelectItem(item)">
+
+                <div layout="column" >
+                    <div layout="column">
+                        <div layout="column">
+                            <div class="pnProductGridItemStrain">{{item.strain}} {{item.inventorytypeInfo.label}}</div>
+                        </div>
+                        <div layout="row" layout-margin ng-if="item.qa.potency.Total">
+                            <div layout="column" >
+                                <div class="">
+                                    THC
+                                </div>
+                                <div class="">
+                                    {{item.qa.potency.Total}}%
+                                </div>
+                            </div>
+                            <div layout="column" >
+                                <div class="">
+                                    CBD
+                                </div>
+                                <div class="">
+                                    {{item.qa.potency.CBD}}%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pnTxtMd" ng-if="item.inventorytypeInfo.weighable">
+                            {{item.remaining_quantity}} grams <span ng-show="item.price">for ${{item.price}}</span>
+                        </div>
+                        <div class="pnTxtMd" ng-if="!item.inventorytypeInfo.weighable">
+                            {{item.remaining_quantity}} x {{item.usable_weight}} gram packages <span ng-show="item.price">for ${{item.price}}</span>
+                        </div>
+                        <div class="pnTxtSm">
+                            ID: {{item.id}}
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <!-- <div class="pn-item-grid-seller-info">{{item.id}}</div> -->
+                        <!-- <pn-detail-item-detail item="item" /> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="pnProductGridItemPriceWeight">
+{{item.id}}
+</div> -->
+<!-- <div ng-if="item.sellerInfo.name" class="pnProductGridItemPriceWeight">
+{{item.timeLabel}}
+</div> -->
+<!-- <div ng-if="!item.sellerInfo.name" class="pnProductGridItemPriceWeight">
+{{item.sessiontimelabel}}
+</div> -->
+<!-- <div ng-if="item.sellerInfo.name" class="pn-item-grid-seller-info">
+{{item.sellerInfo.name}} <span ng-if="item.sellerInfo.license">({{item.sellerInfo.license}})
+</div> -->
+<!-- <pn-market-grid flex  /> -->
+<!-- <div flex class="" ng-repeat="product in products | filter:search">
+<div class="width100" layout="row" >
+<div  ng-click="toProduct(product)" flex pn-background-image="{{product.image}}">
+<div >
+{{product.image}}
+<pn-product-grid-item  class="" product="product" />
+</div>
+</div>
+</div>
+</div> -->
+
+
+<!-- <div class="width100 " ng-click="toProduct(post)" ng-repeat="item in inventory|filter:search">
+<div flex pn-background-image="{{item.image}}">
+<div >
+<pn-product-grid-item class="" product="item">
+</div>
+</div>
+</div> -->
+
+
+<!-- <table class="striped" style="width: 100%;">
+<tbody vs-repeat vs-scroll-parent=".repeater-container">
+<tr ng-click="pnSelectItem(item)"
+ng-class="item.$selected ? 'item-element well green darken-3 white-text' : 'item-element well'"
+ng-repeat="item in inventory|filter:search">
+<td>
+<span layout-padding>
+<center>
+<img class="pnInvThumb" ng-src="{{item.image}}">
+</center>
+</span>
+</td>
+<td>
+<span>{{item.id}}</span>
+<span>{{item.strain}}</span>
+<span>{{item.inventorytypelabel}}</span>
+</td>
+<td><span>{{item.pnQuantitiyLabel}} </span></td>
+</tr>
+</tbody>
+</table> -->
+<!-- </div> -->

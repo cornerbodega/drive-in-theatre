@@ -1,0 +1,41 @@
+<div ng-repeat="transfer in model.inbound_transfers">
+        <table class="table">
+            <tr>
+                <td colspan="2"><b>{{transfer.label}}</b></td>
+            </tr>
+            <tr>
+                <td><label>From</label></td>
+                <td>{{transfer.from_vendor}}</td>
+            </tr>
+            <tr>
+                <td><label>Manifest ID</label></td>
+                <td>{{transfer.manifestid}}</td>
+            </tr>
+            <tr>
+                <td><label>Inventory ID</label></td>
+                <td>{{transfer.inventoryid}}</td>
+            </tr>
+            <tr>
+                <td><label>Time</label></td>
+                <td>{{transfer.datetimestring}}</td>
+            </tr>
+            <tr>
+                <td><label>Inventory Type</label></td>
+                <td>{{transfer.inventorytypelabel}}</td>
+            </tr>
+            <tr>
+                <td><label>Strain</label></td>
+                <td>{{transfer.strain}}</td>
+            </tr>
+            <tr>
+                <td><label>Quantity</label></td>
+                <td>{{transfer.quantity}}</td>
+            </tr>
+            <tr>
+                <td><label>Price</label></td>
+                <td>{{transfer.price}}</td>
+            </tr>
+        </table>
+    </div>
+
+<!-- {{model.items}} -->

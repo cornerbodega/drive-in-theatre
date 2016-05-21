@@ -1,0 +1,19 @@
+<!-- View Vendors Table -->
+<!-- <div class="md-padding"> -->
+<!-- vendors should be loaded by now in the code -->
+<md-content>
+    <md-list class="md-padding">
+        <md-list-item class="md-padding" ng-repeat="vendor in vm.vendors | filter:vm.search">
+            <div class="md-list-item-text" layout="column">
+                <br />
+                <label>{{ vendor.display.name }}</label>
+                <p>{{ vendor.display.type }}</p>
+                <p>{{ vendor.display.address }}</p>
+                <p>{{ vendor.display.phone }}</p>
+            </div>
+            <md-divider ></md-divider>
+        </md-list-item>
+    </md-list>
+</md-content>
+
+<!-- </div> -->

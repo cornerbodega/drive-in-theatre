@@ -1,0 +1,47 @@
+<md-input-container>
+    <label>Arrival</label>
+    <md-input-container>
+        <md-select id="arr.month" placeholder="{{placeholders.month}}" ng-model="createManifestForm.arrival.month">
+            <md-option ng-repeat="month in months" value="{{month}}">
+                {{month}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container>
+        <md-select id="arr.day" placeholder="{{placeholders.day}}" ng-model="createManifestForm.arrival.day">
+            <md-option ng-repeat="day in days" value="{{day}}">
+                {{day}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container>
+        <md-select id="arr.year" placeholder="{{placeholders.year}}" ng-model="createManifestForm.arrival.year">
+            <md-option>
+                2016
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container>
+        <md-select id="arr.hour" placeholder="12" ng-model="createManifestForm.arrival.hour">
+            <md-option ng-repeat="hour in [1,2,3,4,5,6,7,8,9,10,11,12]" value="{{hour}}">
+                {{hour}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container>
+        <md-select id="arr.mins" placeholder="00" ng-model="createManifestForm.arrival.mins">
+            <md-option ng-repeat="min in mins" value="{{min.id}}">
+                {{min.label}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container>
+        <md-select id="arr.m" placeholder="AM" ng-model="createManifestForm.arrival.m">
+            <md-option ng-repeat="m in ['AM', 'PM']">
+                {{m}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <!-- <div layout-padding></div> -->
+
+    </md-input-container>

@@ -1,43 +1,55 @@
+.pnWaBlue {
+    background-color: #34c2de;
+}
+.pnWaYellow {
+    background-color: #ffd520;
+}
+.pnCenterText{
+    text-align:center;
+}
+.fieldset.standard{
+  border-style: solid;
+  border-width: 1px; }
 
-.pnBorder {
+.pnBorder{
     background: #000000;
 }
-.roundedCorners {
+.roundedCorners{
     border-radius: 50%;
 }
 
-.pnInvThumb {
+.pnInvThumb{
     height: auto;
     width:100%;
 }
-.pnPublishImagePreview {
+.pnPublishImagePreview{
     height: 250;
     width:auto;
 }
-.pn-transparent {
+.pn-transparent{
     background: rgba(255, 255, 255, 0);
 }
 
-/*.pn-landing-card: {
+/*.pn-landing-card{
     background: rgba(0, 0, 0, 0.8);
 }*/
-.pn-page-title {
+.pn-page-title{
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     font-size: 21px;
 }
 
-.pnTxtSm: {
+.pnTxtSm{
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 15px;
 }
-.pnTxtLg: {
+.pnTxtLg{
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 25px;
 }
-.pnTxtMd: {
+.pnTxtMd{
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -47,31 +59,31 @@
     font-weight: 400;
     font-size: 20px;
 }
-.pn-txt-sm: {
+.pn-txt-sm{
     /*@include: vertical-align();*/
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 18px;
 }
-.pn-text-18: {
+.pn-text-18{
     /*@include: vertical-align();*/
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 18px;
 }
-.pn-text-20: {
+.pn-text-20{
     /*@include: vertical-align();*/
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 18px;
 }
-.pn-add-to-cart-product-detail-button-text: {
+.pn-add-to-cart-product-detail-button-text{
     /*@include: vertical-align();*/
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 18px;
 }
-.pn-add-to-cart-product-detail-button: {
+.pn-add-to-cart-product-detail-button{
     /*@include: vertical-align();*/
     height:70px;
     line-height: 70px;
@@ -171,6 +183,9 @@
 .pnGreyGreen {
     background-color: #99cc99;
 }
+/*.green darken-3 {
+    background-color: #008457;
+}*/
 .mcGreen1 {
     background-color: #46913e;
 }
@@ -680,7 +695,7 @@ img::-moz-selection {
 }
 
 .repeater-container{
-    height: 100%;
+    height: 35%;
     overflow: auto;
     /*box-shadow: 0 0 10px;*/
     /*border-radius: 5px;*/

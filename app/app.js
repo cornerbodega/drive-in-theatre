@@ -8,6 +8,9 @@ var countryApp = angular.module('countryApp', [
     'pn-labs',
     'vs-repeat',
     'ng-currency',
+    'formly',
+    'ngResource',
+    // 'btford.socket-io',
 
     // 'pn-landing',
     // 'mobile-angular-ui',
@@ -16,10 +19,15 @@ var countryApp = angular.module('countryApp', [
 
 countryApp.config(function($routeProvider) {
     $routeProvider
-    .when('/settings', { //
-        templateUrl: 'Settings/Settings.html',
-        controller: 'SettingsController',
+    .when('/traceability', { //
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
     })
+
+    // .when('/settings', { //
+    //     templateUrl: 'Settings/Settings.html',
+    //     controller: 'SettingsController',
+    // })
     .when('/adjust-weight', { //
         templateUrl: 'Home/Inventory-Actions/Adjust-Weight.html',
         controller: 'AdjustInventoryController',
@@ -36,10 +44,10 @@ countryApp.config(function($routeProvider) {
         templateUrl: 'Home/Inventory-Actions/Receive-Inbound.html',
         controller: 'ReceiveInboundController',
     })
-    .when('/iap_complete', { //
-        templateUrl: 'Home/Home.html',
-        controller: 'HomeController',
-    })
+    // .when('/iap_complete', { //
+    //     templateUrl: 'Home/Home.html',
+    //     controller: 'HomeController',
+    // })
     .when('/sign-in', { //
         templateUrl: 'Sign-In/Sign-In.html',
         controller: 'SignInController',
@@ -87,13 +95,256 @@ countryApp.config(function($routeProvider) {
         templateUrl: 'landing/landing.html',
         controller: 'LandingController',
     })
+
+
+    //  BEGIN TRACEABILITY MERGE
+    .when('/traceability/market', {
+        templateUrl: 'views/Market/Market.html',
+        controller: 'MarketController',
+    })
+    .when('/traceability/help', {
+        templateUrl: 'views/Help/Help.html',
+        controller: 'HelpController',
+
+    })
+    .when('/traceability/sales', {
+        templateUrl: 'views/history/History.html',
+        controller: 'HistoryController',
+    })
+    .when('/traceability/tax_report', {
+        templateUrl: 'views/history/History.html',
+        controller: 'HistoryController',
+    })
+    .when('/traceability/location', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/inventory/manifests/outbound', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/inventory/manifests/inbound', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/qa_lab', {
+        templateUrl: 'views/qa_lab/qa_lab.view.html',
+        controller: 'QALabController',
+    })
+    .when('/traceability/plants/plant_move', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_modify', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_yield_modify', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_convert_to_inventory', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_cure', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_waste_weigh', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_harvest', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_harvest_schedule', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_destroy', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/plant_destroy_schedule', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/rooms/inventory_rooms/inventory_room_add', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/rooms/inventory_rooms/inventory_room_modify', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/rooms/inventory_rooms/inventory_room_remove', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/rooms/plant_rooms/plant_room_add', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/rooms/plant_rooms/plant_room_modify', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/rooms/plant_rooms/plant_room_remove', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/rooms/inventory_rooms/browse_inventory_rooms', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityBrowseController',
+    })
+    .when('/traceability/location/rooms/plant_rooms/browse_plant_rooms', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityBrowseController',
+    })
+    .when('/traceability/location/rooms/inventory_rooms', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/location/rooms/plant_rooms', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/location/rooms', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/plants/plant_new', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/plants/browse_plants', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityBrowseController',
+    })
+    .when('/traceability/plants', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/inventory/manifests/inbound/inventory_transfer_inbound', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/employees/employee_add', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/employees/employee_remove', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/employees/employee_modify', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/employees/browse_employees', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityBrowseController',
+    })
+    .when('/traceability/location/vehicles/vehicle_remove', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+
+    })
+    .when('/traceability/location/vehicles/vehicle_modify', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/vehicles/vehicle_add', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/location/vehicles/browse_vehicles', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityBrowseController',
+    })
+    .when('/traceability/location/vehicles', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/location/employees', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/inventory/manifests', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/inventory/manifests/outbound/inventory_transfer_outbound', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/inventory/manifests/outbound/inventory_manifest', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/inventory/manifests/outbound/browse_manifests', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityBrowseController',
+    })
+    .when('/traceability/inventory', {
+        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+        controller: 'TraceabilityMenuController',
+    })
+    .when('/traceability/inventory/inventory_destroy', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/inventory/inventory_convert', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/inventory/inventory_destroy_schedule', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/inventory/inventory_adjust', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/inventory/view_inventory', {
+        templateUrl: 'Traceability-Browse/Traceability-Browse.view.html',
+        controller: 'TraceabilityBrowseController',
+    })
+    .when('/traceability/vendors', {
+        templateUrl: 'views/vendors/vendors.view.html',
+        controller: 'VendorsController',
+
+    })
+    .when('/samples', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+    })
+    .when('/traceability/inventory/manifests/inbound/transfers_view_inbound', {
+        templateUrl: 'Traceability-Form/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
+
+    })
+    // .when('/traceability', {
+    //     templateUrl: 'Traceability-Menu/traceability-menu.view.html',
+    //     controller: 'TraceabilityMenuController',
+    // })
+    .when('/login', {
+        templateUrl: 'views/Landing/Landing.html',
+        controller: 'LoginController',
+    })
+    .when('/print_id/:id/:desc/:date', {
+        templateUrl: 'views/print.html',
+        controller: 'PrintController',
+    })
     .otherwise({
         redirectTo: '/'
     });
 });
 
 countryApp.config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-  // .primaryPalette('pink')
- // .accentPalette('orange');
+    $mdThemingProvider.theme('default')
+    // .primaryPalette('pink')
+    // .accentPalette('orange');
 });

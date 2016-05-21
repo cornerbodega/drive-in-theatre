@@ -30,6 +30,11 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
             sessionStorage.ubi = form.license_number
             sessionStorage.sessionid = res.sessionid
 
+            $http.get('/api/vendors/'+sessionStorage.ubi).success(function(res){
+                sessionStorage.myName = res.name
+                sessionStorage.myLocation = res.location
+                // console.log(res);
+            })
             createUser()
             function createUser() {
                 var users = pnUsers.fbo()
@@ -37,7 +42,7 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
                 function init() {
                     users[form.license_number] = form;
                     users.$save().then(function(){
-                        $location.path('/market');
+                        $location.path('/traceability');
                     })
                 }
             }

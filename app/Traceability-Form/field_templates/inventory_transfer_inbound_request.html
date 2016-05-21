@@ -1,0 +1,6 @@
+<div ng-repeat="item in model.items_to_accept" class="well well-sm z-depth-1">
+    <md-input-container>
+        <label>Quantity Received for {{item.label}}</label>
+        <input ng-model="model[options.key][item.barcode_id]"  />
+    </md-input-container>
+</div>

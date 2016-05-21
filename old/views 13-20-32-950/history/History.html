@@ -1,0 +1,18 @@
+<div layout="col">
+    <div><my-menu-bar /></div>
+    <div class="md-padding">
+        <md-input-container>
+            <label><i class="fa fa-search"></i> Search</label>
+            <input aria-label="search" ng-model="search">
+        </md-input-container>
+        <div ng-repeat="event in vm.history| filter:search| orderBy:'-time'">
+            <!-- {{event.req}}
+            {{event.res}}
+            {{event.email}}
+            {{event.time}} -->
+            <pre>{{event | json}}</pre>
+
+        </div>
+
+    </div>
+</div>

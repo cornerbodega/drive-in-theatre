@@ -1,0 +1,20 @@
+
+<!-- <a ng-click="showInventory=!showInventory"><span ng-show="!showInventory">Select</span><span ng-show="showInventory">Hide</span> Inventory</a> -->
+
+<!-- <div ng-show="showInventory" class="repeater-container"> -->
+<div class="repeater-container">
+    <div class="input-field col s6">
+        <input type="text" id="search" ng-model="search">
+        <label for="search"><i class="fa fa-search"></i> Search</label>
+    </div>
+    <div vs-repeat layout-padding>
+        <div ng-repeat="item in inventory|filter: search"
+        ng-click="addItemToStop(stop, item)" layout="row" >
+            <!-- <div ng-show="!item.$selected" flex> -->
+                <pn-inventory-item-list-row item="item" flex />
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+<!-- </div> -->

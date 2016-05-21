@@ -1,0 +1,18 @@
+<pn-nav />
+<div class="container">
+    <center><h4>Execute Manifest</h4></center>
+    <div ng-repeat="manifest in manifests">
+        <div ng-repeat="stop in manifest.stops">
+            <div class="grey" ng-if="!manifest.fulfilled">
+                {{manifest.dateLabel}}
+                {{stop.name}}
+                {{manifest.manifestid}}
+            </div>
+            <div class="" ng-if="manifest.fulfilled">
+                {{manifest.dateLabel}}
+                {{stop.name}}
+                {{manifest.manifestid}}
+            </div>
+        </div>
+    </div>
+</div>

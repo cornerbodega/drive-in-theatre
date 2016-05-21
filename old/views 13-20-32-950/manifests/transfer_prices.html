@@ -1,0 +1,20 @@
+
+<!-- {{to.options}} -->
+<!-- <p>Manifest ID {{model.manifest_to_transfer.manifestid}}</p> -->
+
+<div ng-repeat="stop in to.options.stops">
+    <div ng-repeat="item in stop.items">
+        <div ng-if="item.price">
+             <b>{{item.price}}</b> [{{item.inventoryid}}] {{item.quantity}} x {{item.description}}
+        </div>
+        <div ng-if="!item.price" class="well well-sm">
+        {{item.quantity}} x {{item.description}} [{{item.inventoryid}}] 
+            <md-input-container>
+                <label>Total Price for {{item.inventoryid}}</label>
+                <input ng-model="model[options.key][item.inventoryid]" />
+            </md-input-container>
+
+        </div>
+        <br />
+    </div>
+</div>

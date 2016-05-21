@@ -9,14 +9,17 @@
         {{selected.length}} items
     </div>
     <div ng-repeat="item in selected">
-        <pn-selected-item item="item">
+        <!-- <pn-selected-item item="item"> -->
 
     </div>
     <div layout-padding></div>
     <center>
-    <button class="btn btn-flat" ng-click="submitCreateManifestForm()">Next</button>
+        <!-- <button class="btn btn-flat"  ng-click="previewManifest()">Preview Manifest</button> -->
+        <button class="btn btn-flat"  ng-click="submitCreateManifestForm($event)">Create Manifest</button>
     </center>
-
+    <pre md-padding>
+        {{request | json}}
+    </pre>
 </div>
 
 <!-- action: inventory_manifest

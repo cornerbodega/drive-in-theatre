@@ -1,0 +1,41 @@
+<div layout=col>
+    <div layout="col">
+        <div layout=row>
+            <div><a class="btn btn-default" ng-click='batchadjust()'>Adjust {{inventory.length}} Selected</a></div>
+            <div class="md-padding">{{inventory.length}} / {{origlen}} items selected</div>
+        </div>
+        <div  ng-if="shownewquantity" class="well well-sm" layout="col">
+            <div>
+                <md-input-container ng-if="shownewquantity">
+                    <label>New Quantity</label>
+                    <input ng-model="newquantity" ng-change="updatequantity(newquantity)"/>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container  ng-if="showreason">
+                    <label>Reason</label>
+                    <input ng-model="reason" ng-change="updatereason(reason)" />
+                </md-input-container>
+            </div>
+            <div ng-click="gobatchadjust($event)"class="btn btn-primary submit-button">Go</div>
+        </span>
+
+    </div>
+
+    <div>
+        <table class="table">
+            <tr><th ng-repeat="viewfield in viewfields">
+                <md-input-container>
+                    <label><i class="fa fa-search-plus"></i> {{viewfield.label}}</label>
+                    <input ng-model='search[viewfield.value]' ng-change="searching()">
+                </md-input-container>
+            </th></tr>
+
+            <tr ng-repeat="item in inventory" >
+                <td ng-repeat="viewfield in viewfields"  ng-click="showitem">
+                    {{item[viewfield.value]}}
+                </li>
+            </tr>
+        </table>
+    </div>
+</div>

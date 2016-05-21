@@ -1,0 +1,103 @@
+<div class="md-padding">{{inventory.length}} total items </div>
+        <!-- <h3>{{item.inventorylabel}}</h3> -->
+        <!-- <div class="well well-sm" ng-repeat="item in inventory" ng-click="toggledetail(item)">
+            <div ng-if="!item.showdetail">{{item.inventorylabel}}</div>
+            <div ng-if="item.showdetail"></div>
+            <div ng-if="item.showdetail">
+                <label>{{item.inventorylabel}}</label>
+                <table class="table">
+                    <tr ng-repeat="viewfield in viewfields">
+                        <td ng-if="item[viewfield.value]">{{viewfield.label}}</td>
+                        <td ng-if="item[viewfield.value]">{{item[viewfield.value]}}</td>
+                    </tr>
+                </table>
+            </div> -->
+<div flex ng-cloak>
+  <!-- <md-grid-list
+        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="4:3"
+        md-gutter="8px" md-gutter-gt-sm="4px" >
+    <md-grid-tile ng-repeat="item in inventory"
+                  md-rowspan="{{item.expand}}"
+                  md-colspan="2"
+                  md-colspan-sm="1"
+                  class="{{option.background}}"
+                  ng-click="toggledetail(item)"
+    > -->
+    <div flex>
+        <md-input-container>
+            <label>Search</label>
+            <input ng-model="search" />
+        </md-input-container>
+    </div>
+    <div ng-repeat="item in inventory | filter:search">
+        <label ng-show="item.showdetail" ng-click="toggledetail(item)"><i class="fa fa-minus-circle"></i>
+ {{item.inventorylabel}}</label>
+        <a ng-show="!item.showdetail" ng-click="toggledetail(item)"><i class="fa fa-plus-circle"></i>
+ {{item.inventorylabel}}</a>
+        <table ng-show="item.showdetail" class="table">
+            <tr ng-repeat="viewfield in viewfields">
+                <td ng-if="item[viewfield.value]">{{viewfield.label}}</td>
+                <td ng-if="item[viewfield.value]">{{item[viewfield.value]}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- W3Schools is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using this site, you agree to have read and accepted our terms of use, cookie and privacy policy. Copyright 1999-2015 by Refsnes Data. All Rights Reserved. -->
+
+    <!-- <div ng-repeat="viewfield in viewfields">
+        <label ng-if="item[viewfield.value]">{{viewfield.label}}</label>
+        <p ng-if="item[viewfield.value]">{{item[viewfield.value]}}</p>
+    </div> -->
+
+    <!-- ng-click="selectdashboardoption(option[to.valueProp])"  -->
+                  <!-- <i class="fa {{option.icon}} fa-4x"></i> -->
+      <!-- <md-icon md-svg-icon="{{option.icon}}"></md-icon> -->
+      <!-- <md-grid-tile-footer class="inventoryfootercaptionbox">
+        <div class='footercaption'>
+                <h3>{{item.inventorylabel}}</h3>
+        </div> -->
+
+    </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
+
+        <!-- <table class="table">
+            <tr><th ng-repeat="viewfield in viewfields">{{viewfield.label}}</th></tr>
+            <tr ng-repeat="item in inventory" >
+                <td ng-repeat="viewfield in viewfields" ng-click="showitem">
+                    {{item[viewfield.value]}}
+                    <div>
+                        Item Details!!
+                    </div>
+                </li>
+            </tr>
+        </table> -->
+
+<!-- <div ng-repeat="item in inventory"> -->
+    <!-- <table class="table table-striped"> -->
+    <!-- <md-grid-list
+        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="4:3"
+        md-gutter="8px" md-gutter-gt-sm="4px" >
+        <md-grid-tile ng-repeat="tile in inventory"
+            md-rowspan="{{tile.span.row}}"
+            md-colspan="{{tile.span.col}}"
+            md-colspan-sm="1"
+            ng-class="tile.background" >
+
+            <ul class='form-control' ng-repeat="viewfield in item.viewfields">
+
+                <li ng-if="!!item[viewfield.value]"><label>{{viewfield.label}}</label></li>
+                <li ng-if="!!item[viewfield.value]">{{item[viewfield.value]}}</li>
+            </ul>
+            <md-grid-tile-footer><h3>{{tile.id}}</h3></md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list> -->
+
+
+
+<!-- </table> -->
+            <!-- <td><label>{{viewfield.label}}</label></td><td style="text-align:right">{{item[viewfield.value]}}</td> -->
+<!-- </div> -->

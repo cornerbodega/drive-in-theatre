@@ -1,0 +1,79 @@
+<div ng-repeat="item in [vm.formmodel.inventoryitem]">
+<!-- <div class="well well-sm" ng-repeat="item in [vm.formmodel.inventoryitem]"> -->
+<!-- <div layout="col"> -->
+<table class="table table-striped">
+    <tr ng-repeat="viewfield in item.viewfields">
+        <!-- <td><label>{{viewfield.label}}</label></td><td style="text-align:right">{{item[viewfield.value]}}</td> -->
+        <td ng-if="!!item[viewfield.value]"><label>{{viewfield.label}}</label></td>
+        <td ng-if="!!item[viewfield.value]">{{item[viewfield.value]}}</td>
+    </tr>
+    <!-- <div><label>Last Modified:</label> {{item.datelabel}}</div>
+    <div><label>Remaining Quantity:</label> {{item.remaining_quantity}}</div>
+    <div><label>Usable Weight:</label> {{item.usable_weight}}</div>
+    <div><label>Strain:</label> {{item.strain}}</div>
+    <div><label>Parent:</label> {{item.parentid}}</div> -->
+<!-- </div> -->
+</table>
+</div>
+
+<!-- {
+  "action": "view_inventory",
+  "inventoryitem": {
+    "transactionid_original": "10851051",
+    "sessiontime": "1443209762",
+    "strain": "Mixed",
+    "plantid": null,
+    "wet": 0,
+    "usable_weight": "0.5",
+    "parentid": [
+      "6033472250000034"
+    ],
+    "transactionid": "10851119",
+    "productname": "kief sample",
+    "inventorystatus": 2,
+    "source_id": null,
+    "currentroom": "1",
+    "id": "9757800640603291",
+    "remaining_quantity": "1",
+    "location": "412600",
+    "inventoryparentid": [
+      "6033472250000001"
+    ],
+    "net_package": null,
+    "inventorystatustime": "1443209852",
+    "deleted": 0,
+    "inventorytype": 24,
+    "is_sample": 1,
+    "seized": null,
+    "inventorylabel": "[9757800640603291] 1 x 0.5g kief sample Mixed (Sample) (QA Passed)",
+    "category": "Marijuana Extract for Inhalation",
+    "qa": {
+      "inventorytype": "5",
+      "transactionid": "8111543",
+      "barcode_id": "9757800640603291",
+      "parent_id": "6033472250000001",
+      "test": [
+        {
+          "type": 2,
+          "Total": "43.2",
+          "CBD": "0.38",
+          "THCA": "43.7",
+          "THC": "4.91"
+        },
+        {
+          "coliforms": "0",
+          "bile_tolerant": "10",
+          "yeast_and_mold": "20",
+          "aerobic_bacteria": "40",
+          "type": 4,
+          "e_coli_and_salmonella": "0"
+        }
+      ],
+      "use": 0,
+      "sample_id": "9478533865562603",
+      "lab_license": "0003",
+      "result": 1,
+      "transactionid_original": "7826183"
+    }
+  }
+} -->

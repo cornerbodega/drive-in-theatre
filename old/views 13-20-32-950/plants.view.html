@@ -1,0 +1,31 @@
+<div layout="col">
+    <div><my-menu-bar /></div>
+    <div class="md-padding">
+        {{vm.noplantswarning}}
+        <div class="well well-sm">{{vm.plants.length}} plants in cultivation</div>
+
+        <div class="well well-sm">
+            <div flex>
+                <md-input-container>
+                    <label><i class="fa fa-search"></i> Search</label>
+                    <input ng-model="vm.search" />
+                </md-input-container>
+            </div>
+            <table class="table">
+                <tr>
+                    <th ng-repeat="vf in vm.displayfields">{{vf.label}}</th>
+                </tr>
+                <tr ng-repeat="plant in vm.plants | filter:vm.search">
+                    <td  ng-repeat="vf in plant.displayfields">
+                        {{plant[vf.value]}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- <div ng-repeat="plant in vm.plants">
+            <div ng-repeat="vf in plant.displayfields">
+                {{vf.label}} {{plant[vf.value]}}
+            </div>
+        </div> -->
+    </div>
+</div>

@@ -1,0 +1,26 @@
+
+<table class="table">
+    <md-input-container>
+        <input aria-label="search" ng-model="search">
+    </md-input-container>
+    <tr>
+        <th>Plant Id</th>
+        <th>Inventory Id</th>
+        <th>Type</th>
+        <th>Room</th>
+        <th>Weight</th>
+        <th>Wholeweight</th>
+        <th>Harvested</th>
+        <th>Cured</th>
+    </tr>
+    <tr ng-repeat="plant in to.options |filter:search |orderBy:'plantid'">
+        <td>{{plant.plantid}}</td>
+        <td>{{plant.inventoryid}}</td>
+        <td>{{plant.typelabel}}</td>
+        <td>{{plant.roomlabel}}</td>
+        <td>{{plant.weight}}</td>
+        <td>{{plant.wholeweight}}</td>
+        <td>{{plant.harvestcollect}}</td>
+        <td>{{plant.curecollect}}</td>
+    </tr>
+</table>

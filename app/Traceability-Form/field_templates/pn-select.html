@@ -1,0 +1,17 @@
+<!-- <label ng-if="model[options.key]">{{to.label}}</label>
+<ui-select ng-model="model[options.key]" class="form-control" id="myinput" theme="select2">
+    <ui-select-match placeholder="{{to.placeholder}}">
+        {{$select.selected[to.labelProp]}}
+    </ui-select-match>
+    <ui-select-choices group-by="'category'" data-repeat="{{to.ngOptions}}" position="down">
+        <span ng-bind-html="option[to.labelProp] | highlight: $select.search"></span>
+    </ui-select-choices>
+</ui-select> -->
+
+<!-- <center><label>{{to.label}}</label></center> -->
+<md-select aria-label="Select {{to.label}}" ng-model="model[options.key]">
+
+    <!-- <md-option ng-repeat="option[to.valueProp] as option in to.options">{{option.label}}</md-option> -->
+    <md-option ng-if="to.valueProp" ng-value="option[to.valueProp]" ng-repeat="option in to.options">{{option.label}}</md-option>
+    <md-option ng-if="!to.valueProp" ng-value="option" ng-repeat="option in to.options">{{option.label}}</md-option>
+</md-select>

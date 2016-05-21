@@ -5,6 +5,7 @@
     .directive('pnHome', pnHome)
     // .directive('pnGroupInventoryByTypeList', pnGroupInventoryByTypeList)
     .directive('pnVrGroupInventoryByTypeList', pnVrGroupInventoryByTypeList)
+    .directive('pnVrGroupInventoryByTypeTable', pnVrGroupInventoryByTypeTable)
     .directive('pnInventoryActions', pnInventoryActions)
     .directive('pnInventorySelected', pnInventorySelected)
     // .directive('pnTraceabiltyActions', pnTraceabiltyActions)
@@ -36,6 +37,74 @@
     //         }
     //     }
     // }
+    function pnVrGroupInventoryByTypeTable(WTS) {
+        return {
+            restrict: 'E',
+            templateUrl: 'Home/templates/pn-vr-group-inventory-by-type-table.html',
+            link: function($scope, element, attrs) {
+                //
+                $scope.disabled = {}
+                // $scope.disabled.trace = true
+                // $scope.disabled.qa = true
+                $scope.disabled.publish = true
+                attachImages()
+                function attachImages(){
+                    var wts = WTS.wts_fbo()
+                    wts.$loaded().then(init)
+                    function init() {
+                        angular.forEach($scope.inventory, function(item) {
+                            if (!wts[item.id]) return
+                            if (!wts[item.id].image) return
+                            item.image = wts[item.id].image
+                            console.log(item);
+                        })
+                        // $scope.$apply()
+                        // angular.forEach(wts, function(w) {
+                        //
+                        // })
+                    }
+                }
+                $scope.products = $scope.inventory
+                $scope.$watch(function () { return $scope.inventory }, function (newVal, oldVal) {
+                    if (typeof newVal !== 'undefined') {
+                        // pnSetCategories()
+                        $scope.total = $scope.inventory.length
+                        attachImages()
+                        // console.log($scope.total);
+                    }
+                });
+                $scope.pnSelectItem = function(item){
+                    item.$selected = !item.$selected;
+                    pnValidateInventoryActions()
+                };
+                $scope.pnValidateInventoryActions = pnValidateInventoryActions;
+                function pnValidateInventoryActions() {
+
+                    var selected = []
+                    angular.forEach($scope.inventory, function(value, key) {
+                        console.log(value.$selected);
+                        if(!!value.$selected) selected.push(value);
+                    });
+                    $scope.selected = selected
+                    console.log(selected);
+                    // if (selected.length > 0) {
+                    //     $scope.disabled.qa = false;
+                    //     $scope.disabled.trace = false;
+                    //     $scope.disabled.publish = false;
+                    // } else {
+                    //     $scope.disabled.qa = true;
+                    //     $scope.disabled.trace = true;
+                    //     $scope.disabled.publish = true;
+                    // }
+                    $scope.numSelected = selected.length
+                    console.log($scope.numSelected);
+
+                    $scope.numSelected > 0 ? $scope.disabled.publish = false : $scope.disabled.publish = true
+                }
+            }
+        }
+    };
+
     function pnVrGroupInventoryByTypeList(WTS) {
         return {
             restrict: 'E',
@@ -109,8 +178,10 @@
                         $scope.selected = []
                         $scope.numSelected = 0
                     })
-
                 }
+                // $scope.selectAll = function() {
+                //     console.log('selectAll!');
+                // }
             }
         }
     };

@@ -1,0 +1,35 @@
+<pn-nav />
+<!-- {{selected}} -->
+<div class="container">
+    <pn-create-manifest-form />
+    <div ng-show="selected.length === 1">
+        {{selected.length}} item
+    </div>
+    <div ng-show="selected.length > 1">
+        {{selected.length}} items
+    </div>
+    <div ng-repeat="item in selected">
+        <pn-selected-item item="item">
+
+    </div>
+    <div layout-padding></div>
+    <center>
+    <button class="btn btn-flat" ng-click="submitCreateManifestForm()">Next</button>
+    </center>
+
+</div>
+
+<!-- action: inventory_manifest
+employee_id: select vr employee
+vehicle_id: select vr vehicle
+location: from pn vendors api
+stop_overview:[ // add stop, remove stop
+    {
+        approximate_departure: datetime
+        approximate_arrival: datetime
+        approximate_route: text field
+        vendor_license: select vr vendor
+        stop_number: automatic
+        barcodeid: []
+    }
+] -->

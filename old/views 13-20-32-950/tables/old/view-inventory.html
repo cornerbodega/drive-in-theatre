@@ -1,0 +1,62 @@
+<!-- {{inventory}} -->
+<!-- <div ng-repeat="item in inventory">
+<div ng-repeat="vf in viewfields">
+{{item[vf.value]}}
+</div>
+</div> -->
+<!--st-table="inventory" st-safe-src="inventory" -->
+<div class="well well-sm" layout="col">
+        <div flex>
+            <md-input-container>
+                <label><i class="fa fa-search"></i> Search</label>
+                <input ng-change="searching()" ng-model="search" />
+            </md-input-container>
+        </div>
+    <!-- <div> -->
+
+    <!-- </div> -->
+    <!-- {{inventorybytype}} -->
+    <div ng-repeat="type in mytypes" class="well well-sm" >
+        <div ng-click="toggleshowtype(type)" ng-if="type.showtype"><label><i class="fa fa-angle-down"></i>
+ {{type.label}}</label></div>
+        <div ng-click="toggleshowtype(type)" ng-if="!type.showtype"><i class="fa fa-angle-right"></i>
+ {{type.label}}</div>
+        <div ng-if="type.showtype" ng-repeat="item in inventorybytype[type.label] | filter:search">
+            <p /><div class="well well-sm" >
+                <div ng-click="toggledetail(item)" ng-if='!item.showdetail'><i class="fa fa-angle-right"></i> {{item.inventorylabel}}</div>
+                <div ng-click="toggledetail(item)" ng-if='item.showdetail'><label><i class="fa fa-angle-down"></i> {{item.inventorylabel}}</label></div>
+                <p ng-if='item.showdetail' />
+                <table class="table" ng-if='item.showdetail'>
+                    <tr ng-repeat="field in item.displayfields">
+                        <td><label>{{field.label}}</label></td>
+                        <td>{{item[field.value]}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <div ng-repeat="item in inventory | filter:search">
+        <div ng-click="toggledetail(item)">{{item.inventorylabel}}</div>
+        <table class="table" ng-if='item.showdetail'>
+            <tr ng-repeat="field in item.displayfields">
+                <td><label>{{field.label}}</label></td>
+                <td>{{item[field.value]}}</td>
+            </tr>
+        </table>
+    </div> -->
+    <!-- <div>
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th ng-repeat="vf in viewfields">{{vf.label}}</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in inventory | filter: search">
+                    <td ng-repeat="vf in viewfields">{{item[vf.value]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
+</div>

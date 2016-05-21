@@ -13,10 +13,11 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="icon" href="http://potnet.net/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="bower_components/Materialize/sass/marv-materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="bower_components/Materialize/sass/marv-materialize.css">
     <link rel="stylesheet" href="style/2styles.css">
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -37,8 +38,17 @@
     <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
     <script src="bower_components/angular-vs-repeat/src/angular-vs-repeat.min.js"></script>
     <script src="bower_components/ng-currency/dist/ng-currency.min.js"></script>
+    <script src="bower_components/api-check/dist/api-check.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-formly/dist/formly.js"></script>
+    <script src="bower_components/angular-socket-io/socket.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <!-- <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js"></script> -->
+    <!-- <script src="bower_components/angular-ui-select/dist/select.js"></script> -->
+    <!-- <script src="bower_components/ui-select/dist/select.min.js"></script> -->
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 
-
+    <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script> -->
 
     <script async src="https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js"></script>
 
@@ -70,10 +80,33 @@
     <script src="DB/pnPhones.js"></script>
     <script src="Settings/Settings.js"></script>
     <script src="DB/pnFirebase.js"></script>
+    <script src="Traceability-Menu/Traceability-Menu.controller.js"></script>
+    <script src="Traceability-Menu/Traceability-Menu.service.js"></script>
+    <script src="Traceability-Form/Traceability-Form.controller.js"></script>
+    <script src="Traceability-Form/Traceability-Form.service.js"></script>
+    <script src="Traceability-Form/Form-Confirm-And-Submit.service.js"></script>
+    <script src="Traceability-Form/Form-Request-Formatter.service.js"></script>
+    <script src="Traceability/pnFormly/pn-formly-config.js"></script>
+    <!-- <script src="Traceability-Form/Forms/Form-Data-Service.js"></script> -->
+    <!-- <script src="Traceability-Form/Forms/Field-Data-Service.js"></script> -->
+    <!-- <script src="Data-Model/Dynamic-Static-Data.service.js"></script> -->
+    <script src="Data-Model/Data.js"></script>
+    <!-- <script src="Data-Model/Inbound-Transfers.service.js"></script> -->
+    <script src="Data-Model/pnData.js"></script>
+
+    <script src="Connect-Service/Connect-Service.js"></script>
+    <script src="Connect-Service/Response-Formatter.js"></script>
+    <script src="Licensee-Info/Licensee-Info.service.js"></script>
+    <script src="Traceability-Browse/View-Inventory.js"></script>
+    <!-- <script src="Traceability/Inventory-Convert.js"></script> -->
+    <script src="Directives/nav/pn-path-nav.js"></script>
+    <script src="Traceability-Browse/Traceability-Browse.controller.js"></script>
+    <script src="Traceability/pnFormly/Form-Data-Service.js"></script>
+    <script src="Traceability/pnFormly/Field-Data-Service.js"></script>
 
 
 </head>
-<body ng-controller="IndexController as vm" class="">
+<body ng-controller="IndexController as vm" class="pnHeight140">
     <div ng-view flex class="app-content"></div>
 </body>
 </html>

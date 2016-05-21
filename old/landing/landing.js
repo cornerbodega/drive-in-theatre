@@ -7,21 +7,23 @@
 
 function LandingController($location, $scope, $http, pnUsers, pnUtils) {
     var PATHS = window.PATHS
-
+    sessionStorage.ubi = undefined
     $scope.signIn = signIn;
-    $scope.loginData = {
-        "password": "44Million!",
-        "license_number": 603347225,
-        "username": "luchinisupercritical@gmail.com"
-    }
     // $scope.loginData = {
-    //     "password": "2ndCaptainBly",
-    //     "license_number": "602093924",
-    //     "username": "thepottingbench@outlook.com"
+    //     "password": "44Million!",
+    //     "license_number": 603347225,
+    //     "username": "luchinisupercritical@gmail.com"
     // }
+    console.log('LANGIN?');
+    $scope.loginData = {
+        "password": "2ndCaptainBly",
+        "license_number": "602093924",
+        "username": "thepottingbench@outlook.com"
+    }
 
     var _license_type = ""
     function signIn() {
+        console.log('Hello??');
         // var form = $scope.form
         var form = $scope.loginData
         $http({method: 'POST', data: form, url: '/api/auth/v0/signIn'})
@@ -31,6 +33,7 @@ function LandingController($location, $scope, $http, pnUsers, pnUtils) {
                 console.log('Log In to LCB Failed ' + res.error )
                 return $scope.error = res.error
             }
+            console.log('Logged into LCB Successfully');
             sessionStorage.sessionid = res.sessionid
             sessionStorage.user_id = form.user_id
             sessionStorage.ubi = form.license_number
@@ -48,11 +51,14 @@ function LandingController($location, $scope, $http, pnUsers, pnUtils) {
                 // console.log(res.licensetype);
                 sessionStorage.licensetype = _license_type
                 // console.log(sessionStorage.licensetype);
-                createUser()
+
+
+
+                createUser() //???????????????????
 
             })
 
-            $location.path('/market')
+            // $location.path('/market')
         })
         .then(function(context) {
             console.log(context);
