@@ -12,7 +12,7 @@ function pnData($resource, $rootScope) {
     _pnData = {
         // refresh: refresh,
         // getInventory: getInventory,
-
+        refresh: refresh,
         data: {},
         resource: $resource('/api/sync_check/'+sessionStorage.sessionid)
     }

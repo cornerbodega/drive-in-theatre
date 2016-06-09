@@ -26,17 +26,18 @@
 
 <div class="input-field col s6">
     <input-container>
-    <input id="search" type="text" ng-model="search">
+    <input id="{{options.key}}" type="text" ng-model="search">
 
         <!-- <input type="text" id="search" ng-model="search" /> -->
         <!-- <label for="search"><i class="fa fa-search"></i> Search</label> -->
-        <label for="search"><i class="fa fa-search"></i> {{to.label}}</label>
+        <label for="{{options.key}}"><i class="fa fa-search"></i> {{to.label}}</label>
     </input-container>
 </div>
 <center>
     <div class="repeater-container">
         <!-- {{to.options}} -->
         <div vs-repeat layout-padding>
+            {{to.options}}
             <div ng-repeat="option in to.options|filter: search"
             ng-click="select(option)" ng-class="option.id === selected.id ? 'md-3-line green darken-3 white-text' : ''" layout="row" >
             <!-- ng-class="item.$selected ? 'md-3-line green darken-3 white-text' : 'md-3-line'" -->

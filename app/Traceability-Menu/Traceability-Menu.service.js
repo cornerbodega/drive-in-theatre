@@ -103,11 +103,11 @@
                         { label: 'Destroy', id: 'inventory_destroy', category: 'Inventory Cleanup', icon: 'fa-trash' },
                     ],
 
-                    "/traceability/inventory/manifests/inbound":
-                    [
-                        { label: 'Browse Inbound', id: 'transfers_view_inbound', icon: 'fa-folder-open'},
-                        { label: 'Receive New Inbound', id: 'inventory_transfer_inbound', icon: 'fa-cart-arrow-down'},
-                    ],
+                    // "/traceability/inventory/manifests/inbound":
+                    // [
+                    //     { label: 'Browse Inbound', id: 'transfers_view_inbound', icon: 'fa-folder-open'},
+                    //     { label: 'Receive New Inbound', id: 'inventory_transfer_inbound', icon: 'fa-cart-arrow-down'},
+                    // ],
 
                     "/traceability/inventory/manifests/outbound":
                     [
@@ -124,7 +124,7 @@
                     "/traceability/inventory/manifests":
                     [
                         { label: 'Outbound', id: 'outbound', icon: 'fa-arrow-circle-up'},
-                        { label: 'Inbound', id: 'inbound', icon: 'fa-arrow-circle-down'},
+                        { label: 'Inbound', id: 'inbound/inventory_transfer_inbound', icon: 'fa-arrow-circle-down'},
 
                     ],
 

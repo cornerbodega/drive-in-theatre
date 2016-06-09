@@ -524,15 +524,22 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
         key: 'employee',
         type: 'pn-select',
         templateOptions: {
-            ngOptions: 'option as option in to.options | filter: $select.search',
-            label: 'Employee',
-            placeholder: 'Employee',
+            label: 'Transporter',
             labelProp: 'employee_name',
             options: []
         },
         controller: /* @ngInject */ function ($scope, pnData) {
             // $scope.to.options = pnData.formatted.employees'))
-            $scope.to.options = pnData.employees
+            $scope.to.options = pnData.data.employees
+            $scope.$on('pnData', function(){
+                // console.log($rootScope.data.inventory);
+                console.log(pnData.data);
+                $scope.to.options = pnData.data.employees
+            })
+            $scope.select = function(e) {
+                $scope.selected = e
+                $scope.model.employee = e.id
+            }
         }
     }
     f.modify_nickname = {
@@ -673,14 +680,20 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
         key: 'vehicle',
         type: 'pn-select',
         templateOptions: {
-            ngOptions: 'option as option in to.options | filter: $select.search',
             label: 'Vehicle',
-            placeholder: 'Vehicle',
-            labelProp: 'nickname',
             options: []
         },
         controller: /* @ngInject */ function ($scope, pnData) {
-            $scope.to.options = pnData.vehicles
+            $scope.to.options = pnData.data.vehicles
+
+            $scope.$on('pnData', function(){
+                // console.log($rootScope.data.inventory);
+                $scope.to.options = pnData.data.vehicles
+            })
+            $scope.select = function(e) {
+                $scope.selected = e
+                $scope.model.vehicle = e.id
+            }
         }
     }
     f.select_inventory_destroy = {
@@ -1292,13 +1305,14 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
                 console.log(pnData.data.vendors);
                 $scope.to.options = pnData.data.vendors.vendorsarray
             })
-            // $scope.select = function(vendor){
-            //     $scope.selected = vendor
-            //     // console.log($scope.selected.id === item.id )
-            //     // if($scope.selected.id === item.id) item.$selected = true
-            //     // else item.$selected = false
-            //     // $scope.model.inventoryitem = $scope.selected
-            // }
+            $scope.select = function(vendor){
+                $scope.selected = vendor
+                $scope.model.vendor = vendor
+                // console.log($scope.selected.id === item.id )
+                // if($scope.selected.id === item.id) item.$selected = true
+                // else item.$selected = false
+                // $scope.model.inventoryitem = $scope.selected
+            }
         }
     };
 
@@ -1625,20 +1639,25 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
         type: 'pn-select',
         templateOptions: {
             label: 'Adjustment Type',
-            placeholder: 'Select an adjustment type',
+            // placeholder: 'Select an adjustment type',
             options: [
-                {id: 1, title: 'General Inventory Audit'},
-                {id: 2, title: 'Theft'},
-                {id: 3, title: 'Seizure by Law Enforcement'},
-                {id: 4, title: 'Correcting a Mistake'},
-                {id: 5, title: 'Moisture Loss'},
-                {id: 6, title: 'Depletion'},
+                {id: 1, label: 'General Inventory Audit'},
+                {id: 2, label: 'Theft'},
+                {id: 3, label: 'Seizure by Law Enforcement'},
+                {id: 4, label: 'Correcting a Mistake'},
+                {id: 5, label: 'Moisture Loss'},
+                {id: 6, label: 'Depletion'},
             ],
-            valueProp: 'id',
-            labelProp: 'title',
-            ngOptions: 'option[to.valueProp] as option in to.options | filter: $select.search',
-
-
+            // valueProp: 'id',
+            labelProp: 'label',
+            // ngOptions: 'option[to.valueProp] as option in to.options | filter: $select.search',
+        },
+        controller: /* @ngInject */ function ($scope) {
+            $scope.select = function(option){
+                console.log(option);
+                $scope.selected = option
+                $scope.model.adjust_type = option
+            }
         }
     };
     function gettypemap () {

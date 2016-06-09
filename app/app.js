@@ -124,8 +124,8 @@ countryApp.config(function($routeProvider) {
         controller: 'TraceabilityMenuController',
     })
     .when('/traceability/inventory/manifests/inbound', {
-        templateUrl: 'Traceability-Menu/traceability-menu.view.html',
-        controller: 'TraceabilityMenuController',
+        templateUrl: 'Traceability-Menu/traceability-form.view.html',
+        controller: 'TraceabilityFormController',
     })
     .when('/traceability/qa_lab', {
         templateUrl: 'views/qa_lab/qa_lab.view.html',

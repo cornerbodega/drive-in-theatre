@@ -311,13 +311,14 @@ function FormDataService(FieldDataService, $location) {
     i.inventory_manifest = function() {
         var form = [];
         // addfield(form, 'manifest_barcodeid')
+        addfield(form, 'select_employee')
+        addfield(form, 'select_vehicle')
         addfield(form, 'select_inventory_multiple')
         addfield(form, 'manifest_vendor_license');
         addfield(form, 'manifest_approximate_departure');
         addfield(form, 'manifest_approximate_arrival');
         addfield(form, 'manifest_approximate_route');
-        addfield(form, 'select_employee')
-        addfield(form, 'select_vehicle')
+
         // addfield(form, 'manifest_approximate_departure_time');
         // addfield(form, 'employee_id');
         // addfield(form, 'vehicle_id');

@@ -9,8 +9,8 @@ function format(raw) {
     formatted.inventory = formatInventory(raw.inventory, raw.qa, raw.inventory_room)
     // formatted.manifests = formatManifests(raw.manifest, raw.manifest_stop_data, raw.manifest_stop_items,  raw.inventory_transfer)
     formatted.vendors = formatVendors(raw.vendor)
-    formatted.employees = raw.employee
-    formatted.vehicles = raw.vehicle
+    formatted.employees = formatEmployees(raw.employee)
+    formatted.vehicles = formatVehicles(raw.vehicle)
     // if(!!raw.plant) formatted.plants = formatPlants(raw.plant, raw.plant_room)
     // formatted.inbound_transfers = formatInventoryTransferInbound(raw.inventory_transfer_inbound)
     // formatted.plant_rooms = raw.plant_room
@@ -21,7 +21,24 @@ function format(raw) {
 
     // I NEED TO TAKE A BREAK AND HANDLE THIS DEREK SITUATION
 };
+function formatVehicles(vehicle){
+    var vehicles = []
+    _.map(vehicle, function(v) {
+        var label = ''
+        if (v.nickname) label = v.nickname + ' ' + v.plate
+        if (!v.nickname) label = v.color + ' ' + v.make + ' ' + v.model + ' ' + v.plate
+        vehicles.push({label: label, id: v.vehicle_id})
 
+    })
+    return vehicles
+}
+function formatEmployees(employee){
+    var employees = []
+    _.map(employee, function(e) {
+        employees.push({label: e.employee_name, id: e.employee_id})
+    })
+    return employees
+}
 function formatInventory(inventory, qa, rooms) {
     // console.log(inventory);
     // console.log(qa);

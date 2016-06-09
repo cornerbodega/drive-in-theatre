@@ -139,7 +139,7 @@ function FormRequestFormatter() {
                 req.stop_overview[0].approximate_departure = new Date(form.approximate_departure).getTime()/1000
                 req.stop_overview[0].approximate_arrival = new Date(form.approximate_arrival).getTime()/1000
                 req.stop_overview[0].approximate_route = form.approximate_route
-                req.stop_overview[0].vendor_license = form.vendor_license
+                req.stop_overview[0].vendor_license = form.vendor.vendor_license
                 req.stop_overview[0].stop_number = 1
                 req.stop_overview[0].barcodeid = form.inventoryitems.map ( function(item) {
                     return item.id
@@ -240,7 +240,7 @@ function FormRequestFormatter() {
                         barcodeid: item.id,
                         quantity: form.quantity[item.id],
                         reason: form.adjust_reason,
-                        type: form.adjust_type
+                        type: form.adjust_type.id
                     }
                 });
                 req.data = data;
