@@ -1,12 +1,16 @@
-<center>
-    <div class="container">
-        <h1 class="">Greenboard Solutions</h1>
 
-        <!-- <div class=""><button ng-show="!showSignIn" ng-click="showSignIn=true">Sign In</button></div> -->
-        <div class="">
+<center>
+    <div class="container ">
+        <div layout-padding>
+<div layout="row">
+
+    <div class="greenboard-floater" layout-padding>
+        <div class="white-text"><b>Log in with WSLCB traceability credentials</b></div>
+
+        <!-- <div class="">
             <h2 class="warning">{{error}}</h2>
-        </div>
-        <div >
+        </div> -->
+
             <div class="input-field col s6">
                 <input type="text" id="username" ng-model="email">
                 <label for="username">Email</label>
@@ -20,46 +24,20 @@
                 <label for="ubi">UBI</label>
             </div>
             <!-- <div class=""><button ng-click="in.go()">Go!</button></div> -->
-            <div class=""><button ng-click="go()">Sign In</button></div>
-
-        </div>
-
-
-        <!-- <div class=""><p>- Or -</p></div>
-
-        <div class=""><button ng-show="!showSignUp" ng-click="showSignUp=true">Sign Up</button></div>
-        <div class=""><button ng-show="showSignUp" ng-click="up.go()">Sign Up</button></div>
-        <div ng-show="showSignUp">
-            <div class="">
-                <h2 class="warning">{{up.error}}</h2>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" id="name" ng-model="up.name">
-                <label for="name">Your Name</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" id="name" ng-model="up.name">
-                <label for="name">Business Name</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" id="username" ng-model="up.email">
-                <label for="username"> WSLCB Traceability Email</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="password" id="password" ng-model="up.password">
-                <label for="password"> WSLCB Traceability Password</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" id="ubi" ng-model="up.ubi">
-                <label for="ubi">UBI</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="text" id="ubi" ng-model="ubi">
-                <label for="ubi">Phone Number</label>
-            </div>
-
-        </div> -->
+            <div class=""><button class="btn btn-raised"ng-click="realSignIn()">Sign In</button></div>
 
     </div>
+    <div layout-padding></div>
+
+    <div class="">
+        <img src="Images/glow-logo.png" class="">
+
+    </div>
+</div>
+
+
+
+
+
 
 </center>
