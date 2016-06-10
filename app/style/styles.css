@@ -3,8 +3,8 @@
 
 }
 img {
-    height: 100%;
-    max-width: auto%;
+    height: auto;
+    max-width: 100%%;
 }
 .greenboard-bg {
     /*background: "../";*/

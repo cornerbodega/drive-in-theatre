@@ -2,43 +2,38 @@
 <center>
     <div class="container ">
         <div layout-padding>
-<div layout="row">
+            <div layout="column" layout-gt-md="row">
 
-    <div class="greenboard-floater" layout-padding>
-        <div class="white-text"><b><a ng-click="demo()">Demo</a></b></div>
-        <div class="white-text"><b>I-502 Businesses: Log in with your WSLCB traceability credentials</b></div>
+                <div class="greenboard-floater" layout-padding>
+                    <div class="white-text"><b><a ng-click="demo()">Demo</a></b></div>
+                    <div class="white-text"><b>I-502 Businesses: Log in with your WSLCB traceability credentials</b></div>
 
-        <!-- <div class="">
-            <h2 class="warning">{{error}}</h2>
-        </div> -->
+                    <!-- <div class="">
+                    <h2 class="warning">{{error}}</h2>
+                </div> -->
 
-            <div class="input-field col s6">
-                <input type="text" id="username" ng-model="email">
-                <label for="username">Email</label>
+                <div class="input-field col s6">
+                    <input type="text" id="username" ng-model="email">
+                    <label for="username">Email</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="password" id="password" ng-model="password">
+                    <label for="password">Password</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="password" id="ubi" ng-model="ubi">
+                    <label for="ubi">UBI</label>
+                </div>
+                <!-- <div class=""><button ng-click="in.go()">Go!</button></div> -->
+                <div class=""><button class="btn btn-raised"ng-click="realSignIn()">Sign In</button></div>
+
             </div>
-            <div class="input-field col s6">
-                <input type="password" id="password" ng-model="password">
-                <label for="password">Password</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="password" id="ubi" ng-model="ubi">
-                <label for="ubi">UBI</label>
-            </div>
-            <!-- <div class=""><button ng-click="in.go()">Go!</button></div> -->
-            <div class=""><button class="btn btn-raised"ng-click="realSignIn()">Sign In</button></div>
+            <!-- <div layout-padding></div> -->
 
+            <div class="width100">
+                <img src="Images/glow-logo.png" class="width100">
+
+            </div>
+        </div>
     </div>
-    <!-- <div layout-padding></div> -->
-
-    <div class="">
-        <img src="Images/glow-logo.png" class="">
-
-    </div>
-</div>
-
-
-
-
-
-
 </center>
