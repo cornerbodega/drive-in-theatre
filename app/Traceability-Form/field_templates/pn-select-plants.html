@@ -1,0 +1,32 @@
+<!-- {{to.options}} -->
+<!-- <center>
+<div class="">
+    <a ng-click="showInventory = !showInventory"><span  ng-show="!showInventory">Select</span><span  ng-show="showInventory">Hide </span> Inventory</a>
+</div>
+</center> -->
+
+<!-- <div  ng-show="showInventory"> -->
+<div class="input-field col s6">
+    <input-container>
+    <input id="{{options.key}}" type="text" ng-model="search">
+
+        <!-- <input type="text" id="search" ng-model="search" /> -->
+        <!-- <label for="search"><i class="fa fa-search"></i> Search</label> -->
+        <label for="{{options.key}}"><i class="fa fa-search"></i> {{to.label}}</label>
+    </input-container>
+</div>
+    <div class="repeater-container">
+
+        <div vs-repeat layout-padding>
+            <div ng-repeat="item in to.options|filter: search"
+            ng-click="pnMultipleSelect(item)" ng-class="item.$selected ? 'md-3-line green darken-3 white-text' : ''" layout="row" >
+            <!-- ng-class="item.$selected ? 'md-3-line green darken-3 white-text' : 'md-3-line'" -->
+
+                    <pn-plant-list-row item="item" flex />
+            </div>
+        </div>
+    </div>
+<!-- </div> -->
+<div layout-padding class="green darken-3 white-text">
+    {{to.label}}: <pn-inventory-item-list-row ng-repeat="selected in model.inventoryitems" item="selected" flex />
+</div>

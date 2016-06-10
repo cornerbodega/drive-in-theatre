@@ -14,6 +14,22 @@
         $scope.onSubmit = function($event) {
             TraceabilityFormService.onSubmit($event, path, $scope.pnFormlyModel)
         }
+
+        $scope.select = function(item){
+            $scope.selected = item
+            console.log($scope.selected.id === item.id )
+            if($scope.selected.id === item.id) item.$selected = true
+            else item.$selected = false
+            $scope.model.inventoryitem = $scope.selected
+        }
+        $scope.pnMultipleSelect = function(item){
+            console.log(item);
+            item.$selected = !item.$selected
+            $scope.model.inventoryitems = [];
+            $scope.to.options.map(function(i){
+                if (i.$selected) $scope.model.inventoryitems.push(i)
+            })
+        }
         // console.log(TraceabilityFormService.fields(path));
         // if (path === "/traceability/inventory/view_inventory") {
         //     $scope.view_inventory = true;

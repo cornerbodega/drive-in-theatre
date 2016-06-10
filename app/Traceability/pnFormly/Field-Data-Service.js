@@ -70,9 +70,9 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
         },
         controller: /* @ngInject */ function ($scope, pnData) {
 
-            // console.log(pnData.formatted.plant_derivatives);
-            //  console.log(pnData.formatted.plant_derivatives.toCure);
-             $scope.to.options = pnData.formatted.plant_derivatives.toCure
+            // console.log(pnData.data.plant_derivatives);
+            //  console.log(pnData.data.plant_derivatives.toCure);
+             $scope.to.options = pnData.data.plant_derivatives.toCure
             //  $scope.to.options.map(function(plant){
             //     if (plant.inventoryid === "6044930214072254") console.log("WOWZERS!!");
             //  })
@@ -140,8 +140,8 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             options: []
         },
         controller: function ($scope, pnData) {
-            // $scope.to.options = pnData.formatted.getinventoryRooms().inventoryroomsarray
-            $scope.to.options = pnData.formatted.inventory_rooms
+            // $scope.to.options = pnData.data.getinventoryRooms().inventoryroomsarray
+            $scope.to.options = pnData.data.inventory_rooms
         },
     }
     f.inventory_room_name = {
@@ -151,8 +151,8 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             label: 'New Room Name',
         },
         controller: /* @ngInject */ function ($scope, pnData) {
-            var mylocation = pnData.formatted.vendors.vendorsbyubi[JSON.parse(sessionStorage.user).ubi].location;
-            var inventory_rooms = pnData.formatted.inventory_rooms
+            var mylocation = pnData.data.vendors.vendorsbyubi[JSON.parse(sessionStorage.user).ubi].location;
+            var inventory_rooms = pnData.data.inventory_rooms
             var maxid = 0
             inventory_rooms.map(function(room) {
                 if (room.roomid > maxid) maxid = parseInt(room.roomid)
@@ -168,8 +168,8 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             label: 'New Room Name',
         },
         controller: /* @ngInject */ function ($scope, pnData) {
-            var mylocation = pnData.formatted.vendors.vendorsbyubi[JSON.parse(sessionStorage.user).ubi].location;
-            var plant_rooms = pnData.formatted.plant_rooms.plantroomsarray
+            var mylocation = pnData.data.vendors.vendorsbyubi[JSON.parse(sessionStorage.user).ubi].location;
+            var plant_rooms = pnData.data.plant_rooms.plantroomsarray
             var maxid = 0
             plant_rooms.map(function(room) {
                 if (room.roomid > maxid) maxid = parseInt(room.roomid)
@@ -193,20 +193,28 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             labelProp: 'inventorylabel',
             ngOptions: 'option[to.valueProp] as option in to.options | filter: $select.search',
             label: 'Source',
-            placeholder: 'Select the source of the new plant',
+            // placeholder: 'Select the source of the new plant',
             options: [],
         },
         controller: /* @ngInject */ function ($scope, pnData) {
             var source_types = [7, 10, 11, 12]
             console.log('WHAT THE HET');
-            var vendorsbyubi = pnData.formatted.vendors.vendorsbyubi;
-            var mylocation = vendorsbyubi[JSON.parse(sessionStorage.user).ubi].location;
-            $scope.model.mylocation = mylocation
-            $scope.to.options = pnData.formatted.inventory.inventoryarray.map(function(item){
-                if (source_types.indexOf(item.inventorytype) > -1){
-                    return item
-                }
+            $scope.$on('pnData', function(){
+                // console.log(pnData.data);
+                // $scope.to.options = pnData.data.inventory.map(function(item){
+                //     if (source_types.indexOf(item.inventorytype) > -1){
+                //         return item
+                //     }
+                // })
             })
+            // var vendorsbyubi = pnData.data.vendors.vendorsbyubi;
+            // var mylocation = vendorsbyubi[JSON.parse(sessionStorage.user).ubi].location;
+            // $scope.model.mylocation = mylocation
+            // $scope.to.options = pnData.data.inventory.inventoryarray.map(function(item){
+            //     if (source_types.indexOf(item.inventorytype) > -1){
+            //         return item
+            //     }
+            // })
         }
     }
     f.select_plant_room = {
@@ -216,16 +224,16 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             valueProp: 'roomid',
             labelProp: 'name',
             ngOptions: 'option[to.valueProp] as option in to.options | filter: $select.search',
-            label: 'Room',
-            placeholder: 'Plant Room',
+            label: 'Plant Room',
+            // placeholder: 'Plant Room',
             options: []
         },
         controller: function ($scope, pnData) {
-            // $scope.to.options = pnData.formatted.getPlantRooms().plantroomsarray
-            // $scope.to.options = pnData.formatted.plant_rooms.plantroomsarray
+            // $scope.to.options = pnData.data.getPlantRooms().plantroomsarray
+            // $scope.to.options = pnData.data.plant_rooms.plantroomsarray
             $scope.$on('pnData', function(){
                 console.log(pnData.data);
-                // $scope.to.options = pnData.formatted.plant_rooms
+                $scope.to.options = pnData.data.plant_rooms
             })
         },
     }
@@ -335,9 +343,9 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
     //         options: [],
     //     },
     //     controller: function ($scope, pnData) {
-    //         var vendorsbyid = pnData.formatted.vendors.vendorsbyid;
+    //         var vendorsbyid = pnData.data.vendors.vendorsbyid;
     //         console.log(pnData);
-    //         $scope.to.options = pnData.formatted.inbound_transfers.map(function(transfer){
+    //         $scope.to.options = pnData.data.inbound_transfers.map(function(transfer){
     //             transfer.from_vendor = vendorsbyid[transfer.outbound_license].name
     //             transfer.label = transfer.datestring + ' ' + transfer.from_vendor + ' ' + transfer.label
     //             var a = getdatestringfor(transfer.sessiontime)
@@ -359,13 +367,13 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             label: 'Outbound Transfers',
             placeholder: 'Select outbound transfer',
             options: [],
-            // options: pnData.formatted.manifests')).map(function(manifest){
+            // options: pnData.data.manifests')).map(function(manifest){
             //     if (!manifest.transferred) return manifest
             // })
         },
         controller: function ($scope, pnData) {
 
-            $scope.to.options = pnData.formatted.manifests.map(function(manifest){
+            $scope.to.options = pnData.data.manifests.map(function(manifest){
                 if (!!manifest.transferred) return manifest
             });
         }
@@ -381,12 +389,12 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             label: 'Manifests',
             placeholder: 'Select manifests',
             options: [],
-            // options: pnData.formatted.manifests')).map(function(manifest){
+            // options: pnData.data.manifests')).map(function(manifest){
             //     if (!manifest.transferred) return manifest
             // })
         },
         controller: function ($scope, pnData) {
-            $scope.to.options = pnData.formatted.manifests;
+            $scope.to.options = pnData.data.manifests;
         },
 
     }
@@ -415,16 +423,16 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
         templateOptions: {
             ngOptions: 'option as option in to.options | filter: $select.search',
             label: 'Plants',
-            placeholder: 'Plants',
+            // placeholder: 'Plants',
             // labelProp: 'strain',
             labelProp: 'plantlabel',
             options: []
         },
         controller: /* @ngInject */ function ($scope, $http, pnData) {
-            // console.log(pnData.formatted);
+            // console.log(pnData.data);
             $scope.$on('pnData', function(){
                 console.log(pnData);
-                // $scope.to.options = pnData.formatted.plants
+                $scope.to.options = pnData.data.plants
             })
             // $http.get('/api/plants/'+sessionStorage.sessionid).success(function(plants){
             //     $scope.to.options = plants
@@ -435,13 +443,13 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
     }
     f.select_sd_plants = angular.copy(f.select_plants)
     f.select_sd_plants.controller = function ($scope, pnData) {
-        $scope.to.options = pnData.formatted.plants.map(function(plant){
+        $scope.to.options = pnData.data.plants.map(function(plant){
             if (plant.removescheduled) return plant
         })
     }
     f.select_sh_plant = angular.copy(f.select_plants)
     f.select_sh_plant.controller = function ($scope, pnData) {
-        $scope.to.options = pnData.formatted.plants.map(function(plant){
+        $scope.to.options = pnData.data.plants.map(function(plant){
             if (plant.harvestscheduled) return plant
         })
     }
@@ -537,7 +545,7 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             options: []
         },
         controller: /* @ngInject */ function ($scope, pnData) {
-            // $scope.to.options = pnData.formatted.employees'))
+            // $scope.to.options = pnData.data.employees'))
             $scope.to.options = pnData.data.employees
             $scope.$on('pnData', function(){
                 // console.log($rootScope.data.inventory);
@@ -715,7 +723,7 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             options: []
         },
         controller: /* @ngInject */ function ($scope, pnData) {
-            $scope.to.options = pnData.formatted.inventory.inventoryarray.map(function(item){
+            $scope.to.options = pnData.data.inventory.inventoryarray.map(function(item){
                 if(item.inventorystatus===1){ return item }
             })
         }
@@ -759,12 +767,12 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             label: 'Manifest',
             placeholder: 'Select a manifest to transfer',
             options: [],
-            // options: pnData.formatted.manifests')).map(function(manifest){
+            // options: pnData.data.manifests')).map(function(manifest){
             //     if (!manifest.transferred) return manifest
             // })
         },
         controller: function ($scope, pnData) {
-            $scope.to.options = pnData.formatted.manifests.map(function(manifest){
+            $scope.to.options = pnData.data.manifests.map(function(manifest){
                 if (!manifest.transferred) return manifest
             })
         },
@@ -801,7 +809,7 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
     //     type: 'browse_plants',
     //     controller: /* @ngInject */ function($scope, pnData) {
     //         console.log('let us brows dem plantz');
-    //         $scope.plants = pnData.formatted.plants'))
+    //         $scope.plants = pnData.data.plants'))
     //     }
     // }
 
@@ -826,9 +834,9 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             // $scope.inventorybytype = $rootScope.inventorybytype
             // $scope.inventory = $rootScope.inventory
             // $scope.mytypes = $rootScope.mytypes
-            $scope.inventorybytype = pnData.formatted.inventorybytype
-            $scope.inventory = pnData.formatted.inventory
-            $scope.mytypes = pnData.formatted.mytypes
+            $scope.inventorybytype = pnData.data.inventorybytype
+            $scope.inventory = pnData.data.inventory
+            $scope.mytypes = pnData.data.mytypes
 
             $scope.searching = function () {
                 $scope.mytypes.map (function (t) {
@@ -1178,7 +1186,7 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
         type: 'pn-select',
         templateOptions: {
             label: 'Reason for Destruction',
-            placeholder: 'Select a reason for destruction',
+            // placeholder: 'Select a reason for destruction',
             options: [
                 {id: 1, title: 'Waste'},
                 {id: 2, title: 'Unhealthy or Dead'},

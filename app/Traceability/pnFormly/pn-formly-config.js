@@ -68,7 +68,10 @@
         name: 'mymultipleselect',
         templateUrl: 'Traceability-Form/field_templates/pn-multiple-select-inventory.html',
     });
-
+    // formlyConfig.setType({
+    //     name: 'pn-select-plants',
+    //     templateUrl: 'Traceability-Form/field_templates/pn-multiple-select-plants.html',
+    // });
     formlyConfig.setType({
         name: 'pn-select',
         templateUrl: 'Traceability-Form/field_templates/pn-select.html',

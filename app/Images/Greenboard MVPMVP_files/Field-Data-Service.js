@@ -1250,20 +1250,7 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
                 // console.log($rootScope.data.inventory);
                 $scope.to.options = pnData.data.inventory
             })
-            $scope.select = function(item){
-                $scope.selected = item
-                console.log($scope.selected.id === item.id )
-                if($scope.selected.id === item.id) item.$selected = true
-                else item.$selected = false
-                $scope.model.inventoryitem = $scope.selected
-            }
-            $scope.pnMultipleSelect = function(item){
-                item.$selected = !item.$selected
-                $scope.model.inventoryitems = [];
-                $scope.to.options.map(function(i){
-                    if (i.$selected) $scope.model.inventoryitems.push(i)
-                })
-            }
+            
         }
     }
     f.view_inventory_data_id = angular.copy(f.view_inventory)

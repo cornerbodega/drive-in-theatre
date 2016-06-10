@@ -11,6 +11,7 @@ function format(raw) {
     formatted.vendors = formatVendors(raw.vendor)
     formatted.employees = formatEmployees(raw.employee)
     formatted.vehicles = formatVehicles(raw.vehicle)
+    // console.log(_.keys(raw));
     formatted.plants = formatPlants(raw.plant, raw.plant_room)
     // formatted.inbound_transfers = formatInventoryTransferInbound(raw.inventory_transfer_inbound)
     formatted.plant_rooms = raw.plant_room
@@ -309,11 +310,11 @@ function formatPlants(plants, plant_rooms) {
     })
     // console.log(plant_rooms_by_id);
     plants.map(function(plant){
-        plant.plantstatus = plantstatus[plant.state]
-        // plant.plantbirthday = new Date(plant.sessiontime*1000)
-        plant.plantbirthday = new Date(plant.sessiontime*1000).toISOString().slice(0,10)
+        plant.plantStatus = plantstatus[plant.state]
+        // plant.plantbirthday = ne
+        plant.plantBirthday = new Date(plant.sessiontime*1000).toISOString().slice(0,10)
         plant.plantlabel =  '['+plant.id+']' + ' ' + plant.strain + ' ' + plant.plantbirthday + ' ('+plant.plantstatus+')'
-        plant.plant_room_name = plant_rooms_by_id[plant.room]
+        plant.roolLabel = plant_rooms_by_id[plant.room]
         plant.category = plant.plant_room_name
 
     })

@@ -11,6 +11,7 @@ function get(req, res) {
 
     function getQA(error, syncCheckRes, syncCheckResBody) {
         var barcodes = []
+        console.log(_.keys(syncCheckResBody));
         // console.log(syncCheckResBody.inventory);
         _.map(syncCheckResBody.inventory, function(item){
             barcodes.push(item.id)
@@ -35,6 +36,7 @@ function get(req, res) {
 };
 
 function getSyncCheckRequest(sessionid) {
+    // sessionid = 'df285510b8b9bd4f97b1c1678f30a228c347543d8084339a621c219f218a4e68bd7a6245c07c60be55abb345211a288bb632cb4675acd3629c3c0d9ce8f9f6db'
     var tables_to_sync = [
         'vehicle',
         'employee',
@@ -65,6 +67,9 @@ function getSyncCheckRequest(sessionid) {
     tables_to_sync.map( function( table ) {
         sync_check_request.data.push({table: table, active: 1})
     })
+    // var t = {"action": "sync_check", "data": [{"table":"plant", "active": 1}], "download":1, "active":1, "API": "4.0","sessionid": "df285510b8b9bd4f97b1c1678f30a228c347543d8084339a621c219f218a4e68bd7a6245c07c60be55abb345211a288bb632cb4675acd3629c3c0d9ce8f9f6db"}
+    // return t
+    // console.log(JSON.stringify(sync_check_request));
     return sync_check_request
 }
 function lcbPost(body) {
