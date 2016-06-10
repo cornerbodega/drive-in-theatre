@@ -24,10 +24,15 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
         $scope.realSignIn = function(){
             console.log('REAL SIGN IN NOT IMPLEMENTED');
         }
+        // $scope.loginData = {
+        //     "password": "44Million!",
+        //     "license_number": 603347225,
+        //     "username": "luchinisupercritical@gmail.com"
+        // }
         $scope.loginData = {
-            "password": "44Million!",
-            "license_number": 603347225,
-            "username": "luchinisupercritical@gmail.com"
+            "password": "2ndCaptainBly",
+            "license_number": "602093924",
+            "username": "thepottingbench@outlook.com"
         }
         form = $scope.loginData
         $http({method: 'POST', data: form, url: '/api/auth/v0/signIn'}).success(function(res) {
