@@ -9,6 +9,9 @@
         if ($location.path()==="/traceability/inventory/view_inventory") {
             $scope.view_inventory = true
         }
+        if ($location.path()==="/traceability/inventory/browse_employees") {
+            $scope.browse_inventory = true
+        }
 
     //     // pnData.resource.get().$promise.then(function(data){
     //     //     console.log(data);

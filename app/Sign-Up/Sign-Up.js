@@ -1,24 +1,27 @@
 (function(){
     angular
     .module('countryApp')
-    .controller('SignUpController', ['$http','$location', '$scope', 'pnUsers', 'pnUtils',
+    .controller('SignUpController', ['$http','$location', '$scope', 'pnUsers', 'pnUtils', 'pnFirebase',
     SignUpController
 ])
 
-function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
+function SignUpController($http, $location, $scope, pnUsers, pnUtils, pnFirebase) {
     $scope.demo = function() {
+        // $scope.setDemoPlants =
+        $scope.loginData = {
+            "password": "2ndCaptainBly",
+            "license_number": "602093924",
+            "username": "thepottingbench@outlook.com"
+        }
         $scope.go()
     }
     $scope.go = function() {
-        var form = {
-            API:'4.0', action: 'login', username: $scope.email, password: $scope.password, license_number: $scope.ubi
-        }
-        // console.log(form);
-        // $scope.loginData = {
-        //     "password": "2ndCaptainBly",
-        //     "license_number": "602093924",
-        //     "username": "thepottingbench@outlook.com"
+        // var form = {
+        //     API:'4.0', action: 'login', username: $scope.email, password: $scope.password, license_number: $scope.ubi
         // }
+        var form = $scope.loginData
+        console.log(form);
+
 
 
         $scope.realSignIn = function(){
@@ -43,6 +46,7 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
             sessionStorage.ubi = form.license_number
             sessionStorage.sessionid = res.sessionid
 
+            pnFirebase.fbo()
             $http.get('/api/vendors/'+sessionStorage.ubi).success(function(res){
                 sessionStorage.myName = res.name
                 sessionStorage.myLocation = res.location

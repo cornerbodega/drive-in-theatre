@@ -44,7 +44,7 @@
                         { label: 'Feedback', id: 'help' },
                     ],
                     "/traceability": [
-                        // { label: 'Plants', id: 'plants', icon: 'fa-lemon-o' },
+                        { label: 'Plants', id: 'plants', icon: 'fa-lemon-o' },
                         { label: 'Inventory', id: 'inventory', icon: 'fa-barcode' },
                         // { label: 'QA Labs', id: 'qa_lab', icon: 'fa-graduation-cap' },
                         // { label: 'Marketplace', id: 'market', icon: 'fa-exchange' },
@@ -77,14 +77,14 @@
                         { label: 'Inventory Rooms', id: 'inventory_rooms', icon:'fa-cubes' },
                     ],
                     "/traceability/location/vehicles": [
-                        { label: 'Browse Vehicles', id: 'browse_vehicles', icon:'fa-folder-open' },
+                        // { label: 'Browse Vehicles', id: 'browse_vehicles', icon:'fa-folder-open' },
                         { label: 'Add Vehicle', id: 'vehicle_add', icon:'fa-plus-circle' },
                         // { label: 'Modify Vehicle', id: 'vehicle_modify', icon:'' },
                         { label: 'Remove Vehicle', id: 'vehicle_remove', icon:'fa-times-circle' }
                     ],
 
                     "/traceability/location/employees": [
-                        { label: 'Browse Employees', id: 'browse_employees', icon:'fa-folder-open' },
+                        // { label: 'Browse Employees', id: 'browse_employees', icon:'fa-folder-open' },
                         { label: 'Add Employee', id: 'employee_add', icon:'fa-user-plus' },
                         // { label: 'Modify Employee', id: 'employee_modify', icon:'' },
                         { label: 'Remove Employee', id: 'employee_remove', icon:'fa-user-times' }
@@ -95,7 +95,7 @@
                     ],
                     "/traceability/inventory":
                     [
-                        { label: 'Browse', id: 'view_inventory', icon: 'fa-folder-open' },
+                        // { label: 'Browse', id: 'view_inventory', icon: 'fa-folder-open' },
                         { label: 'Convert', id: 'inventory_convert', icon: 'fa-code-fork' },
                         { label: 'Manifests & Transfers', id: 'manifests', icon: 'fa-truck' },
                         { label: 'Adjust Quantity', id: 'inventory_adjust', icon: 'fa-crop' },
@@ -133,7 +133,7 @@
                     // variable that changes the rank of nav boxes per click
                     // so that over time, the most clicked box is on top for a user
                     [
-                        { label: 'Browse Plants', id: 'browse_plants', icon: 'fa-folder-open' },
+                        // { label: 'Browse Plants', id: 'browse_plants', icon: 'fa-folder-open' },
                         { label: 'Create a New Plant', id: 'plant_new', icon: 'fa-plus-square-o'},
                         { label: 'Change Rooms', id: 'plant_move', icon: 'fa-object-group' },
                         { label: 'Schedule Destruction', id: 'plant_destroy_schedule', icon: 'fa-calendar-times-o' },

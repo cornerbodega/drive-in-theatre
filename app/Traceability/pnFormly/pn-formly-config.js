@@ -204,6 +204,7 @@
     formlyConfig.setWrapper({
         types:
         [
+            'mycheckbox',
             'pn-select',
             'pn-select-inventory-item',
             'mymultipleselect',

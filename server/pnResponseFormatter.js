@@ -11,9 +11,9 @@ function format(raw) {
     formatted.vendors = formatVendors(raw.vendor)
     formatted.employees = formatEmployees(raw.employee)
     formatted.vehicles = formatVehicles(raw.vehicle)
-    // if(!!raw.plant) formatted.plants = formatPlants(raw.plant, raw.plant_room)
+    formatted.plants = formatPlants(raw.plant, raw.plant_room)
     // formatted.inbound_transfers = formatInventoryTransferInbound(raw.inventory_transfer_inbound)
-    // formatted.plant_rooms = raw.plant_room
+    formatted.plant_rooms = raw.plant_room
     // formatted.inventory_rooms = raw.inventory_room
     // formatted.qa_lab = formatQALabs(raw.qa_lab)
     // if(!!raw.plant) formatted.plant_derivatives = formatPlantDerivatives(raw.plant_derivative, raw.plant_room)
@@ -296,6 +296,7 @@ function formatVendors (v) {
     // console.log('$rootScope.vendors');
 }
 function formatPlants(plants, plant_rooms) {
+    console.log(plants);
     if (!plants) return
     var plantstatus = {
         0: 'Growing',

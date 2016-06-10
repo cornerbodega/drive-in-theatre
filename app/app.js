@@ -1,4 +1,4 @@
-var countryApp = angular.module('countryApp', [
+    var countryApp = angular.module('countryApp', [
     'ngRoute', // Single-page Angular Routing
     'ngMaterial', // Angular Material CSS Theme
     'angular-loading-bar', // Loading bar for http requests
@@ -245,7 +245,7 @@ countryApp.config(function($routeProvider) {
     })
     .when('/traceability/location/employees/browse_employees', {
         templateUrl: 'Traceability-Form/traceability-form.view.html',
-        controller: 'TraceabilityBrowseController',
+        controller: 'TraceabilityFormController',
     })
     .when('/traceability/location/vehicles/vehicle_remove', {
         templateUrl: 'Traceability-Form/traceability-form.view.html',

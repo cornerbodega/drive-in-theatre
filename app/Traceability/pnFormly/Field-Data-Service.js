@@ -222,7 +222,11 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
         },
         controller: function ($scope, pnData) {
             // $scope.to.options = pnData.formatted.getPlantRooms().plantroomsarray
-            $scope.to.options = pnData.formatted.plant_rooms.plantroomsarray
+            // $scope.to.options = pnData.formatted.plant_rooms.plantroomsarray
+            $scope.$on('pnData', function(){
+                console.log(pnData.data);
+                // $scope.to.options = pnData.formatted.plant_rooms
+            })
         },
     }
     // f.receive_items = {
@@ -416,8 +420,12 @@ function FieldDataService($mdDialog, $location, pnData, $rootScope) {
             labelProp: 'plantlabel',
             options: []
         },
-        controller: /* @ngInject */ function ($scope, $http) {
-            $scope.to.options = pnData.formatted.plants
+        controller: /* @ngInject */ function ($scope, $http, pnData) {
+            // console.log(pnData.formatted);
+            $scope.$on('pnData', function(){
+                console.log(pnData);
+                // $scope.to.options = pnData.formatted.plants
+            })
             // $http.get('/api/plants/'+sessionStorage.sessionid).success(function(plants){
             //     $scope.to.options = plants
             //     console.log($scope.to.options);
