@@ -6,6 +6,9 @@
 ])
 
 function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
+    $scope.demo = function() {
+        $scope.go()
+    }
     $scope.go = function() {
         var form = {
             API:'4.0', action: 'login', username: $scope.email, password: $scope.password, license_number: $scope.ubi
@@ -16,6 +19,8 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils) {
         //     "license_number": "602093924",
         //     "username": "thepottingbench@outlook.com"
         // }
+
+
         $scope.realSignIn = function(){
             console.log('REAL SIGN IN NOT IMPLEMENTED');
         }

@@ -180,7 +180,7 @@
     });
 
     var w = ''
-        +'<div class="container"><center><input-container>'
+        +'<div class="container pn-field-card" layout-padding><center><input-container>'
         +'<formly-transclude></formly-transclude>'
         +'<label>{{to.label}}</label></input-container></center></div>'
     formlyConfig.setWrapper({
@@ -198,7 +198,7 @@
         template: w
     });
     var g = ''
-        +'<div class="container"><center><input-container>'
+        +'<div class="container pn-field-card" layout-padding><center><input-container>'
         +'<formly-transclude></formly-transclude>'
         +'</input-container></center></div>'
     formlyConfig.setWrapper({

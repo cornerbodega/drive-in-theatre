@@ -95,11 +95,11 @@
                     ],
                     "/traceability/inventory":
                     [
-                        { label: 'Browse Inventory', id: 'view_inventory', icon: 'fa-folder-open' },
-                        { label: 'Create Derivative', id: 'inventory_convert', icon: 'fa-code-fork' },
+                        { label: 'Browse', id: 'view_inventory', icon: 'fa-folder-open' },
+                        { label: 'Convert', id: 'inventory_convert', icon: 'fa-code-fork' },
                         { label: 'Manifests & Transfers', id: 'manifests', icon: 'fa-truck' },
-                        { label: 'Adjust', id: 'inventory_adjust', icon: 'fa-crop' },
-                        { label: 'Schedule Destroy', id: 'inventory_destroy_schedule', icon: 'fa-calendar-times-o' },
+                        { label: 'Adjust Quantity', id: 'inventory_adjust', icon: 'fa-crop' },
+                        { label: 'Schedule Destruction', id: 'inventory_destroy_schedule', icon: 'fa-calendar-times-o' },
                         { label: 'Destroy', id: 'inventory_destroy', category: 'Inventory Cleanup', icon: 'fa-trash' },
                     ],
 
