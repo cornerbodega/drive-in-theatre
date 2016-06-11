@@ -27,11 +27,11 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils, pnFirebase
         $scope.realSignIn = function(){
             console.log('REAL SIGN IN NOT IMPLEMENTED');
         }
-        // $scope.loginData = {
-        //     "password": "44Million!",
-        //     "license_number": 603347225,
-        //     "username": "luchinisupercritical@gmail.com"
-        // }
+        $scope.loginData = {
+            "password": "44Million!",
+            "license_number": 603347225,
+            "username": "luchinisupercritical@gmail.com"
+        }
         // $scope.loginData = {
         //     "password": "2ndCaptainBly",
         //     "license_number": "602093924",
@@ -41,7 +41,7 @@ function SignUpController($http, $location, $scope, pnUsers, pnUtils, pnFirebase
         $http({method: 'POST', data: form, url: '/api/auth/v0/signIn'}).success(function(res) {
             if(res.success != 1) {
                 console.log('Log In to LCB Failed ' + res.error )
-                return $scope.in.error = res.error
+                return $scope.error = res.error
             }
             sessionStorage.ubi = form.license_number
             sessionStorage.sessionid = res.sessionid

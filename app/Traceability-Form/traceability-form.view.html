@@ -12,13 +12,13 @@
         <!-- <center> -->
             <form ng-submit="onSubmit($event)" name="inputform" novalidate>
                 <formly-form model="pnFormlyModel" fields="pnFormlyFields" options="pnFormlyOptions" form="inputform">
-                    <div class="md-padding">
+                    <div class="md-padding greenboard-floater">
                         <center><button flex type="submit" class="btn btn-raised green darken-3" ng-disabled="inputform.$invalid">Submit</button></center>
                     </div>
                 </formly-form>
             </form>
 
-            {{ pnFormlyModel | json }}
+            <!-- {{ pnFormlyModel | json }} -->
             <!-- {{ pnFormlyFields | json }} -->
         <!-- </center> -->
 

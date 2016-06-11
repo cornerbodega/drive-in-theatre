@@ -44,7 +44,7 @@
                         { label: 'Feedback', id: 'help' },
                     ],
                     "/traceability": [
-                        { label: 'Plants', id: 'plants', icon: 'fa-lemon-o' },
+                        // { label: 'Plants', id: 'plants', icon: 'fa-lemon-o' },
                         { label: 'Inventory', id: 'inventory', icon: 'fa-barcode' },
                         // { label: 'QA Labs', id: 'qa_lab', icon: 'fa-graduation-cap' },
                         // { label: 'Marketplace', id: 'market', icon: 'fa-exchange' },
