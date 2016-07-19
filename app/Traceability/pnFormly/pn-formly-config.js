@@ -211,7 +211,8 @@
             'pn-select',
             'pn-select-inventory-item',
             'mymultipleselect',
-            'pn-select-vendor'
+            'pn-select-vendor',
+            'my_multiple_quantity'
         ],
         template: g
     });
