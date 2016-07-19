@@ -1,0 +1,4 @@
+
+Greenboard was built simplify seed-to-sale traceability for cannabis companies
+Unlike BioTrackTHC, Greenboard runs on mobile and tablets
+ is written in Javascript, and runs in the browser
